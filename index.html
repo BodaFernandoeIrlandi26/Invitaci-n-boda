@@ -84,6 +84,110 @@ a {
 
 
 /* =====================================================
+   HOJAS DE OTOÑO
+===================================================== */
+
+.hojas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 50;
+}
+
+.hoja {
+    position: absolute;
+    top: -60px;
+    color: rgba(182, 95, 74, 0.22);
+    font-size: 22px;
+    animation: caer linear infinite;
+}
+
+.hoja:nth-child(1) {
+    left: 5%;
+    animation-duration: 13s;
+    animation-delay: 0s;
+}
+
+.hoja:nth-child(2) {
+    left: 17%;
+    animation-duration: 17s;
+    animation-delay: 4s;
+    font-size: 17px;
+}
+
+.hoja:nth-child(3) {
+    left: 30%;
+    animation-duration: 14s;
+    animation-delay: 7s;
+    font-size: 25px;
+}
+
+.hoja:nth-child(4) {
+    left: 43%;
+    animation-duration: 19s;
+    animation-delay: 2s;
+    font-size: 16px;
+}
+
+.hoja:nth-child(5) {
+    left: 56%;
+    animation-duration: 15s;
+    animation-delay: 8s;
+    font-size: 21px;
+}
+
+.hoja:nth-child(6) {
+    left: 68%;
+    animation-duration: 18s;
+    animation-delay: 5s;
+    font-size: 18px;
+}
+
+.hoja:nth-child(7) {
+    left: 80%;
+    animation-duration: 14s;
+    animation-delay: 10s;
+    font-size: 24px;
+}
+
+.hoja:nth-child(8) {
+    left: 92%;
+    animation-duration: 20s;
+    animation-delay: 1s;
+    font-size: 16px;
+}
+
+@keyframes caer {
+
+    0% {
+        transform:
+            translate3d(0, -80px, 0)
+            rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    50% {
+        transform:
+            translate3d(55px, 55vh, 0)
+            rotate(180deg);
+    }
+
+    100% {
+        transform:
+            translate3d(-45px, 115vh, 0)
+            rotate(360deg);
+        opacity: 0;
+    }
+
+}
+
+
+/* =====================================================
    ANIMACIONES
 ===================================================== */
 
@@ -127,24 +231,21 @@ a {
 
 
 /* =====================================================
-   SOBRE INICIAL
+   PORTADA / SOBRE DE APERTURA
 ===================================================== */
 
-.puerta-inicial {
-    position: fixed;
+.portada {
+    min-height: 100vh;
 
-    inset: 0;
-
-    z-index: 9999;
+    position: relative;
 
     display: flex;
-
     justify-content: center;
     align-items: center;
 
     text-align: center;
 
-    padding: 25px;
+    padding: 35px;
 
     background:
         linear-gradient(
@@ -153,18 +254,14 @@ a {
         ),
         url("foto1.jpg") center/cover no-repeat;
 
+    color: white;
+
     transition:
         opacity 1s ease,
         visibility 1s ease;
 }
 
-.puerta-inicial.oculta {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.puerta-inicial::before {
+.portada::before {
     content: "";
 
     position: absolute;
@@ -178,31 +275,47 @@ a {
     pointer-events: none;
 }
 
+.portada.oculta {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
 
-/* =====================================================
-   SOBRE DE APERTURA
-===================================================== */
+.portada-contenido {
+    position: relative;
+    z-index: 2;
+
+    width: min(420px, 90vw);
+
+    animation:
+        aparecer 1.5s ease;
+}
+
+
+/* SOBRE */
 
 .sobre-apertura {
-    position: relative;
-
-    z-index: 3;
-
-    width: min(330px, 82vw);
-
+    width: 100%;
+    max-width: 330px;
     height: 220px;
+
+    margin: 0 auto;
+
+    position: relative;
 
     cursor: pointer;
 
     perspective: 1000px;
 
-    animation:
-        aparecer 1.4s ease;
-
-    -webkit-tap-highlight-color: transparent;
+    transition:
+        transform .3s ease;
 }
 
-.sobre-apertura-cuerpo {
+.sobre-apertura:hover {
+    transform: translateY(-5px);
+}
+
+.sobre-base {
     position: absolute;
 
     inset: 0;
@@ -210,61 +323,64 @@ a {
     background:
         linear-gradient(
             145deg,
-            #f4e6d3,
-            #dfc9aa
+            #f5e7d5,
+            #dfc9ad
         );
 
     border:
         1px solid
-        rgba(58,44,36,.25);
+        rgba(255,255,255,.8);
 
     box-shadow:
-        0 18px 45px
-        rgba(0,0,0,.28);
+        0 20px 45px
+        rgba(0,0,0,.25);
 
     overflow: hidden;
 
-    z-index: 2;
+    border-radius: 3px;
 }
 
-.sobre-apertura-cuerpo::before {
+
+/* TRIÁNGULO INFERIOR */
+
+.sobre-base::after {
     content: "";
 
     position: absolute;
 
-    inset: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
-    background:
-        linear-gradient(
-            32deg,
-            transparent 49%,
-            rgba(145,71,53,.20) 50%,
-            transparent 51%
-        ),
-        linear-gradient(
-            148deg,
-            transparent 49%,
-            rgba(145,71,53,.20) 50%,
-            transparent 51%
-        );
+    border-left:
+        165px solid transparent;
+
+    border-right:
+        165px solid transparent;
+
+    border-bottom:
+        110px solid rgba(145,71,53,.13);
 
     pointer-events: none;
 }
 
-.sobre-apertura-solapa {
+
+/* SOLAPA */
+
+.sobre-solapa {
     position: absolute;
 
     top: 0;
     left: 0;
 
     width: 100%;
-    height: 58%;
+    height: 110px;
 
     background:
         linear-gradient(
-            145deg,
-            #f8ead8,
-            #e5cfb4
+            135deg,
+            #f9eddf,
+            #ead8c1
         );
 
     clip-path:
@@ -274,25 +390,32 @@ a {
             50% 100%
         );
 
-    transform-origin: top center;
+    transform-origin: top;
 
     transition:
-        transform 1.1s cubic-bezier(.4,0,.2,1);
+        transform 1s cubic-bezier(.4,0,.2,1);
 
-    z-index: 4;
+    z-index: 3;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.8);
 }
+
+
+/* SELLO */
 
 .sello {
     position: absolute;
 
     left: 50%;
-    top: 54%;
+    top: 50%;
 
     transform:
         translate(-50%,-50%);
 
-    width: 58px;
-    height: 58px;
+    width: 66px;
+    height: 66px;
 
     border-radius: 50%;
 
@@ -310,197 +433,84 @@ a {
         "Great Vibes",
         cursive;
 
-    font-size: 29px;
+    font-size: 31px;
 
     box-shadow:
-        0 5px 15px
-        rgba(58,44,36,.20);
+        0 6px 18px
+        rgba(58,44,36,.25);
 
     z-index: 5;
 
     transition:
-        opacity .4s ease,
-        transform .5s ease;
+        transform .4s ease;
 }
 
-.sobre-apertura-texto {
-    position: absolute;
-
-    top: calc(100% + 25px);
-
-    left: 0;
-
-    width: 100%;
-
-    color: white;
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size: 9px;
-
-    font-weight: 600;
-
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
-
-    text-shadow:
-        0 2px 8px
-        rgba(0,0,0,.5);
-
-    animation:
-        latido 3s ease-in-out infinite;
+.sobre-apertura:hover .sello {
+    transform:
+        translate(-50%,-50%)
+        scale(1.08);
 }
 
-.sobre-apertura-nombres {
+
+/* TEXTO DEL SOBRE */
+
+.texto-sobre {
     position: absolute;
 
-    bottom: 23px;
-
     left: 0;
-
-    width: 100%;
+    right: 0;
+    bottom: 25px;
 
     text-align: center;
+
+    z-index: 4;
 
     color:
         var(--terracota-dark);
 
     font-family:
-        "Great Vibes",
-        cursive;
+        "Cormorant Garamond",
+        serif;
 
-    font-size: 32px;
+    font-size: 22px;
 
-    z-index: 3;
+    font-weight: 600;
 
-    pointer-events: none;
+    letter-spacing: 1px;
 }
 
-.sobre-apertura.abierto
-.sobre-apertura-solapa {
+.texto-sobre small {
+    display: block;
+
+    margin-top: 5px;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color:
+        var(--olivo-dark);
+}
+
+
+/* SOBRE ABIERTO */
+
+.sobre-apertura.abierto .sobre-solapa {
     transform:
         rotateX(180deg);
 }
 
-.sobre-apertura.abierto
-.sello {
+.sobre-apertura.abierto .sello {
     opacity: 0;
-
     transform:
         translate(-50%,-50%)
-        scale(.6);
-}
-
-
-/* =====================================================
-   HOJAS DE OTOÑO
-===================================================== */
-
-.hojas {
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 9998;
-
-    pointer-events: none;
-
-    overflow: hidden;
-}
-
-.hoja {
-    position: absolute;
-
-    top: -60px;
-
-    color:
-        rgba(182,95,74,.32);
-
-    font-size:
-        var(--tamano);
-
-    opacity:
-        var(--opacidad);
-
-    animation:
-        caer var(--duracion) linear var(--retraso) infinite;
-
-    filter:
-        blur(.15px);
-}
-
-@keyframes caer {
-
-    0% {
-        transform:
-            translate3d(
-                0,
-                -70px,
-                0
-            )
-            rotate(0deg);
-
-        opacity: 0;
-    }
-
-    10% {
-        opacity:
-            var(--opacidad);
-    }
-
-    50% {
-        transform:
-            translate3d(
-                var(--movimiento),
-                55vh,
-                0
-            )
-            rotate(180deg);
-    }
-
-    90% {
-        opacity:
-            var(--opacidad);
-    }
-
-    100% {
-        transform:
-            translate3d(
-                calc(var(--movimiento) * -1),
-                115vh,
-                0
-            )
-            rotate(360deg);
-
-        opacity: 0;
-    }
-
-}
-
-
-/* =====================================================
-   REVEAL
-===================================================== */
-
-.reveal {
-    opacity: 0;
-
-    transform:
-        translateY(45px);
-
-    transition:
-        opacity .9s ease,
-        transform .9s ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-
-    transform:
-        translateY(0);
+        scale(.5);
 }
 
 
@@ -577,7 +587,26 @@ section {
 
 
 /* =====================================================
-   FOTOGRAFIAS SEPARADORAS
+   REVEAL
+===================================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(45px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   FOTOGRAFIAS
 ===================================================== */
 
 .foto-separadora {
@@ -646,6 +675,92 @@ section {
 
     animation:
         flotar 4s ease-in-out infinite;
+}
+
+
+/* =====================================================
+   NUESTRA HISTORIA DE AMOR
+===================================================== */
+
+.historia {
+    background:
+        linear-gradient(
+            135deg,
+            var(--beige-light),
+            var(--crema)
+        );
+
+    max-width: none;
+
+    padding:
+        95px 25px;
+}
+
+.historia-contenido {
+    max-width: 850px;
+    margin: auto;
+}
+
+
+/* CARRUSEL */
+
+.historia-slider {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 700px;
+
+    height: 480px;
+
+    margin:
+        45px auto 0;
+
+    overflow: hidden;
+
+    background:
+        var(--beige);
+
+    box-shadow:
+        0 15px 35px
+        rgba(58,44,36,.14);
+}
+
+.historia-slide {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0;
+
+    transition:
+        opacity 2s ease;
+}
+
+.historia-slide.activa {
+    opacity: 1;
+}
+
+.historia-slide img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.historia-texto {
+    max-width: 650px;
+
+    margin:
+        35px auto 0;
+}
+
+.historia-texto p {
+    font-size: 18px;
+
+    line-height: 1.8;
 }
 
 
@@ -1104,8 +1219,7 @@ section {
     cursor: pointer;
 }
 
-.sobre-padrino.abierto
-.sobre-frente {
+.sobre-padrino.abierto .sobre-frente {
     opacity: 0;
 
     transform:
@@ -1114,129 +1228,13 @@ section {
     pointer-events: none;
 }
 
-.sobre-padrino.abierto
-.sobre-contenido {
+.sobre-padrino.abierto .sobre-contenido {
     opacity: 1;
 
     transform:
         scale(1);
 
     z-index: 3;
-}
-
-
-/* =====================================================
-   NUESTRA HISTORIA DE AMOR
-===================================================== */
-
-.historia-contenedor {
-    max-width: 760px;
-
-    margin: 45px auto 0;
-
-    background: white;
-
-    padding: 18px;
-
-    box-shadow:
-        0 12px 35px
-        rgba(58,44,36,.10);
-
-    border:
-        1px solid
-        var(--beige);
-}
-
-.historia-slider {
-    position: relative;
-
-    width: 100%;
-
-    height: min(68vh, 570px);
-
-    min-height: 390px;
-
-    overflow: hidden;
-
-    background:
-        var(--beige);
-}
-
-.historia-foto {
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    opacity: 0;
-
-    transform:
-        scale(1.04);
-
-    transition:
-        opacity 2s ease,
-        transform 7s ease;
-
-    pointer-events: none;
-}
-
-.historia-foto.activa {
-    opacity: 1;
-
-    transform:
-        scale(1);
-}
-
-.historia-controles {
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 8px;
-
-    margin-top: 17px;
-}
-
-.historia-punto {
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
-
-    background:
-        var(--beige);
-
-    transition: .3s;
-}
-
-.historia-punto.activo {
-    width: 24px;
-
-    border-radius: 10px;
-
-    background:
-        var(--terracota);
-}
-
-.historia-frase {
-    margin-top: 28px;
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    color:
-        var(--terracota);
-
-    font-size: 39px;
-
-    line-height: 1.2;
 }
 
 
@@ -1688,28 +1686,18 @@ footer p {
 @media (max-width:700px) {
 
     .sobre-apertura {
-        width: 285px;
-        height: 190px;
+        max-width: 300px;
+        height: 200px;
     }
 
-    .sobre-apertura-nombres {
-        font-size: 28px;
-        bottom: 19px;
+    .sobre-base::after {
+        border-left-width: 150px;
+        border-right-width: 150px;
+        border-bottom-width: 100px;
     }
 
-    .sello {
-        width: 52px;
-        height: 52px;
-        font-size: 26px;
-    }
-
-    .portada h1 {
-        font-size: 62px;
-    }
-
-    .portada .fecha {
-        font-size: 20px;
-        letter-spacing: 4px;
+    .portada {
+        padding: 25px;
     }
 
     .titulo {
@@ -1745,18 +1733,8 @@ footer p {
         min-height: 210px;
     }
 
-    .historia-contenedor {
-        padding: 10px;
-    }
-
     .historia-slider {
-        height: 70vh;
-
-        min-height: 390px;
-    }
-
-    .historia-frase {
-        font-size: 33px;
+        height: 390px;
     }
 
     footer .nombres {
@@ -1815,103 +1793,19 @@ footer p {
 
 
 <!-- =====================================================
-     SOBRE INICIAL
-===================================================== -->
-
-<div
-    class="puerta-inicial"
-    id="puertaInicial">
-
-    <div
-        class="sobre-apertura"
-        id="sobreApertura"
-        role="button"
-        tabindex="0"
-        aria-label="Abrir invitación">
-
-
-        <div class="sobre-apertura-cuerpo">
-
-            <div class="sobre-apertura-nombres">
-                Irlandi & Fernando
-            </div>
-
-        </div>
-
-
-        <div class="sobre-apertura-solapa">
-        </div>
-
-
-        <div class="sello">
-            ♡
-        </div>
-
-
-        <div class="sobre-apertura-texto">
-            Toca el sobre para abrir
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
      HOJAS DE OTOÑO
 ===================================================== -->
 
-<div
-    class="hojas"
-    aria-hidden="true">
+<div class="hojas">
 
-    <span
-        class="hoja"
-        style="left:5%;--tamano:18px;--opacidad:.25;--duracion:13s;--retraso:0s;--movimiento:55px;">
-        🍂
-    </span>
-
-    <span
-        class="hoja"
-        style="left:16%;--tamano:13px;--opacidad:.20;--duracion:17s;--retraso:4s;--movimiento:-45px;">
-        🍁
-    </span>
-
-    <span
-        class="hoja"
-        style="left:29%;--tamano:17px;--opacidad:.23;--duracion:15s;--retraso:7s;--movimiento:65px;">
-        🍂
-    </span>
-
-    <span
-        class="hoja"
-        style="left:43%;--tamano:12px;--opacidad:.18;--duracion:19s;--retraso:2s;--movimiento:-55px;">
-        🍁
-    </span>
-
-    <span
-        class="hoja"
-        style="left:57%;--tamano:16px;--opacidad:.22;--duracion:14s;--retraso:9s;--movimiento:45px;">
-        🍂
-    </span>
-
-    <span
-        class="hoja"
-        style="left:70%;--tamano:14px;--opacidad:.20;--duracion:18s;--retraso:5s;--movimiento:-60px;">
-        🍁
-    </span>
-
-    <span
-        class="hoja"
-        style="left:83%;--tamano:19px;--opacidad:.24;--duracion:16s;--retraso:1s;--movimiento:50px;">
-        🍂
-    </span>
-
-    <span
-        class="hoja"
-        style="left:94%;--tamano:12px;--opacidad:.18;--duracion:20s;--retraso:8s;--movimiento:-40px;">
-        🍁
-    </span>
+    <div class="hoja">🍂</div>
+    <div class="hoja">🍁</div>
+    <div class="hoja">🍂</div>
+    <div class="hoja">🍁</div>
+    <div class="hoja">🍂</div>
+    <div class="hoja">🍁</div>
+    <div class="hoja">🍂</div>
+    <div class="hoja">🍁</div>
 
 </div>
 
@@ -1930,6 +1824,46 @@ footer p {
         type="audio/mpeg">
 
 </audio>
+
+
+<!-- =====================================================
+     PORTADA / SOBRE
+===================================================== -->
+
+<header class="portada" id="portada">
+
+    <div class="portada-contenido">
+
+        <div
+            class="sobre-apertura"
+            id="sobreApertura"
+            role="button"
+            tabindex="0"
+            aria-label="Abrir invitación">
+
+            <div class="sobre-base"></div>
+
+            <div class="sobre-solapa"></div>
+
+            <div class="sello">
+                I & F
+            </div>
+
+            <div class="texto-sobre">
+
+                Irlandi & Fernando
+
+                <small>
+                    Toca el sobre para abrir
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
 
 
 <!-- =====================================================
@@ -2073,6 +2007,83 @@ footer p {
 
 
 <!-- =====================================================
+     NUESTRA HISTORIA DE AMOR
+     IMPORTANTE:
+     Cambia historia1.jpg, historia2.jpg, etc.
+     por los nombres de tus fotografías.
+===================================================== -->
+
+<section class="historia reveal">
+
+    <div class="historia-contenido">
+
+        <div class="subtitulo">
+            Un pedacito de nosotros
+        </div>
+
+        <h2 class="titulo">
+            Nuestra historia de amor
+        </h2>
+
+        <div class="historia-slider">
+
+            <div class="historia-slide activa">
+                <img
+                    src="historia1.jpg"
+                    alt="Irlandi y Fernando">
+            </div>
+
+            <div class="historia-slide">
+                <img
+                    src="historia2.jpg"
+                    alt="Irlandi y Fernando">
+            </div>
+
+            <div class="historia-slide">
+                <img
+                    src="historia3.jpg"
+                    alt="Irlandi y Fernando">
+            </div>
+
+            <div class="historia-slide">
+                <img
+                    src="historia4.jpg"
+                    alt="Irlandi y Fernando">
+            </div>
+
+            <div class="historia-slide">
+                <img
+                    src="historia5.jpg"
+                    alt="Irlandi y Fernando">
+            </div>
+
+        </div>
+
+        <div class="historia-texto">
+
+            <p>
+                Cada fotografía guarda un recuerdo,
+                una sonrisa y un momento que nos ha
+                llevado hasta este día tan especial.
+            </p>
+
+            <br>
+
+            <p>
+                Hoy queremos compartir contigo un
+                pequeño recorrido por nuestra historia
+                y por todos esos momentos que nos han
+                hecho llegar hasta aquí.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
      FOTO 3
 ===================================================== -->
 
@@ -2183,7 +2194,7 @@ footer p {
 
 
 <!-- =====================================================
-     CORTEJO INTERACTIVO
+     CORTEJO
 ===================================================== -->
 
 <section class="reveal">
@@ -2758,13 +2769,13 @@ footer p {
 
 
 <!-- =====================================================
-     HOSPEDAJE
+     HOTELES
 ===================================================== -->
 
 <section class="reveal">
 
     <div class="subtitulo">
-        Para quienes deseen quedarse
+        Para quienes quieran quedarse
     </div>
 
     <h2 class="titulo">
@@ -2772,9 +2783,9 @@ footer p {
     </h2>
 
     <p>
-        Si deseas quedarte en la zona durante nuestra celebración,
-        te compartimos algunas opciones de hospedaje que pueden ser
-        de utilidad para tu estancia.
+        Si deseas quedarte después de nuestra celebración,
+        aquí encontrarás algunas opciones de hospedaje
+        que pueden ser de utilidad.
     </p>
 
 
@@ -2937,100 +2948,6 @@ footer p {
 
     <div class="foto-texto">
         Con cariño, Irlandi & Fernando
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     NUESTRA HISTORIA DE AMOR
-===================================================== -->
-
-<section class="reveal">
-
-    <div class="subtitulo">
-        Un poco de nosotros
-    </div>
-
-    <h2 class="titulo">
-        Nuestra historia de amor
-    </h2>
-
-    <p>
-        Cada fotografía guarda un momento,
-        una sonrisa y un recuerdo de este camino
-        que nos ha llevado hasta aquí.
-    </p>
-
-
-    <div class="historia-contenedor">
-
-        <div
-            class="historia-slider"
-            id="historiaSlider">
-
-
-            <!-- FOTO 1 -->
-
-            <img
-                src="historia1.jpg"
-                class="historia-foto activa"
-                alt="Irlandi y Fernando - Historia de amor">
-
-
-            <!-- FOTO 2 -->
-
-            <img
-                src="historia2.jpg"
-                class="historia-foto"
-                alt="Irlandi y Fernando - Historia de amor">
-
-
-            <!-- FOTO 3 -->
-
-            <img
-                src="historia3.jpg"
-                class="historia-foto"
-                alt="Irlandi y Fernando - Historia de amor">
-
-
-            <!-- FOTO 4 -->
-
-            <img
-                src="historia4.jpg"
-                class="historia-foto"
-                alt="Irlandi y Fernando - Historia de amor">
-
-
-            <!-- FOTO 5 -->
-
-            <img
-                src="historia5.jpg"
-                class="historia-foto"
-                alt="Irlandi y Fernando - Historia de amor">
-
-
-            <!-- FOTO 6 -->
-
-            <img
-                src="historia6.jpg"
-                class="historia-foto"
-                alt="Irlandi y Fernando - Historia de amor">
-
-        </div>
-
-
-        <div
-            class="historia-controles"
-            id="historiaControles">
-
-        </div>
-
-    </div>
-
-
-    <div class="historia-frase">
-        Y así comenzó nuestra historia...
     </div>
 
 </section>
@@ -3221,7 +3138,7 @@ footer p {
 
 
 /* =====================================================
-   SOBRE INICIAL + MUSICA
+   SOBRE DE APERTURA + MUSICA
 ===================================================== */
 
 const musica =
@@ -3230,20 +3147,26 @@ const musica =
 const sobreApertura =
     document.getElementById("sobreApertura");
 
-const puertaInicial =
-    document.getElementById("puertaInicial");
+const portada =
+    document.getElementById("portada");
+
+const invitacion =
+    document.getElementById("invitacion");
 
 
-let invitacionAbierta = false;
+function abrirSobre() {
 
-
-function abrirLaInvitacion() {
-
-    if (invitacionAbierta) {
+    if (
+        sobreApertura.classList.contains("abierto")
+    ) {
         return;
     }
 
-    invitacionAbierta = true;
+
+    /* Abrir visualmente el sobre */
+
+    sobreApertura.classList
+        .add("abierto");
 
 
     /* Iniciar música */
@@ -3261,46 +3184,36 @@ function abrirLaInvitacion() {
         });
 
 
-    /* Animación del sobre */
-
-    sobreApertura.classList.add("abierto");
-
-
     /*
-       Después de que el sobre se abre,
-       desaparece completamente la portada
-       y se muestra la invitación.
+       Después de la animación del sobre,
+       desaparece la portada y comienza
+       directamente la invitación.
     */
 
     setTimeout(function() {
 
-        puertaInicial.classList.add("oculta");
+        portada.classList
+            .add("oculta");
 
-        document.body.style.overflowY = "auto";
-
-        /*
-           Llevar al usuario automáticamente
-           al comienzo real de la invitación.
-        */
+        document.body
+            .style.overflowY = "auto";
 
         setTimeout(function() {
 
-            document.getElementById("invitacion")
-                .scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
+            invitacion.scrollIntoView({
+                behavior: "smooth"
+            });
 
         }, 250);
 
-    }, 1000);
+    }, 900);
 
 }
 
 
 sobreApertura.addEventListener(
     "click",
-    abrirLaInvitacion
+    abrirSobre
 );
 
 
@@ -3315,21 +3228,12 @@ sobreApertura.addEventListener(
 
             event.preventDefault();
 
-            abrirLaInvitacion();
+            abrirSobre();
 
         }
 
     }
 );
-
-
-/*
-   Mientras el sobre está en pantalla,
-   evitamos que el usuario pueda hacer scroll
-   accidentalmente.
-*/
-
-document.body.style.overflow = "hidden";
 
 
 /* =====================================================
@@ -3420,7 +3324,54 @@ setInterval(
 
 
 /* =====================================================
-   SOBRES DEL CORTEJO
+   HISTORIA DE AMOR
+===================================================== */
+
+const historias =
+    document.querySelectorAll(
+        ".historia-slide"
+    );
+
+let historiaActual = 0;
+
+
+function cambiarHistoria() {
+
+    if (historias.length === 0) {
+        return;
+    }
+
+
+    historias[historiaActual]
+        .classList
+        .remove("activa");
+
+
+    historiaActual =
+        (historiaActual + 1) %
+        historias.length;
+
+
+    historias[historiaActual]
+        .classList
+        .add("activa");
+
+}
+
+
+/*
+   Cada fotografía permanece varios segundos
+   y cambia lentamente a la siguiente.
+*/
+
+setInterval(
+    cambiarHistoria,
+    5000
+);
+
+
+/* =====================================================
+   SOBRES INTERACTIVOS DEL CORTEJO
 ===================================================== */
 
 const sobres =
@@ -3474,132 +3425,6 @@ sobres.forEach(function(sobre) {
     );
 
 });
-
-
-/* =====================================================
-   HISTORIA DE AMOR
-===================================================== */
-
-const fotosHistoria =
-    document.querySelectorAll(
-        ".historia-foto"
-    );
-
-const controlesHistoria =
-    document.getElementById(
-        "historiaControles"
-    );
-
-
-let fotoActual = 0;
-
-
-/*
-   Crear automáticamente los puntos
-   correspondientes a cada fotografía.
-*/
-
-fotosHistoria.forEach(
-    function(foto, indice) {
-
-        const punto =
-            document.createElement("span");
-
-        punto.className =
-            "historia-punto";
-
-        if (indice === 0) {
-
-            punto.classList.add("activo");
-
-        }
-
-
-        punto.addEventListener(
-            "click",
-            function() {
-
-                mostrarFoto(indice);
-
-            }
-        );
-
-
-        controlesHistoria.appendChild(
-            punto
-        );
-
-    }
-);
-
-
-const puntosHistoria =
-    document.querySelectorAll(
-        ".historia-punto"
-    );
-
-
-function mostrarFoto(indice) {
-
-    fotosHistoria.forEach(
-        function(foto) {
-
-            foto.classList.remove(
-                "activa"
-            );
-
-        }
-    );
-
-
-    puntosHistoria.forEach(
-        function(punto) {
-
-            punto.classList.remove(
-                "activo"
-            );
-
-        }
-    );
-
-
-    fotosHistoria[indice]
-        .classList.add("activa");
-
-
-    puntosHistoria[indice]
-        .classList.add("activo");
-
-
-    fotoActual = indice;
-
-}
-
-
-/*
-   Cada fotografía permanece varios segundos
-   y cambia lentamente a la siguiente.
-*/
-
-setInterval(
-    function() {
-
-        fotoActual++;
-
-        if (
-            fotoActual >=
-            fotosHistoria.length
-        ) {
-
-            fotoActual = 0;
-
-        }
-
-        mostrarFoto(fotoActual);
-
-    },
-    7000
-);
 
 
 /* =====================================================
