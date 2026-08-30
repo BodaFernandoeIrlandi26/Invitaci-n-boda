@@ -342,8 +342,8 @@ a {
     transform:
         translate(-50%,-50%);
 
-    width: 65px;
-    height: 65px;
+    width: 75px;
+    height: 75px;
 
     border-radius: 50%;
 
@@ -358,10 +358,16 @@ a {
     justify-content: center;
 
     font-family:
-        "Great Vibes",
-        cursive;
+        "Cormorant Garamond",
+        serif;
 
-    font-size: 30px;
+    font-size: 25px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
 
     box-shadow:
         0 5px 15px
@@ -871,6 +877,38 @@ section {
 
     animation:
         flotar 4s ease-in-out infinite;
+
+}
+
+
+/* =====================================================
+   FOTO DEL JARDIN
+   DEJA AQUI TU FOTO
+===================================================== */
+
+.foto-jardin {
+
+    width: min(850px, 100%);
+
+    height: 430px;
+
+    margin: 35px auto 0;
+
+    background-image: url("jardin.jpg");
+
+    background-position: center;
+
+    background-size: cover;
+
+    background-repeat: no-repeat;
+
+    border:
+        1px solid
+        var(--beige);
+
+    box-shadow:
+        0 12px 35px
+        rgba(58,44,36,.14);
 
 }
 
@@ -1660,6 +1698,41 @@ section {
 
 
 /* =====================================================
+   TEXTO FINAL SOBRE LA FOTO
+===================================================== */
+
+.foto-texto.final-nombres {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 0;
+
+}
+
+.foto-texto.final-nombres .con-carino {
+
+    font-size: 54px;
+
+    line-height: 1.1;
+
+}
+
+.foto-texto.final-nombres .nombres-foto {
+
+    font-size: 42px;
+
+    line-height: 1.1;
+
+    margin-top: 4px;
+
+}
+
+
+/* =====================================================
    ALBUM
 ===================================================== */
 
@@ -2013,6 +2086,24 @@ footer p {
 
     }
 
+    .foto-jardin {
+
+        height: 350px;
+
+    }
+
+    .foto-texto.final-nombres .con-carino {
+
+        font-size: 43px;
+
+    }
+
+    .foto-texto.final-nombres .nombres-foto {
+
+        font-size: 34px;
+
+    }
+
     .familia,
     .padrinos,
     .hoteles {
@@ -2357,33 +2448,14 @@ footer p {
         </p>
 
         <!-- =================================================
-             FOTO DEL JARDÍN
-             Aquí puedes colocar tu foto.
-             Solo cambia "jardin.jpg" por el nombre
-             exacto de tu archivo.
+             FOTO DEL JARDIN
+             CAMBIA "jardin.jpg" POR EL NOMBRE DE TU FOTO
         ================================================== -->
 
         <div
             class="foto-jardin"
-            style="
-                margin-top:30px;
-                width:100%;
-                overflow:hidden;
-                border:1px solid var(--beige);
-                box-shadow:0 10px 28px rgba(58,44,36,.10);
-            ">
-
-            <img
-                src="jardin.jpg"
-                alt="El Encanto Jardín de eventos"
-                style="
-                    display:block;
-                    width:100%;
-                    height:auto;
-                    max-height:450px;
-                    object-fit:cover;
-                ">
-
+            role="img"
+            aria-label="Fotografía de El Encanto Jardín de eventos">
         </div>
 
         <a
@@ -2751,7 +2823,7 @@ footer p {
         </div>
 
 
-        <!-- 4 - PADRINOS DE LAZO -->
+        <!-- 4 -->
 
         <div
             class="sobre-padrino"
@@ -3332,18 +3404,13 @@ footer p {
     class="foto-separadora"
     style="background-image:url('foto6.jpg');">
 
-    <div class="foto-texto">
+    <div class="foto-texto final-nombres">
 
-        <span style="
-            display:block;
-            margin-bottom:8px;
-        ">
+        <span class="con-carino">
             Con cariño
         </span>
 
-        <span style="
-            display:block;
-        ">
+        <span class="nombres-foto">
             Irlandi & Fernando
         </span>
 
