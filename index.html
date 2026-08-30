@@ -1,2656 +1,1590 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Irlandi & Fernando | Nuestra Boda</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
 <style>
+:root{
+--terracota:#B65F4A;
+--terracota-dark:#914735;
+--terracota-light:#C9826E;
+--olivo:#707852;
+--olivo-dark:#525A3D;
+--olivo-light:#8A916B;
+--crema:#F7F1E6;
+--beige:#E9DDCB;
+--beige-light:#F1E8DA;
+--cafe:#3A2C24;
+--cafe-light:#675247;
+--blanco:#FFFFFF;
+}
 
-/* =====================================================
-   COLORES
-===================================================== */
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
-:root {
-    --terracota: #B65F4A;
-    --terracota-dark: #914735;
-    --terracota-light: #C9826E;
+html{
+scroll-behavior:smooth;
+}
 
-    --olivo: #707852;
-    --olivo-dark: #525A3D;
-    --olivo-light: #8A916B;
+body{
+background:var(--crema);
+color:var(--cafe);
+line-height:1.8;
+overflow-x:hidden;
+}
 
-    --crema: #F7F1E6;
-    --beige: #E9DDCB;
-    --beige-light: #F1E8DA;
+body.bloqueado{
+overflow:hidden;
+}
 
-    --cafe: #3A2C24;
-    --cafe-light: #675247;
+p{
+font-family:"Lora",serif;
+font-size:15px;
+color:var(--cafe-light);
+}
 
-    --blanco: #FFFFFF;
+strong{
+color:var(--terracota-dark);
+}
+
+a{
+text-decoration:none;
+}
+
+#musica{
+display:none;
+}
+
+@keyframes aparecer{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes flotar{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-5px);
+}
+}
+
+@keyframes latido{
+0%,100%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.08);
+}
+}
+
+@keyframes caer{
+0%{
+transform:translateY(-80px) rotate(0deg);
+}
+100%{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+
+.reveal{
+opacity:0;
+transform:translateY(45px);
+transition:opacity .9s ease,transform .9s ease;
+}
+
+.reveal.visible{
+opacity:1;
+transform:translateY(0);
 }
 
 
-/* =====================================================
-   GENERAL
-===================================================== */
+/* =========================
+   SOBRE DE ENTRADA
+========================= */
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+.pantalla-sobre{
+position:fixed;
+inset:0;
+z-index:1000;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:25px;
+background:
+linear-gradient(
+rgba(58,44,36,.35),
+rgba(58,44,36,.60)
+),
+url("foto1.jpg")
+center/cover
+no-repeat;
+transition:opacity .9s ease,visibility .9s ease;
 }
 
-html {
-    scroll-behavior: smooth;
+.pantalla-sobre.oculta{
+opacity:0;
+visibility:hidden;
+pointer-events:none;
 }
 
-body {
-    background: var(--crema);
-    color: var(--cafe);
-    line-height: 1.8;
-    overflow-x: hidden;
+.pantalla-sobre::before{
+content:"";
+position:absolute;
+inset:22px;
+border:1px solid rgba(255,255,255,.75);
+pointer-events:none;
 }
 
-body.bloqueado {
-    overflow: hidden;
+.sobre-entrada{
+position:relative;
+z-index:2;
+width:min(330px,88vw);
+cursor:pointer;
+animation:aparecer 1.3s ease;
 }
 
-p {
-    font-family: "Lora", serif;
-    font-size: 15px;
-    color: var(--cafe-light);
+.sobre-entrada-cuerpo{
+position:relative;
+height:215px;
+background:linear-gradient(145deg,#F4E9D8,#E5D1B7);
+border:1px solid rgba(255,255,255,.75);
+box-shadow:0 18px 45px rgba(0,0,0,.25);
+overflow:hidden;
 }
 
-strong {
-    color: var(--terracota-dark);
+.sobre-entrada-cuerpo::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(
+135deg,
+transparent 49%,
+rgba(145,71,53,.16) 50%
+);
 }
 
-a {
-    text-decoration: none;
+.sobre-entrada-solapa{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(
+135deg,
+transparent 49%,
+#DCC5A8 50%
+);
+clip-path:polygon(0 0,100% 0,50% 54%);
+transform-origin:top;
+transition:transform 1s ease;
+z-index:3;
 }
 
-
-/* =====================================================
-   MUSICA
-===================================================== */
-
-#musica {
-    display: none;
+.sobre-entrada.sobre-abierto .sobre-entrada-solapa{
+transform:rotateX(180deg);
 }
 
-
-/* =====================================================
-   ANIMACIONES
-===================================================== */
-
-@keyframes aparecer {
-
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
+.sello{
+position:absolute;
+left:50%;
+top:52%;
+transform:translate(-50%,-50%);
+width:65px;
+height:65px;
+border-radius:50%;
+background:var(--terracota);
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-family:"Great Vibes",cursive;
+font-size:30px;
+box-shadow:0 5px 15px rgba(58,44,36,.20);
+z-index:5;
+transition:opacity .4s ease;
 }
 
-@keyframes flotar {
-
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-5px);
-    }
-
+.sobre-abierto .sello{
+opacity:0;
 }
 
-@keyframes latido {
-
-    0%,100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.08);
-    }
-
+.sobre-entrada-texto{
+margin-top:25px;
+color:white;
 }
 
-@keyframes caer {
-
-    0% {
-        transform:
-            translateY(-80px)
-            rotate(0deg);
-    }
-
-    100% {
-        transform:
-            translateY(110vh)
-            rotate(360deg);
-    }
-
+.sobre-entrada-texto small{
+display:block;
+font-family:"Montserrat",sans-serif;
+font-size:9px;
+letter-spacing:3px;
+text-transform:uppercase;
+margin-bottom:8px;
 }
 
-@keyframes balancear {
-
-    0% {
-        margin-left: -15px;
-    }
-
-    100% {
-        margin-left: 15px;
-    }
-
-}
-
-.reveal {
-    opacity: 0;
-    transform: translateY(45px);
-
-    transition:
-        opacity .9s ease,
-        transform .9s ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* =====================================================
-   PANTALLA INICIAL - SOBRE
-===================================================== */
-
-.pantalla-sobre {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 1000;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    padding: 25px;
-
-    background:
-        linear-gradient(
-            rgba(58,44,36,.35),
-            rgba(58,44,36,.60)
-        ),
-        url("foto1.jpg")
-        center/cover
-        no-repeat;
-
-    transition:
-        opacity .9s ease,
-        visibility .9s ease;
-
-}
-
-.pantalla-sobre.oculta {
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
-
-}
-
-.pantalla-sobre::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 22px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.75);
-
-    pointer-events: none;
-
-}
-
-.sobre-entrada {
-
-    position: relative;
-
-    z-index: 2;
-
-    width: min(330px, 88vw);
-
-    cursor: pointer;
-
-    animation:
-        aparecer 1.3s ease;
-
-}
-
-.sobre-entrada-cuerpo {
-
-    position: relative;
-
-    height: 215px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #F4E9D8,
-            #E5D1B7
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.75);
-
-    box-shadow:
-        0 18px 45px
-        rgba(0,0,0,.25);
-
-    overflow: hidden;
-
-}
-
-.sobre-entrada-cuerpo::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            135deg,
-            transparent 49%,
-            rgba(145,71,53,.16) 50%
-        );
-
-}
-
-.sobre-entrada-solapa {
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background:
-        linear-gradient(
-            135deg,
-            transparent 49%,
-            #DCC5A8 50%
-        );
-
-    clip-path:
-        polygon(
-            0 0,
-            100% 0,
-            50% 54%
-        );
-
-    transform-origin: top;
-
-    transition:
-        transform 1s ease;
-
-    z-index: 3;
-
-}
-
-.sobre-entrada.sobre-abierto
-.sobre-entrada-solapa {
-
-    transform:
-        rotateX(180deg);
-
-}
-
-.sello {
-
-    position: absolute;
-
-    left: 50%;
-    top: 52%;
-
-    transform:
-        translate(-50%,-50%);
-
-    width: 75px;
-    height: 75px;
-
-    border-radius: 50%;
-
-    background:
-        var(--terracota);
-
-    color: white;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 25px;
-
-    font-weight: 600;
-
-    letter-spacing: 1px;
-
-    white-space: nowrap;
-
-    box-shadow:
-        0 5px 15px
-        rgba(58,44,36,.20);
-
-    z-index: 5;
-
-    transition:
-        opacity .4s ease;
-
-}
-
-.sobre-abierto .sello {
-
-    opacity: 0;
-
-}
-
-.sobre-entrada-texto {
-
-    margin-top: 25px;
-
-    color: white;
-
-}
-
-.sobre-entrada-texto small {
-
-    display: block;
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size: 9px;
-
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
-
-    margin-bottom: 8px;
-
-}
-
-.sobre-entrada-texto h2 {
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    font-size: 43px;
-
-    font-weight: 400;
-
-    line-height: 1.1;
-
+.sobre-entrada-texto h2{
+font-family:"Great Vibes",cursive;
+font-size:43px;
+font-weight:400;
+line-height:1.1;
 }
 
 
-/* =====================================================
-   HOJAS DE OTOÑO
-===================================================== */
+/* =========================
+   HOJAS
+========================= */
 
-.hojas {
-
-    position: fixed;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    overflow: hidden;
-
-    z-index: 900;
-
+.hojas-otono{
+position:fixed;
+inset:0;
+pointer-events:none;
+overflow:hidden;
+z-index:900;
 }
 
-.hoja {
-
-    position: absolute;
-
-    top: -50px;
-
-    color:
-        var(--terracota);
-
-    opacity: .16;
-
-    font-size: 16px;
-
-    animation:
-        caer linear infinite,
-        balancear ease-in-out infinite alternate;
-
-}
-
-.hoja:nth-child(1) {
-    left: 8%;
-    animation-duration: 17s, 4s;
-    animation-delay: 0s, 1s;
-}
-
-.hoja:nth-child(2) {
-    left: 22%;
-    font-size: 13px;
-    animation-duration: 20s, 4.5s;
-    animation-delay: 3s, 0s;
-}
-
-.hoja:nth-child(3) {
-    left: 37%;
-    font-size: 19px;
-    animation-duration: 18s, 3.5s;
-    animation-delay: 5s, 1s;
-}
-
-.hoja:nth-child(4) {
-    left: 52%;
-    font-size: 14px;
-    animation-duration: 22s, 5s;
-    animation-delay: 2s, 0s;
-}
-
-.hoja:nth-child(5) {
-    left: 67%;
-    font-size: 18px;
-    animation-duration: 19s, 4s;
-    animation-delay: 6s, 1s;
-}
-
-.hoja:nth-child(6) {
-    left: 82%;
-    font-size: 13px;
-    animation-duration: 21s, 4.5s;
-    animation-delay: 4s, 0s;
-}
-
-.hoja:nth-child(7) {
-    left: 94%;
-    font-size: 17px;
-    animation-duration: 16s, 3.5s;
-    animation-delay: 7s, 1s;
+.hoja-otono{
+position:absolute;
+top:-50px;
+color:var(--terracota);
+opacity:.16;
+animation:caer linear infinite;
 }
 
 
-/* =====================================================
+/* =========================
    PORTADA
-===================================================== */
+========================= */
 
-.portada {
-
-    min-height: 100vh;
-
-    position: relative;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    padding: 35px;
-
-    background:
-        linear-gradient(
-            rgba(58,44,36,.35),
-            rgba(58,44,36,.58)
-        ),
-        url("foto1.jpg")
-        center/cover
-        no-repeat;
-
-    color: white;
-
+.portada{
+min-height:100vh;
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:35px;
+background:
+linear-gradient(
+rgba(58,44,36,.35),
+rgba(58,44,36,.58)
+),
+url("foto1.jpg")
+center/cover
+no-repeat;
+color:white;
 }
 
-.portada::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 22px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.75);
-
-    pointer-events: none;
-
+.portada::before{
+content:"";
+position:absolute;
+inset:22px;
+border:1px solid rgba(255,255,255,.75);
+pointer-events:none;
 }
 
-.portada-contenido {
-
-    position: relative;
-
-    z-index: 2;
-
-    animation:
-        aparecer 1.5s ease;
-
+.portada-contenido{
+position:relative;
+z-index:2;
+animation:aparecer 1.5s ease;
 }
 
-.portada .pequeno {
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size: 11px;
-
-    font-weight: 600;
-
-    letter-spacing: 6px;
-
-    text-transform: uppercase;
-
+.portada .pequeno{
+font-family:"Montserrat",sans-serif;
+font-size:11px;
+font-weight:600;
+letter-spacing:6px;
+text-transform:uppercase;
 }
 
-.portada h1 {
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    font-size: 90px;
-
-    font-weight: 400;
-
-    line-height: 1.1;
-
-    margin: 8px 0;
-
+.portada h1{
+font-family:"Great Vibes",cursive;
+font-size:90px;
+font-weight:400;
+line-height:1.1;
+margin:8px 0;
 }
 
-.portada .fecha {
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 26px;
-
-    letter-spacing: 6px;
-
-    margin-top: 15px;
-
+.portada .fecha{
+font-family:"Cormorant Garamond",serif;
+font-size:26px;
+letter-spacing:6px;
+margin-top:15px;
 }
 
 
-/* =====================================================
+/* =========================
    SECCIONES
-===================================================== */
+========================= */
 
-section {
-
-    max-width: 950px;
-
-    margin: auto;
-
-    padding: 90px 25px;
-
-    text-align: center;
-
+section{
+max-width:950px;
+margin:auto;
+padding:90px 25px;
+text-align:center;
 }
 
-.subtitulo {
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    color:
-        var(--terracota);
-
-    font-size: 10px;
-
-    font-weight: 600;
-
-    letter-spacing: 4px;
-
-    text-transform: uppercase;
-
-    margin-bottom: 12px;
-
+.subtitulo{
+font-family:"Montserrat",sans-serif;
+color:var(--terracota);
+font-size:10px;
+font-weight:600;
+letter-spacing:4px;
+text-transform:uppercase;
+margin-bottom:12px;
 }
 
-.titulo {
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    color:
-        var(--olivo-dark);
-
-    font-size: 49px;
-
-    font-weight: 500;
-
-    line-height: 1.1;
-
-    margin-bottom: 22px;
-
+.titulo{
+font-family:"Cormorant Garamond",serif;
+color:var(--olivo-dark);
+font-size:49px;
+font-weight:500;
+line-height:1.1;
+margin-bottom:22px;
 }
 
-.adorno {
-
-    color:
-        var(--terracota);
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 30px;
-
-    margin-bottom: 15px;
-
+.titulo::after{
+content:"❧";
+display:block;
+color:var(--terracota);
+font-family:"Cormorant Garamond",serif;
+font-size:24px;
+margin-top:12px;
 }
 
-.titulo::after {
-
-    content: "❧";
-
-    display: block;
-
-    color:
-        var(--terracota);
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 24px;
-
-    margin-top: 12px;
-
+.adorno{
+color:var(--terracota);
+font-family:"Cormorant Garamond",serif;
+font-size:30px;
+margin-bottom:15px;
 }
 
 
-/* =====================================================
+/* =========================
    BOTONES
-===================================================== */
+========================= */
 
-.boton {
-
-    display: inline-block;
-
-    margin-top: 38px;
-
-    padding: 14px 34px;
-
-    background:
-        var(--terracota);
-
-    color: white;
-
-    border:
-        1px solid
-        rgba(255,255,255,.8);
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size: 10px;
-
-    font-weight: 600;
-
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
-
-    transition: .3s;
-
-    cursor: pointer;
-
+.boton-olivo{
+display:inline-block;
+margin-top:24px;
+padding:12px 27px;
+background:var(--olivo);
+color:white;
+font-family:"Montserrat",sans-serif;
+font-size:9px;
+font-weight:600;
+letter-spacing:2px;
+text-transform:uppercase;
+transition:.3s;
 }
 
-.boton:hover {
-
-    background:
-        var(--terracota-dark);
-
-    transform:
-        translateY(-3px);
-
-}
-
-.boton-olivo {
-
-    display: inline-block;
-
-    margin-top: 24px;
-
-    padding: 12px 27px;
-
-    background:
-        var(--olivo);
-
-    color: white;
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size: 9px;
-
-    font-weight: 600;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    transition: .3s;
-
-}
-
-.boton-olivo:hover {
-
-    background:
-        var(--olivo-dark);
-
-    transform:
-        translateY(-2px);
-
+.boton-olivo:hover{
+background:var(--olivo-dark);
+transform:translateY(-2px);
 }
 
 
-/* =====================================================
-   FOTOGRAFIAS SEPARADORAS
-===================================================== */
+/* =========================
+   FOTOS
+========================= */
 
-.foto-separadora {
-
-    height: 55vh;
-
-    min-height: 360px;
-
-    max-width: none;
-
-    padding: 0;
-
-    background-position: center;
-
-    background-size: cover;
-
-    background-repeat: no-repeat;
-
-    position: relative;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    overflow: hidden;
-
+.foto-separadora{
+height:55vh;
+min-height:360px;
+max-width:none;
+padding:0;
+background-position:center;
+background-size:cover;
+background-repeat:no-repeat;
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
 }
 
-.foto-separadora::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            rgba(58,44,36,.20),
-            rgba(58,44,36,.42)
-        );
-
+.foto-separadora::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(
+rgba(58,44,36,.20),
+rgba(58,44,36,.42)
+);
 }
 
-.foto-texto {
-
-    position: relative;
-
-    z-index: 2;
-
-    color: white;
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    font-size: 54px;
-
-    text-shadow:
-        0 2px 15px
-        rgba(0,0,0,.35);
-
-    padding: 20px 35px;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.7);
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.7);
-
-    animation:
-        flotar 4s ease-in-out infinite;
-
+.foto-texto{
+position:relative;
+z-index:2;
+color:white;
+font-family:"Great Vibes",cursive;
+font-size:54px;
+text-shadow:0 2px 15px rgba(0,0,0,.35);
+padding:20px 35px;
+border-top:1px solid rgba(255,255,255,.7);
+border-bottom:1px solid rgba(255,255,255,.7);
+animation:flotar 4s ease-in-out infinite;
 }
 
 
-/* =====================================================
-   FOTO DEL JARDIN
-   DEJA AQUI TU FOTO
-===================================================== */
-
-.foto-jardin {
-
-    width: min(850px, 100%);
-
-    height: 430px;
-
-    margin: 35px auto 0;
-
-    background-image: url("jardin.jpg");
-
-    background-position: center;
-
-    background-size: cover;
-
-    background-repeat: no-repeat;
-
-    border:
-        1px solid
-        var(--beige);
-
-    box-shadow:
-        0 12px 35px
-        rgba(58,44,36,.14);
-
-}
-
-
-/* =====================================================
+/* =========================
    CONTADOR
-===================================================== */
+========================= */
 
-.contador {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 16px;
-
-    flex-wrap: wrap;
-
-    margin-top: 45px;
-
+.contador{
+display:flex;
+justify-content:center;
+gap:16px;
+flex-wrap:wrap;
+margin-top:45px;
 }
 
-.contador div {
-
-    background: white;
-
-    min-width: 105px;
-
-    padding: 21px 18px;
-
-    border-top:
-        3px solid
-        var(--terracota);
-
-    box-shadow:
-        0 8px 25px
-        rgba(58,44,36,.07);
-
-    transition: .3s;
-
+.contador div{
+background:white;
+min-width:105px;
+padding:21px 18px;
+border-top:3px solid var(--terracota);
+box-shadow:0 8px 25px rgba(58,44,36,.07);
+transition:.3s;
 }
 
-.contador div:hover {
-
-    transform:
-        translateY(-5px);
-
+.contador div:hover{
+transform:translateY(-5px);
 }
 
-.contador span {
-
-    display: block;
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    color:
-        var(--olivo-dark);
-
-    font-size: 34px;
-
+.contador span{
+display:block;
+font-family:"Playfair Display",serif;
+color:var(--olivo-dark);
+font-size:34px;
 }
 
-.contador small {
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    color:
-        var(--terracota);
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
+.contador small{
+font-family:"Montserrat",sans-serif;
+color:var(--terracota);
+font-size:9px;
+letter-spacing:2px;
+text-transform:uppercase;
 }
 
 
-/* =====================================================
+/* =========================
    TARJETAS
-===================================================== */
+========================= */
 
-.tarjeta {
-
-    background: white;
-
-    margin-top: 28px;
-
-    padding: 42px 30px;
-
-    border-top:
-        4px solid
-        var(--terracota);
-
-    box-shadow:
-        0 10px 28px
-        rgba(58,44,36,.07);
-
-    transition: .35s;
-
+.tarjeta{
+background:white;
+margin-top:28px;
+padding:42px 30px;
+border-top:4px solid var(--terracota);
+box-shadow:0 10px 28px rgba(58,44,36,.07);
+transition:.35s;
 }
 
-.tarjeta:hover {
-
-    transform:
-        translateY(-5px);
-
+.tarjeta:hover{
+transform:translateY(-5px);
 }
 
-.tarjeta h3 {
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    color:
-        var(--terracota-dark);
-
-    font-size: 27px;
-
-    font-style: italic;
-
-    margin-bottom: 10px;
-
+.tarjeta h3{
+font-family:"Playfair Display",serif;
+color:var(--terracota-dark);
+font-size:27px;
+font-style:italic;
+margin-bottom:10px;
 }
 
-.hora {
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    color:
-        var(--olivo-dark);
-
-    font-size: 34px;
-
-    letter-spacing: 2px;
-
+.hora{
+font-family:"Cormorant Garamond",serif;
+color:var(--olivo-dark);
+font-size:34px;
+letter-spacing:2px;
 }
 
 
-/* =====================================================
-   HISTORIA DE AMOR
-===================================================== */
+/* =========================
+   HISTORIA
+========================= */
 
-.historia {
-
-    background:
-        var(--beige-light);
-
-    max-width: none;
-
-    padding:
-        95px 25px;
-
+.historia{
+background:var(--beige-light);
+max-width:none;
+padding:95px 25px;
 }
 
-.historia-contenido {
-
-    max-width: 950px;
-
-    margin: auto;
-
+.historia-contenido{
+max-width:950px;
+margin:auto;
 }
 
-.historia-texto {
-
-    max-width: 700px;
-
-    margin:
-        0 auto 40px;
-
+.historia-texto{
+max-width:700px;
+margin:0 auto 40px;
 }
 
-.historia-texto p {
-
-    font-size: 17px;
-
-    line-height: 1.9;
-
+.historia-texto p{
+font-size:17px;
+line-height:1.9;
 }
 
-.carrusel-historia {
-
-    position: relative;
-
-    width: min(720px, 100%);
-
-    height: 480px;
-
-    margin: 45px auto 0;
-
-    overflow: hidden;
-
-    background:
-        var(--cafe);
-
-    box-shadow:
-        0 15px 40px
-        rgba(58,44,36,.18);
-
+.historia-video{
+position:relative;
+width:min(720px,100%);
+height:480px;
+margin:45px auto 0;
+overflow:hidden;
+background:var(--cafe);
+box-shadow:0 15px 40px rgba(58,44,36,.18);
 }
 
-.historia-foto {
-
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-
-    opacity: 0;
-
-    transform:
-        scale(1.03);
-
-    transition:
-        opacity 1.5s ease,
-        transform 6s ease;
-
+.historia-slide{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0;
+transition:opacity 1.5s ease,transform 6s ease;
+transform:scale(1.03);
 }
 
-.historia-foto.activa {
-
-    opacity: 1;
-
-    transform:
-        scale(1);
-
+.historia-slide.activa{
+opacity:1;
+transform:scale(1);
 }
 
-.historia-frase {
+.historia-puntos{
+position:absolute;
+bottom:20px;
+left:0;
+right:0;
+display:flex;
+justify-content:center;
+gap:8px;
+z-index:5;
+}
 
-    margin-top: 30px;
+.historia-punto{
+width:8px;
+height:8px;
+border-radius:50%;
+background:white;
+opacity:.45;
+}
 
-    font-family:
-        "Great Vibes",
-        cursive;
+.historia-punto.activo{
+opacity:1;
+}
 
-    color:
-        var(--terracota);
-
-    font-size: 39px;
-
+.historia-frase{
+margin-top:30px;
+font-family:"Great Vibes",cursive;
+color:var(--terracota);
+font-size:39px;
 }
 
 
-/* =====================================================
+/* =========================
    RECEPCION
-===================================================== */
+========================= */
 
-.seccion-olivo {
-
-    max-width: none;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--olivo-dark),
-            var(--olivo)
-        );
-
-    color: white;
-
-    padding:
-        95px 25px;
-
+.seccion-olivo{
+max-width:none;
+background:linear-gradient(
+135deg,
+var(--olivo-dark),
+var(--olivo)
+);
+color:white;
+padding:95px 25px;
 }
 
-.seccion-olivo .subtitulo {
-
-    color:
-        var(--beige);
-
+.seccion-olivo .subtitulo{
+color:var(--beige);
 }
 
-.seccion-olivo .titulo {
-
-    color: white;
-
+.seccion-olivo .titulo{
+color:white;
 }
 
-.seccion-olivo p {
-
-    color:
-        var(--beige-light);
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 25px;
-
+.seccion-olivo p{
+color:var(--beige-light);
+font-family:"Cormorant Garamond",serif;
+font-size:25px;
 }
 
 
-/* =====================================================
+/* =========================
    PADRES
-===================================================== */
+========================= */
 
-.familia {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap: 25px;
-
-    margin-top: 40px;
-
+.familia{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:25px;
+margin-top:40px;
 }
 
-.familia .tarjeta {
-
-    margin-top: 0;
-
-    background:
-        var(--beige-light);
-
+.familia .tarjeta{
+margin-top:0;
+background:var(--beige-light);
 }
 
-.familia .tarjeta p {
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    color:
-        var(--cafe);
-
-    font-size: 21px;
-
-    line-height: 1.5;
-
+.familia .tarjeta p{
+font-family:"Playfair Display",serif;
+color:var(--cafe);
+font-size:21px;
+line-height:1.5;
 }
 
 
 /* =====================================================
-   CORTEJO
+   CORTEJO — SOBRES + ILUSTRACIONES INTERCALADAS
 ===================================================== */
 
-.padrinos {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap: 22px;
-
-    margin-top: 45px;
-
+.padrinos{
+display:flex;
+flex-direction:column;
+gap:28px;
+margin-top:45px;
+width:100%;
 }
 
-.sobre-padrino {
-
-    position: relative;
-
-    min-height: 220px;
-
-    cursor: pointer;
-
-    perspective: 1000px;
-
-    outline: none;
-
+.padrino-fila{
+width:min(100%,760px);
+margin:0 auto;
+display:grid;
+grid-template-columns:minmax(0,1fr) 105px;
+align-items:center;
+gap:22px;
 }
 
-.sobre-frente {
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            145deg,
-            var(--beige-light),
-            #ead9c3
-        );
-
-    border:
-        1px solid
-        rgba(145,71,53,.25);
-
-    box-shadow:
-        0 10px 28px
-        rgba(58,44,36,.10);
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    transition:
-        opacity .5s ease,
-        transform .5s ease;
-
-    z-index: 2;
-
-    overflow: hidden;
-
+.padrino-fila.par{
+grid-template-columns:105px minmax(0,1fr);
 }
 
-.sobre-frente::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 50%;
-
-    background:
-        linear-gradient(
-            135deg,
-            transparent 49%,
-            rgba(182,95,74,.16) 50%
-        );
-
-    pointer-events: none;
-
+.padrino-fila.par .padrino-ilustracion{
+grid-column:1;
+grid-row:1;
 }
 
-.sobre-icono {
-
-    font-size: 53px;
-
-    color:
-        var(--terracota);
-
-    margin-bottom: 8px;
-
-    animation:
-        latido 2.8s ease-in-out infinite;
-
+.padrino-fila.par .sobre-padrino{
+grid-column:2;
+grid-row:1;
 }
 
-.sobre-frente h3 {
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    color:
-        var(--terracota-dark);
-
-    font-size: 25px;
-
-    font-weight: 600;
-
-    font-style: italic;
-
-    line-height: 1.2;
-
-    padding: 0 20px;
-
+.padrino-ilustracion{
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:100px;
+color:var(--terracota);
+opacity:.92;
 }
 
-.sobre-frente small {
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    color:
-        var(--olivo-dark);
-
-    font-size: 8px;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    margin-top: 13px;
-
+.padrino-ilustracion svg{
+width:76px;
+height:76px;
+overflow:visible;
+filter:drop-shadow(0 5px 8px rgba(58,44,36,.08));
 }
 
-.sobre-contenido {
-
-    position: absolute;
-
-    inset: 0;
-
-    background: white;
-
-    padding: 30px 20px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-
-    opacity: 0;
-
-    transform:
-        scale(.92);
-
-    transition:
-        opacity .5s ease,
-        transform .5s ease;
-
-    z-index: 1;
-
-    border:
-        1px solid
-        var(--beige);
-
-}
-
-.sobre-contenido h3 {
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    color:
-        var(--terracota-dark);
-
-    font-size: 26px;
-
-    font-style: italic;
-
-    margin-bottom: 13px;
-
-}
-
-.sobre-contenido p {
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    color:
-        var(--cafe);
-
-    font-size: 18px;
-
-    line-height: 1.45;
-
-}
-
-.sobre-contenido .cerrar-sobre {
-
-    margin-top: 18px;
-
-    border: none;
-
-    background: transparent;
-
-    color:
-        var(--olivo-dark);
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size: 8px;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    cursor: pointer;
-
-}
-
-.sobre-padrino.abierto
-.sobre-frente {
-
-    opacity: 0;
-
-    transform:
-        scale(.92);
-
-    pointer-events: none;
-
-}
-
-.sobre-padrino.abierto
-.sobre-contenido {
-
-    opacity: 1;
-
-    transform:
-        scale(1);
-
-    z-index: 3;
-
+.padrino-ilustracion .linea{
+fill:none;
+stroke:currentColor;
+stroke-width:2;
+stroke-linecap:round;
+stroke-linejoin:round;
 }
 
 
-/* =====================================================
-   HOTELES
-===================================================== */
+/* SOBRE */
 
-.hoteles {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap: 20px;
-
-    margin-top: 40px;
-
+.sobre-padrino{
+position:relative;
+width:100%;
+min-height:178px;
+cursor:pointer;
+perspective:1000px;
+outline:none;
 }
 
-.hotel {
-
-    background:
-        var(--beige-light);
-
-    padding: 35px 20px;
-
-    border-top:
-        4px solid
-        var(--olivo);
-
-    box-shadow:
-        0 7px 22px
-        rgba(58,44,36,.06);
-
-    transition: .3s;
-
+.sobre-frente{
+position:absolute;
+inset:0;
+background:linear-gradient(
+145deg,
+var(--beige-light),
+#ead9c3
+);
+border:1px solid rgba(145,71,53,.25);
+box-shadow:0 10px 28px rgba(58,44,36,.10);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+transition:opacity .5s ease,transform .5s ease;
+z-index:2;
+overflow:hidden;
 }
 
-.hotel:hover {
-
-    transform:
-        translateY(-5px);
-
+.sobre-frente::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:50%;
+background:linear-gradient(
+135deg,
+transparent 49%,
+rgba(182,95,74,.16) 50%
+);
+pointer-events:none;
 }
 
-.hotel h3 {
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    color:
-        var(--terracota-dark);
-
-    font-size: 25px;
-
+.sobre-icono{
+font-size:42px;
+color:var(--terracota);
+margin-bottom:5px;
+animation:latido 2.8s ease-in-out infinite;
 }
 
-.hotel-boton {
-
-    display: inline-block;
-
-    margin-top: 22px;
-
-    padding: 11px 20px;
-
-    background:
-        var(--olivo);
-
-    color: white;
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size: 9px;
-
-    font-weight: 600;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    transition: .3s;
-
+.sobre-frente h3{
+font-family:"Cormorant Garamond",serif;
+color:var(--terracota-dark);
+font-size:22px;
+font-weight:600;
+font-style:italic;
+line-height:1.2;
+padding:0 14px;
 }
 
-.hotel-boton:hover {
-
-    background:
-        var(--olivo-dark);
-
+.sobre-frente small{
+font-family:"Montserrat",sans-serif;
+color:var(--olivo-dark);
+font-size:7px;
+letter-spacing:1.7px;
+text-transform:uppercase;
+margin-top:10px;
 }
 
 
-/* =====================================================
+/* CONTENIDO */
+
+.sobre-contenido{
+position:absolute;
+inset:0;
+background:white;
+padding:25px 16px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+opacity:0;
+transform:scale(.92);
+transition:opacity .5s ease,transform .5s ease;
+z-index:1;
+border:1px solid var(--beige);
+}
+
+.sobre-contenido h3{
+font-family:"Cormorant Garamond",serif;
+color:var(--terracota-dark);
+font-size:23px;
+font-style:italic;
+margin-bottom:10px;
+}
+
+.sobre-contenido p{
+font-family:"Playfair Display",serif;
+color:var(--cafe);
+font-size:16px;
+line-height:1.4;
+}
+
+.sobre-contenido .cerrar-sobre{
+margin-top:14px;
+border:none;
+background:transparent;
+color:var(--olivo-dark);
+font-family:"Montserrat",sans-serif;
+font-size:7px;
+letter-spacing:2px;
+text-transform:uppercase;
+cursor:pointer;
+}
+
+.sobre-padrino.abierto .sobre-frente{
+opacity:0;
+transform:scale(.92);
+pointer-events:none;
+}
+
+.sobre-padrino.abierto .sobre-contenido{
+opacity:1;
+transform:scale(1);
+z-index:3;
+}
+
+
+/* =========================
+   HOSPEDAJE
+========================= */
+
+.hoteles{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+margin-top:40px;
+}
+
+.hotel{
+background:var(--beige-light);
+padding:35px 20px;
+border-top:4px solid var(--olivo);
+box-shadow:0 7px 22px rgba(58,44,36,.06);
+transition:.3s;
+}
+
+.hotel:hover{
+transform:translateY(-5px);
+}
+
+.hotel h3{
+font-family:"Playfair Display",serif;
+color:var(--terracota-dark);
+font-size:25px;
+}
+
+.hotel-boton{
+display:inline-block;
+margin-top:22px;
+padding:11px 20px;
+background:var(--olivo);
+color:white;
+font-family:"Montserrat",sans-serif;
+font-size:9px;
+font-weight:600;
+letter-spacing:2px;
+text-transform:uppercase;
+transition:.3s;
+}
+
+.hotel-boton:hover{
+background:var(--olivo-dark);
+}
+
+
+/* =========================
    VESTIMENTA
-===================================================== */
+========================= */
 
-.vestimenta {
-
-    background:
-        var(--beige);
-
-    padding: 48px 35px;
-
-    margin-top: 35px;
-
-    border-left:
-        5px solid
-        var(--terracota);
-
+.vestimenta{
+background:var(--beige);
+padding:48px 35px;
+margin-top:35px;
+border-left:5px solid var(--terracota);
 }
 
-.vestimenta h3 {
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    color:
-        var(--olivo-dark);
-
-    font-size: 32px;
-
-    font-weight: 500;
-
+.vestimenta h3{
+font-family:"Cormorant Garamond",serif;
+color:var(--olivo-dark);
+font-size:32px;
+font-weight:500;
 }
 
 
-/* =====================================================
+/* =========================
    LLUVIA DE SOBRES
-===================================================== */
+========================= */
 
-.lluvia {
-
-    background: white;
-
-    padding: 48px 35px;
-
-    margin-top: 35px;
-
-    border:
-        1px solid
-        var(--beige);
-
-    box-shadow:
-        0 8px 25px
-        rgba(58,44,36,.06);
-
+.lluvia{
+background:white;
+padding:48px 35px;
+margin-top:35px;
+border:1px solid var(--beige);
+box-shadow:0 8px 25px rgba(58,44,36,.06);
 }
 
-.lluvia .sobre {
-
-    font-size: 55px;
-
-    color:
-        var(--terracota);
-
-    margin-bottom: 15px;
-
-    animation:
-        latido 3s ease-in-out infinite;
-
+.lluvia .sobre{
+font-size:55px;
+color:var(--terracota);
+margin-bottom:15px;
+animation:latido 3s ease-in-out infinite;
 }
 
-.lluvia strong {
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    font-size: 19px;
-
+.lluvia strong{
+font-family:"Playfair Display",serif;
+font-size:19px;
 }
 
 
-/* =====================================================
-   TEXTO FINAL SOBRE LA FOTO
-===================================================== */
-
-.foto-texto.final-nombres {
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    gap: 0;
-
-}
-
-.foto-texto.final-nombres .con-carino {
-
-    font-size: 54px;
-
-    line-height: 1.1;
-
-}
-
-.foto-texto.final-nombres .nombres-foto {
-
-    font-size: 42px;
-
-    line-height: 1.1;
-
-    margin-top: 4px;
-
-}
-
-
-/* =====================================================
+/* =========================
    ALBUM
-===================================================== */
+========================= */
 
-.pendiente {
-
-    background:
-        var(--beige-light);
-
-    padding: 38px;
-
-    margin-top: 30px;
-
-    border-left:
-        4px solid
-        var(--olivo);
-
+.pendiente{
+background:var(--beige-light);
+padding:38px;
+margin-top:30px;
+border-left:4px solid var(--olivo);
 }
 
-.pendiente strong {
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    color:
-        var(--terracota);
-
-    font-size: 38px;
-
-    font-weight: 400;
-
+.pendiente strong{
+font-family:"Great Vibes",cursive;
+color:var(--terracota);
+font-size:38px;
+font-weight:400;
 }
 
-.boton-fotos {
-
-    display: inline-block;
-
-    margin-top: 28px;
-
-    padding: 15px 30px;
-
-    background:
-        var(--olivo);
-
-    color: white;
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size: 10px;
-
-    font-weight: 600;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    transition: .3s;
-
-    box-shadow:
-        0 8px 20px
-        rgba(82,90,61,.18);
-
+.boton-fotos{
+display:inline-block;
+margin-top:28px;
+padding:15px 30px;
+background:var(--olivo);
+color:white;
+font-family:"Montserrat",sans-serif;
+font-size:10px;
+font-weight:600;
+letter-spacing:2px;
+text-transform:uppercase;
+transition:.3s;
+box-shadow:0 8px 20px rgba(82,90,61,.18);
 }
 
-.boton-fotos:hover {
-
-    background:
-        var(--olivo-dark);
-
-    transform:
-        translateY(-3px);
-
+.boton-fotos:hover{
+background:var(--olivo-dark);
+transform:translateY(-3px);
 }
 
 
-/* =====================================================
-   CONFIRMACION
-===================================================== */
-
-.confirmacion {
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--beige-light),
-            var(--crema)
-        );
-
-    padding: 50px 30px;
-
-    margin-top: 35px;
-
-    border:
-        1px solid
-        var(--beige);
-
-    border-top:
-        5px solid
-        var(--terracota);
-
-    box-shadow:
-        0 10px 30px
-        rgba(58,44,36,.08);
-
-}
-
-.confirmacion p {
-
-    max-width: 650px;
-
-    margin: 0 auto;
-
-    font-family:
-        "Lora",
-        serif;
-
-    color:
-        var(--cafe-light);
-
-    font-size: 17px;
-
-}
-
-.boton-confirmacion {
-
-    display: inline-block;
-
-    margin-top: 30px;
-
-    padding: 16px 38px;
-
-    background:
-        var(--terracota);
-
-    color: white;
-
-    border:
-        1px solid
-        var(--terracota-dark);
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size: 11px;
-
-    font-weight: 600;
-
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
-
-    box-shadow:
-        0 8px 20px
-        rgba(145,71,53,.20);
-
-    transition: .3s;
-
-}
-
-.boton-confirmacion:hover {
-
-    background:
-        var(--terracota-dark);
-
-    transform:
-        translateY(-3px);
-
-}
-
-
-/* =====================================================
+/* =========================
    WHATSAPP
-===================================================== */
+========================= */
 
-.whatsapp-seccion {
-
-    background:
-        linear-gradient(
-            135deg,
-            #f1e8da,
-            #f7f1e6
-        );
-
-    border-top:
-        1px solid
-        var(--beige);
-
-    border-bottom:
-        1px solid
-        var(--beige);
-
+.whatsapp-seccion{
+background:linear-gradient(
+135deg,
+#f1e8da,
+#f7f1e6
+);
+border-top:1px solid var(--beige);
+border-bottom:1px solid var(--beige);
 }
 
-.whatsapp-texto {
-
-    max-width: 650px;
-
-    margin:
-        0 auto 30px;
-
+.whatsapp-texto{
+max-width:650px;
+margin:0 auto 30px;
 }
 
-.whatsapp-botones {
-
-    display: flex;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 15px;
-
+.whatsapp-botones{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
 }
 
-.boton-whatsapp {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 10px;
-
-    min-width: 220px;
-
-    padding: 15px 25px;
-
-    background:
-        var(--olivo);
-
-    color: white;
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size: 10px;
-
-    font-weight: 600;
-
-    letter-spacing: 1.5px;
-
-    text-transform: uppercase;
-
-    transition: .3s;
-
-    box-shadow:
-        0 8px 20px
-        rgba(82,90,61,.16);
-
+.boton-whatsapp{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+min-width:220px;
+padding:15px 25px;
+background:var(--olivo);
+color:white;
+font-family:"Montserrat",sans-serif;
+font-size:10px;
+font-weight:600;
+letter-spacing:1.5px;
+text-transform:uppercase;
+transition:.3s;
+box-shadow:0 8px 20px rgba(82,90,61,.16);
 }
 
-.boton-whatsapp:hover {
-
-    background:
-        var(--olivo-dark);
-
-    transform:
-        translateY(-3px);
-
+.boton-whatsapp:hover{
+background:var(--olivo-dark);
+transform:translateY(-3px);
 }
 
-.whatsapp-icono {
-
-    font-size: 18px;
-
+.whatsapp-icono{
+font-size:18px;
 }
 
 
-/* =====================================================
+/* =========================
+   CONFIRMACION
+========================= */
+
+.confirmacion{
+background:linear-gradient(
+135deg,
+var(--beige-light),
+var(--crema)
+);
+padding:50px 30px;
+margin-top:35px;
+border:1px solid var(--beige);
+border-top:5px solid var(--terracota);
+box-shadow:0 10px 30px rgba(58,44,36,.08);
+}
+
+.confirmacion p{
+max-width:650px;
+margin:0 auto;
+font-family:"Lora",serif;
+color:var(--cafe-light);
+font-size:17px;
+}
+
+.boton-confirmacion{
+display:inline-block;
+margin-top:30px;
+padding:16px 38px;
+background:var(--terracota);
+color:white;
+border:1px solid var(--terracota-dark);
+font-family:"Montserrat",sans-serif;
+font-size:11px;
+font-weight:600;
+letter-spacing:3px;
+text-transform:uppercase;
+box-shadow:0 8px 20px rgba(145,71,53,.20);
+transition:.3s;
+}
+
+.boton-confirmacion:hover{
+background:var(--terracota-dark);
+transform:translateY(-3px);
+}
+
+
+/* =========================
    FOOTER
-===================================================== */
+========================= */
 
-footer {
-
-    background:
-        var(--cafe);
-
-    color:
-        var(--crema);
-
-    text-align: center;
-
-    padding:
-        80px 25px;
-
+footer{
+background:var(--cafe);
+color:var(--crema);
+text-align:center;
+padding:80px 25px;
 }
 
-footer .nombres {
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    color:
-        var(--terracota-light);
-
-    font-size: 65px;
-
-    margin-bottom: 18px;
-
+footer .nombres{
+font-family:"Great Vibes",cursive;
+color:var(--terracota-light);
+font-size:65px;
+margin-bottom:18px;
+white-space:nowrap;
 }
 
-footer p {
-
-    color:
-        var(--beige-light);
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 22px;
-
+footer p{
+color:var(--beige-light);
+font-family:"Cormorant Garamond",serif;
+font-size:22px;
 }
 
 
-/* =====================================================
+/* =========================
    CELULAR
-===================================================== */
+========================= */
 
-@media (max-width:700px) {
+@media(max-width:700px){
 
-    .portada h1 {
+.portada h1{
+font-size:62px;
+}
 
-        font-size: 62px;
+.portada .fecha{
+font-size:20px;
+letter-spacing:4px;
+}
 
-    }
+.titulo{
+font-size:40px;
+}
 
-    .portada .fecha {
+.foto-texto{
+font-size:43px;
+}
 
-        font-size: 20px;
+.familia,
+.hoteles{
+grid-template-columns:1fr;
+}
 
-        letter-spacing: 4px;
+.contador{
+gap:9px;
+}
 
-    }
+.contador div{
+min-width:72px;
+padding:15px 10px;
+}
 
-    .titulo {
+.contador span{
+font-size:28px;
+}
 
-        font-size: 40px;
 
-    }
+/* CORTEJO EN CELULAR */
 
-    .foto-texto {
+.padrino-fila,
+.padrino-fila.par{
+width:100%;
+grid-template-columns:minmax(0,1fr) 82px;
+gap:12px;
+}
 
-        font-size: 43px;
+.padrino-fila.par .padrino-ilustracion{
+grid-column:1;
+grid-row:1;
+}
 
-    }
+.padrino-fila.par .sobre-padrino{
+grid-column:2;
+grid-row:1;
+}
 
-    .foto-jardin {
+.padrino-ilustracion{
+min-height:90px;
+}
 
-        height: 350px;
+.padrino-ilustracion svg{
+width:62px;
+height:62px;
+}
 
-    }
+.sobre-padrino{
+min-height:175px;
+}
 
-    .foto-texto.final-nombres .con-carino {
+.sobre-frente h3{
+font-size:20px;
+}
 
-        font-size: 43px;
+.sobre-icono{
+font-size:38px;
+}
 
-    }
+.carrusel-historia,
+.historia-video{
+height:400px;
+}
 
-    .foto-texto.final-nombres .nombres-foto {
+.historia-frase{
+font-size:32px;
+}
 
-        font-size: 34px;
+footer .nombres{
+font-size:52px;
+white-space:nowrap;
+}
 
-    }
+.confirmacion{
+padding:40px 22px;
+}
 
-    .familia,
-    .padrinos,
-    .hoteles {
+.boton-confirmacion{
+padding:15px 25px;
+font-size:10px;
+letter-spacing:2px;
+}
 
-        grid-template-columns: 1fr;
-
-    }
-
-    .contador {
-
-        gap: 9px;
-
-    }
-
-    .contador div {
-
-        min-width: 72px;
-
-        padding:
-            15px 10px;
-
-    }
-
-    .contador span {
-
-        font-size: 28px;
-
-    }
-
-    .sobre-padrino {
-
-        min-height: 210px;
-
-    }
-
-    .carrusel-historia {
-
-        height: 400px;
-
-    }
-
-    .historia-frase {
-
-        font-size: 32px;
-
-    }
-
-    footer .nombres {
-
-        font-size: 55px;
-
-    }
-
-    .confirmacion {
-
-        padding:
-            40px 22px;
-
-    }
-
-    .boton-confirmacion {
-
-        padding:
-            15px 25px;
-
-        font-size: 10px;
-
-        letter-spacing: 2px;
-
-    }
-
-    .boton-whatsapp {
-
-        width: 100%;
-
-        min-width: 0;
-
-    }
+.boton-whatsapp{
+width:100%;
+min-width:0;
+}
 
 }
 
 
-/* =====================================================
+/* =========================
    REDUCCION DE MOVIMIENTO
-===================================================== */
+========================= */
 
-@media (prefers-reduced-motion: reduce) {
+@media(prefers-reduced-motion:reduce){
 
-    html {
-
-        scroll-behavior: auto;
-
-    }
-
-    *,
-    *::before,
-    *::after {
-
-        animation-duration: .01ms !important;
-
-        animation-iteration-count: 1 !important;
-
-        transition-duration: .01ms !important;
-
-    }
-
+html{
+scroll-behavior:auto;
 }
 
+*,
+*::before,
+*::after{
+animation-duration:.01ms!important;
+animation-iteration-count:1!important;
+transition-duration:.01ms!important;
+}
+
+}
 </style>
-
 </head>
-
 
 <body class="bloqueado">
 
-
-<!-- =====================================================
-     MUSICA
-===================================================== -->
-
-<audio
-    id="musica"
-    loop
-    preload="auto">
-
-    <source
-        src="Carla Morrison - Disfruto (SPOTISAVER).mp3"
-        type="audio/mpeg">
-
+<audio id="musica" loop preload="auto">
+<source src="Carla Morrison - Disfruto (SPOTISAVER).mp3" type="audio/mpeg">
 </audio>
 
 
-<!-- =====================================================
-     SOBRE DE ENTRADA
-===================================================== -->
+<!-- SOBRE DE ENTRADA -->
 
-<div
-    class="pantalla-sobre"
-    id="pantallaSobre">
+<div class="pantalla-sobre" id="pantallaSobre">
 
-    <div
-        class="sobre-entrada"
-        id="sobreEntrada"
-        role="button"
-        tabindex="0"
-        aria-label="Abrir invitación">
+<div class="sobre-entrada" id="sobreEntrada" role="button" tabindex="0" aria-label="Abrir invitación">
 
-        <div class="sobre-entrada-cuerpo">
+<div class="sobre-entrada-cuerpo">
 
-            <div class="sobre-entrada-solapa"></div>
+<div class="sobre-entrada-solapa"></div>
 
-            <div class="sello">
-                I & F
-            </div>
+<div class="sello">
+I & F
+</div>
 
-        </div>
+</div>
 
-        <div class="sobre-entrada-texto">
+<div class="sobre-entrada-texto">
 
-            <small>
-                Toca el sobre para abrir
-            </small>
+<small>
+Toca el sobre para abrir
+</small>
 
-            <h2>
-                Nuestra boda
-            </h2>
+<h2>
+Nuestra boda
+</h2>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </div>
 
 
-<!-- =====================================================
-     HOJAS DE OTOÑO
-===================================================== -->
+<!-- HOJAS -->
 
-<div
-    class="hojas"
-    aria-hidden="true">
-
-    <span class="hoja">🍂</span>
-    <span class="hoja">🍁</span>
-    <span class="hoja">🍂</span>
-    <span class="hoja">🍁</span>
-    <span class="hoja">🍂</span>
-    <span class="hoja">🍁</span>
-    <span class="hoja">🍂</span>
-
-</div>
+<div class="hojas-otono" id="hojasOtono" aria-hidden="true"></div>
 
 
-<!-- =====================================================
-     PORTADA
-===================================================== -->
+<!-- PORTADA -->
 
 <header class="portada">
 
-    <div class="portada-contenido">
+<div class="portada-contenido">
 
-        <div class="pequeno">
-            Nuestra boda
-        </div>
+<div class="pequeno">
+Nuestra boda
+</div>
 
-        <h1>
-            Irlandi & Fernando
-        </h1>
+<h1>
+Irlandi & Fernando
+</h1>
 
-        <div class="fecha">
-            5 de diciembre de 2026
-        </div>
+<div class="fecha">
+5 de diciembre de 2026
+</div>
 
-    </div>
+</div>
 
 </header>
 
 
-<!-- =====================================================
-     INTRODUCCION
-===================================================== -->
+<!-- INTRODUCCION -->
 
-<section
-    id="invitacion"
-    class="reveal">
+<section id="invitacion" class="reveal">
 
-    <div class="adorno">
-        ✦
-    </div>
+<div class="adorno">
+✦
+</div>
 
-    <div class="subtitulo">
-        Con mucha alegría
-    </div>
+<div class="subtitulo">
+Con mucha alegría
+</div>
 
-    <h2 class="titulo">
-        Queremos compartir este día contigo
-    </h2>
+<h2 class="titulo">
+Queremos compartir este día contigo
+</h2>
 
-    <p>
-        Nos llena de felicidad poder celebrar este momento
-        rodeados de las personas que forman parte de nuestras vidas.
-    </p>
+<p>
+Nos llena de felicidad poder celebrar este momento
+rodeados de las personas que forman parte de nuestras vidas.
+</p>
 
 </section>
 
 
-<!-- =====================================================
-     FOTO 2
-===================================================== -->
+<!-- FOTO 2 -->
 
 <section
-    class="foto-separadora"
-    style="background-image:url('foto2.jpg');">
+class="foto-separadora"
+style="background-image:url('foto2.jpg');">
 
-    <div class="foto-texto">
-        Un día para recordar
-    </div>
+<div class="foto-texto">
+Un día para recordar
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     CONTADOR
-===================================================== -->
+<!-- CONTADOR -->
 
 <section class="reveal">
 
-    <div class="subtitulo">
-        Falta muy poco
-    </div>
+<div class="subtitulo">
+Falta muy poco
+</div>
 
-    <h2 class="titulo">
-        Cuenta regresiva
-    </h2>
+<h2 class="titulo">
+Cuenta regresiva
+</h2>
 
-    <div class="contador">
+<div class="contador">
 
-        <div>
-            <span id="dias">0</span>
-            <small>Días</small>
-        </div>
+<div>
+<span id="dias">0</span>
+<small>Días</small>
+</div>
 
-        <div>
-            <span id="horas">0</span>
-            <small>Horas</small>
-        </div>
+<div>
+<span id="horas">0</span>
+<small>Horas</small>
+</div>
 
-        <div>
-            <span id="minutos">0</span>
-            <small>Minutos</small>
-        </div>
+<div>
+<span id="minutos">0</span>
+<small>Minutos</small>
+</div>
 
-        <div>
-            <span id="segundos">0</span>
-            <small>Segundos</small>
-        </div>
+<div>
+<span id="segundos">0</span>
+<small>Segundos</small>
+</div>
 
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     CEREMONIA
-===================================================== -->
+<!-- CEREMONIA -->
 
 <section class="reveal">
 
-    <div class="subtitulo">
-        El gran día
-    </div>
+<div class="subtitulo">
+El gran día
+</div>
 
-    <h2 class="titulo">
-        Nuestra celebración
-    </h2>
+<h2 class="titulo">
+Nuestra celebración
+</h2>
 
-    <div class="tarjeta">
+<div class="tarjeta">
 
-        <h3>
-            Recepción de invitados
-        </h3>
+<h3>
+Recepción de invitados
+</h3>
 
-        <div class="hora">
-            3:30 p. m.
-        </div>
+<div class="hora">
+3:30 p. m.
+</div>
 
-    </div>
+</div>
 
 
-    <div class="tarjeta">
+<div class="tarjeta">
 
-        <h3>
-            Ceremonia
-        </h3>
+<h3>
+Ceremonia
+</h3>
 
-        <div class="hora">
-            4:00 p. m.
-        </div>
+<div class="hora">
+4:00 p. m.
+</div>
 
-        <p>
-            “El Encanto” Jardín de eventos
-        </p>
+<p>
+“El Encanto” Jardín de eventos
+</p>
 
-        <!-- =================================================
-             FOTO DEL JARDIN
-             CAMBIA "jardin.jpg" POR EL NOMBRE DE TU FOTO
-        ================================================== -->
+<a
+href="https://maps.app.goo.gl/JJyNm5Zxw2pmKaM3A?g_st=ic"
+target="_blank"
+rel="noopener noreferrer"
+class="boton-olivo">
 
-        <div
-            class="foto-jardin"
-            role="img"
-            aria-label="Fotografía de El Encanto Jardín de eventos">
-        </div>
+Ver ubicación
 
-        <a
-            href="https://maps.app.goo.gl/JJyNm5Zxw2pmKaM3A?g_st=ic"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-olivo">
+</a>
 
-            Ver ubicación
-
-        </a>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     NUESTRA HISTORIA DE AMOR
-===================================================== -->
+<!-- HISTORIA -->
 
 <section class="historia reveal">
 
-    <div class="historia-contenido">
+<div class="historia-contenido">
 
-        <div class="subtitulo">
-            Un poquito de nosotros
-        </div>
+<div class="subtitulo">
+Un poquito de nosotros
+</div>
 
-        <h2 class="titulo">
-            Nuestra historia de amor
-        </h2>
+<h2 class="titulo">
+Nuestra historia de amor
+</h2>
 
-        <div class="historia-texto">
+<div class="historia-texto">
 
-            <p>
-                Cada historia de amor tiene momentos que
-                merecen ser guardados para siempre.
-            </p>
+<p>
+Cada historia de amor tiene momentos que
+merecen ser guardados para siempre.
+</p>
 
-            <br>
+<br>
 
-            <p>
-                Hoy queremos compartir algunos de nuestros
-                recuerdos favoritos y recorrer juntos esos
-                momentos que nos han llevado hasta este día.
-            </p>
+<p>
+Hoy queremos compartir algunos de nuestros
+recuerdos favoritos y recorrer juntos esos
+momentos que nos han llevado hasta este día.
+</p>
 
-        </div>
+</div>
 
+<div class="historia-video">
 
-        <div class="carrusel-historia">
+<img src="historia1.jpg" class="historia-slide activa" alt="Irlandi y Fernando">
+<img src="historia2.jpg" class="historia-slide" alt="Irlandi y Fernando">
+<img src="historia3.jpg" class="historia-slide" alt="Irlandi y Fernando">
+<img src="historia4.jpg" class="historia-slide" alt="Irlandi y Fernando">
+<img src="historia5.jpg" class="historia-slide" alt="Irlandi y Fernando">
 
-            <img
-                src="historia1.jpg"
-                class="historia-foto activa"
-                alt="Irlandi y Fernando">
+<div class="historia-puntos" id="historiaPuntos"></div>
 
-            <img
-                src="historia2.jpg"
-                class="historia-foto"
-                alt="Irlandi y Fernando">
+</div>
 
-            <img
-                src="historia3.jpg"
-                class="historia-foto"
-                alt="Irlandi y Fernando">
+<div class="historia-frase" id="historiaFrase">
+Nuestros recuerdos, nuestra historia
+</div>
 
-            <img
-                src="historia4.jpg"
-                class="historia-foto"
-                alt="Irlandi y Fernando">
-
-            <img
-                src="historia5.jpg"
-                class="historia-foto"
-                alt="Irlandi y Fernando">
-
-        </div>
-
-        <div class="historia-frase">
-            Y así llegamos hasta aquí...
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     FOTO 3
-===================================================== -->
+<!-- FOTO 3 -->
 
 <section
-    class="foto-separadora"
-    style="background-image:url('foto3.jpg');">
+class="foto-separadora"
+style="background-image:url('foto3.jpg');">
 
-    <div class="foto-texto">
-        El comienzo de una nueva etapa
-    </div>
+<div class="foto-texto">
+El comienzo de una nueva etapa
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     RECEPCION
-===================================================== -->
+<!-- RECEPCION -->
+
+<section class="seccion-olivo reveal">
+
+<div class="subtitulo">
+Después de la ceremonia
+</div>
+
+<h2 class="titulo">
+Recepción de jardín
+</h2>
+
+<p>
+4:45 p. m.
+</p>
+
+<p>
+Cóctel de bienvenida
+</p>
+
+</section>
+
+
+<!-- FOTO 4 -->
 
 <section
-    class="seccion-olivo reveal">
+class="foto-separadora"
+style="background-image:url('foto4.jpg');">
 
-    <div class="subtitulo">
-        Después de la ceremonia
-    </div>
-
-    <h2 class="titulo">
-        Recepción de jardín
-    </h2>
-
-    <p>
-        4:45 p. m.
-    </p>
-
-    <p>
-        Cóctel de bienvenida
-    </p>
+<div class="foto-texto">
+Juntos en este día
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     FOTO 4
-===================================================== -->
-
-<section
-    class="foto-separadora"
-    style="background-image:url('foto4.jpg');">
-
-    <div class="foto-texto">
-        Juntos en este día
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     PADRES
-===================================================== -->
+<!-- PADRES -->
 
 <section class="reveal">
 
-    <div class="subtitulo">
-        Con el amor de nuestras familias
-    </div>
+<div class="subtitulo">
+Con el amor de nuestras familias
+</div>
 
-    <h2 class="titulo">
-        Nuestros padres
-    </h2>
+<h2 class="titulo">
+Nuestros padres
+</h2>
 
-    <div class="familia">
+<div class="familia">
 
-        <div class="tarjeta">
+<div class="tarjeta">
 
-            <h3>
-                Padres de la novia
-            </h3>
+<h3>
+Padres de la novia
+</h3>
 
-            <p>
-                Sergio Alvarez Corona
-            </p>
+<p>
+Sergio Alvarez Corona
+</p>
 
-            <p>
-                Patricia Martínez Huerta
-            </p>
+<p>
+Patricia Martínez Huerta
+</p>
 
-        </div>
+</div>
 
 
-        <div class="tarjeta">
+<div class="tarjeta">
 
-            <h3>
-                Padres del novio
-            </h3>
+<h3>
+Padres del novio
+</h3>
 
-            <p>
-                Norma Alicia Mendoza Moreno
-            </p>
+<p>
+Norma Alicia Mendoza Moreno
+</p>
 
-            <p>
-                Eduardo Navarrete Árciga
-            </p>
+<p>
+Eduardo Navarrete Árciga
+</p>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </section>
 
@@ -2661,1253 +1595,1434 @@ footer p {
 
 <section class="reveal">
 
-    <div class="subtitulo">
-        Personas especiales
-    </div>
+<div class="subtitulo">
+Personas especiales
+</div>
 
-    <h2 class="titulo">
-        Nuestro cortejo
-    </h2>
+<h2 class="titulo">
+Nuestro cortejo
+</h2>
 
-    <p>
-        Cada una de estas personas ocupa un lugar especial
-        en nuestra celebración.
-    </p>
+<p>
+Cada una de estas personas ocupa un lugar especial
+en nuestra celebración.
+</p>
 
-    <div class="padrinos">
+<div class="padrinos">
 
 
-        <!-- 1 -->
+<!-- 1 PADRINOS DE VELACION -->
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+<div class="padrino-fila">
 
-            <div class="sobre-frente">
+<div class="sobre-padrino" tabindex="0" role="button">
 
-                <div class="sobre-icono">
-                    ✉
-                </div>
+<div class="sobre-frente">
 
-                <h3>
-                    Padrinos de velación
-                </h3>
+<div class="sobre-icono">
+✉
+</div>
 
-                <small>
-                    Toca para descubrir
-                </small>
+<h3>
+Padrinos de velación
+</h3>
 
-            </div>
+<small>
+Toca para descubrir
+</small>
 
-            <div class="sobre-contenido">
+</div>
 
-                <h3>
-                    Padrinos de velación
-                </h3>
+<div class="sobre-contenido">
 
-                <p>
-                    Norma Alicia Mendoza Moreno
-                    <br>
-                    &
-                    <br>
-                    Eduardo Navarrete Árciga
-                </p>
+<h3>
+Padrinos de velación
+</h3>
 
-                <button
-                    class="cerrar-sobre"
-                    type="button">
+<p>
+Norma Alicia Mendoza Moreno
+<br>
+&
+<br>
+Eduardo Navarrete Árciga
+</p>
 
-                    Cerrar
+<button class="cerrar-sobre" type="button">
+Cerrar
+</button>
 
-                </button>
+</div>
 
-            </div>
+</div>
 
-        </div>
+<div class="padrino-ilustracion" aria-label="Iglesia">
 
+<svg viewBox="0 0 100 100" aria-hidden="true">
 
-        <!-- 2 -->
+<path class="linea"
+d="M20 82h60M27 82V45h46v37M22 45l28-25 28 25M44 82V62h12v20M47 45V32h6v13M50 26v-8M44 22h12"/>
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+</svg>
 
-            <div class="sobre-frente">
+</div>
 
-                <div class="sobre-icono">
-                    ✉
-                </div>
+</div>
 
-                <h3>
-                    Madrina de anillos
-                </h3>
 
-                <small>
-                    Toca para descubrir
-                </small>
+<!-- 2 MADRINA DE ANILLOS -->
 
-            </div>
+<div class="padrino-fila par">
 
-            <div class="sobre-contenido">
+<div class="sobre-padrino" tabindex="0" role="button">
 
-                <h3>
-                    Madrina de anillos
-                </h3>
+<div class="sobre-frente">
 
-                <p>
-                    Patricia Martínez Huerta
-                </p>
+<div class="sobre-icono">
+✉
+</div>
 
-                <button
-                    class="cerrar-sobre"
-                    type="button">
+<h3>
+Madrina de anillos
+</h3>
 
-                    Cerrar
+<small>
+Toca para descubrir
+</small>
 
-                </button>
+</div>
 
-            </div>
+<div class="sobre-contenido">
 
-        </div>
+<h3>
+Madrina de anillos
+</h3>
 
+<p>
+Patricia Martínez Huerta
+</p>
 
-        <!-- 3 -->
+<button class="cerrar-sobre" type="button">
+Cerrar
+</button>
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+</div>
 
-            <div class="sobre-frente">
+</div>
 
-                <div class="sobre-icono">
-                    ✉
-                </div>
+<div class="padrino-ilustracion" aria-label="Anillos">
 
-                <h3>
-                    Padrinos de arras
-                </h3>
+<svg viewBox="0 0 100 100" aria-hidden="true">
 
-                <small>
-                    Toca para descubrir
-                </small>
+<circle class="linea" cx="39" cy="52" r="18"/>
+<circle class="linea" cx="61" cy="52" r="18"/>
 
-            </div>
+<path class="linea"
+d="M39 34l4-8 8 4M61 34l-4-8-8 4"/>
 
-            <div class="sobre-contenido">
+</svg>
 
-                <h3>
-                    Padrinos de arras
-                </h3>
+</div>
 
-                <p>
-                    Paula Espinoza Arellano
-                    <br>
-                    &
-                    <br>
-                    Daniel Navarrete Mendoza
-                </p>
+</div>
 
-                <button
-                    class="cerrar-sobre"
-                    type="button">
 
-                    Cerrar
+<!-- 3 PADRINOS DE ARRAS -->
 
-                </button>
+<div class="padrino-fila">
 
-            </div>
+<div class="sobre-padrino" tabindex="0" role="button">
 
-        </div>
+<div class="sobre-frente">
 
+<div class="sobre-icono">
+✉
+</div>
 
-        <!-- 4 -->
+<h3>
+Padrinos de arras
+</h3>
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+<small>
+Toca para descubrir
+</small>
 
-            <div class="sobre-frente">
+</div>
 
-                <div class="sobre-icono">
-                    ✉
-                </div>
+<div class="sobre-contenido">
 
-                <h3>
-                    Padrinos de lazo
-                </h3>
+<h3>
+Padrinos de arras
+</h3>
 
-                <small>
-                    Toca para descubrir
-                </small>
+<p>
+Paula Espinoza Arellano
+<br>
+&
+<br>
+Daniel Navarrete Mendoza
+</p>
 
-            </div>
+<button class="cerrar-sobre" type="button">
+Cerrar
+</button>
 
-            <div class="sobre-contenido">
+</div>
 
-                <h3>
-                    Padrinos de lazo
-                </h3>
+</div>
 
-                <p>
-                    Próximamente
-                </p>
+<div class="padrino-ilustracion" aria-label="Arras">
 
-                <button
-                    class="cerrar-sobre"
-                    type="button">
+<svg viewBox="0 0 100 100" aria-hidden="true">
 
-                    Cerrar
+<circle class="linea" cx="30" cy="57" r="13"/>
+<circle class="linea" cx="50" cy="48" r="13"/>
+<circle class="linea" cx="70" cy="57" r="13"/>
 
-                </button>
+<path class="linea"
+d="M25 46l3-7 6 5M45 37l3-7 6 5M65 46l3-7 6 5"/>
 
-            </div>
+</svg>
 
-        </div>
+</div>
 
+</div>
 
-        <!-- 5 -->
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+<!-- 4 PADRINOS DE LAZO -->
 
-            <div class="sobre-frente">
+<div class="padrino-fila par">
 
-                <div class="sobre-icono">
-                    ✉
-                </div>
+<div class="sobre-padrino" tabindex="0" role="button">
 
-                <h3>
-                    Madrina de Biblia y Rosario
-                </h3>
+<div class="sobre-frente">
 
-                <small>
-                    Toca para descubrir
-                </small>
+<div class="sobre-icono">
+✉
+</div>
 
-            </div>
+<h3>
+Padrinos de lazo
+</h3>
 
-            <div class="sobre-contenido">
+<small>
+Toca para descubrir
+</small>
 
-                <h3>
-                    Madrina de Biblia y Rosario
-                </h3>
+</div>
 
-                <p>
-                    María Elena Corona Jacinto
-                </p>
+<div class="sobre-contenido">
 
-                <button
-                    class="cerrar-sobre"
-                    type="button">
+<h3>
+Padrinos de lazo
+</h3>
 
-                    Cerrar
+<p>
+Próximamente
+</p>
 
-                </button>
+<button class="cerrar-sobre" type="button">
+Cerrar
+</button>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
+<div class="padrino-ilustracion" aria-label="Lazo">
 
-        <!-- 6 -->
+<svg viewBox="0 0 100 100" aria-hidden="true">
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+<path class="linea"
+d="M50 48C35 25 18 29 25 45c5 11 17 10 25 3M50 48C65 25 82 29 75 45c-5 11-17 10-25 3M50 48v30"/>
 
-            <div class="sobre-frente">
+<path class="linea"
+d="M50 40c-7-7-13-1-9 6 3 5 7 6 9 7 2-1 6-2 9-7 4-7-2-13-9-6z"/>
 
-                <div class="sobre-icono">
-                    ✉
-                </div>
+</svg>
 
-                <h3>
-                    Padrinos de medalla
-                </h3>
+</div>
 
-                <small>
-                    Toca para descubrir
-                </small>
+</div>
 
-            </div>
 
-            <div class="sobre-contenido">
+<!-- 5 BIBLIA Y ROSARIO -->
 
-                <h3>
-                    Padrinos de medalla
-                </h3>
+<div class="padrino-fila">
 
-                <p>
-                    Claudia Alvarez Corona
-                    <br>
-                    &
-                    <br>
-                    Marco Antonio Moreno Huerta
-                </p>
+<div class="sobre-padrino" tabindex="0" role="button">
 
-                <button
-                    class="cerrar-sobre"
-                    type="button">
+<div class="sobre-frente">
 
-                    Cerrar
+<div class="sobre-icono">
+✉
+</div>
 
-                </button>
+<h3>
+Madrina de Biblia y Rosario
+</h3>
 
-            </div>
+<small>
+Toca para descubrir
+</small>
 
-        </div>
+</div>
 
+<div class="sobre-contenido">
 
-        <!-- 7 -->
+<h3>
+Madrina de Biblia y Rosario
+</h3>
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+<p>
+María Elena Corona Jacinto
+</p>
 
-            <div class="sobre-frente">
+<button class="cerrar-sobre" type="button">
+Cerrar
+</button>
 
-                <div class="sobre-icono">
-                    ✉
-                </div>
+</div>
 
-                <h3>
-                    Padrinos de copas
-                </h3>
+</div>
 
-                <small>
-                    Toca para descubrir
-                </small>
+<div class="padrino-ilustracion" aria-label="Biblia y Rosario">
 
-            </div>
+<svg viewBox="0 0 100 100" aria-hidden="true">
 
-            <div class="sobre-contenido">
+<path class="linea"
+d="M25 25h27c5 0 8 3 8 8v43H38c-7 0-13-5-13-12V25z"/>
 
-                <h3>
-                    Padrinos de copas
-                </h3>
+<path class="linea"
+d="M75 25H48c-5 0-8 3-8 8v43h22c7 0 13-5 13-12V25z"/>
 
-                <p>
-                    Magalli Alvarez Martínez
-                    <br>
-                    &
-                    <br>
-                    Nallely Gómez Vázquez
-                </p>
+<path class="linea"
+d="M39 40h14M39 51h14M61 40h-8M61 51h-8"/>
 
-                <button
-                    class="cerrar-sobre"
-                    type="button">
+<circle class="linea" cx="72" cy="68" r="9"/>
 
-                    Cerrar
+<path class="linea"
+d="M72 59v18M63 68h18"/>
 
-                </button>
+</svg>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
 
-        <!-- 8 -->
+<!-- 6 MEDALLA -->
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+<div class="padrino-fila par">
 
-            <div class="sobre-frente">
+<div class="sobre-padrino" tabindex="0" role="button">
 
-                <div class="sobre-icono">
-                    ✉
-                </div>
+<div class="sobre-frente">
 
-                <h3>
-                    Padrino de pastel
-                </h3>
+<div class="sobre-icono">
+✉
+</div>
 
-                <small>
-                    Toca para descubrir
-                </small>
+<h3>
+Padrinos de medalla
+</h3>
 
-            </div>
+<small>
+Toca para descubrir
+</small>
 
-            <div class="sobre-contenido">
+</div>
 
-                <h3>
-                    Padrino de pastel
-                </h3>
+<div class="sobre-contenido">
 
-                <p>
-                    Marcos Mendoza Moreno
-                </p>
+<h3>
+Padrinos de medalla
+</h3>
 
-                <button
-                    class="cerrar-sobre"
-                    type="button">
+<p>
+Claudia Alvarez Corona
+<br>
+&
+<br>
+Marco Antonio Moreno Huerta
+</p>
 
-                    Cerrar
+<button class="cerrar-sobre" type="button">
+Cerrar
+</button>
 
-                </button>
+</div>
 
-            </div>
+</div>
 
-        </div>
+<div class="padrino-ilustracion" aria-label="Medalla">
 
+<svg viewBox="0 0 100 100" aria-hidden="true">
 
-        <!-- 9 -->
+<path class="linea"
+d="M40 24l10 13 10-13"/>
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+<path class="linea"
+d="M40 24l10 8 10-8"/>
 
-            <div class="sobre-frente">
+<circle class="linea" cx="50" cy="60" r="23"/>
 
-                <div class="sobre-icono">
-                    ✉
-                </div>
+<path class="linea"
+d="M42 60h16M50 52v16"/>
 
-                <h3>
-                    Madrina de zapatillas
-                </h3>
+</svg>
 
-                <small>
-                    Toca para descubrir
-                </small>
+</div>
 
-            </div>
+</div>
 
-            <div class="sobre-contenido">
 
-                <h3>
-                    Madrina de zapatillas
-                </h3>
+<!-- 7 COPAS -->
 
-                <p>
-                    Alison Melanie Moreno Alvarez
-                </p>
+<div class="padrino-fila">
 
-                <button
-                    class="cerrar-sobre"
-                    type="button">
+<div class="sobre-padrino" tabindex="0" role="button">
 
-                    Cerrar
+<div class="sobre-frente">
 
-                </button>
+<div class="sobre-icono">
+✉
+</div>
 
-            </div>
+<h3>
+Padrinos de copas
+</h3>
 
-        </div>
+<small>
+Toca para descubrir
+</small>
 
+</div>
 
-        <!-- 10 -->
+<div class="sobre-contenido">
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+<h3>
+Padrinos de copas
+</h3>
 
-            <div class="sobre-frente">
+<p>
+Magalli Alvarez Martínez
+<br>
+&
+<br>
+Nallely Gómez Vázquez
+</p>
 
-                <div class="sobre-icono">
-                    ✉
-                </div>
+<button class="cerrar-sobre" type="button">
+Cerrar
+</button>
 
-                <h3>
-                    Madrinas de foto y video
-                </h3>
+</div>
 
-                <small>
-                    Toca para descubrir
-                </small>
+</div>
 
-            </div>
+<div class="padrino-ilustracion" aria-label="Copas">
 
-            <div class="sobre-contenido">
+<svg viewBox="0 0 100 100" aria-hidden="true">
 
-                <h3>
-                    Madrinas de foto y video
-                </h3>
+<path class="linea"
+d="M27 30h18c0 18-4 27-9 27s-9-9-9-27z"/>
 
-                <p>
-                    Margarita Sánchez Huerta
-                    <br>
-                    &
-                    <br>
-                    María de la Luz Huerta Aviles
-                </p>
+<path class="linea"
+d="M55 30h18c0 18-4 27-9 27s-9-9-9-27z"/>
 
-                <button
-                    class="cerrar-sobre"
-                    type="button">
+<path class="linea"
+d="M36 57v20M28 77h16M64 57v20M56 77h16"/>
 
-                    Cerrar
+</svg>
 
-                </button>
+</div>
 
-            </div>
+</div>
 
-        </div>
 
+<!-- 8 PASTEL -->
 
-        <!-- 11 -->
+<div class="padrino-fila par">
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+<div class="sobre-padrino" tabindex="0" role="button">
 
-            <div class="sobre-frente">
+<div class="sobre-frente">
 
-                <div class="sobre-icono">
-                    ✉
-                </div>
+<div class="sobre-icono">
+✉
+</div>
 
-                <h3>
-                    Madrinas de ramo
-                </h3>
+<h3>
+Padrino de pastel
+</h3>
 
-                <small>
-                    Toca para descubrir
-                </small>
+<small>
+Toca para descubrir
+</small>
 
-            </div>
+</div>
 
-            <div class="sobre-contenido">
+<div class="sobre-contenido">
 
-                <h3>
-                    Madrinas de ramo
-                </h3>
+<h3>
+Padrino de pastel
+</h3>
 
-                <p>
-                    Janet Martínez García
-                    <br>
-                    &
-                    <br>
-                    Mariana Molina Barranco
-                </p>
+<p>
+Marcos Mendoza Moreno
+</p>
 
-                <button
-                    class="cerrar-sobre"
-                    type="button">
+<button class="cerrar-sobre" type="button">
+Cerrar
+</button>
 
-                    Cerrar
+</div>
 
-                </button>
+</div>
 
-            </div>
+<div class="padrino-ilustracion" aria-label="Pastel">
 
-        </div>
+<svg viewBox="0 0 100 100" aria-hidden="true">
 
-    </div>
+<path class="linea"
+d="M27 52h46v25H27z"/>
+
+<path class="linea"
+d="M34 40h32v12H34z"/>
+
+<path class="linea"
+d="M50 40v-8"/>
+
+<path class="linea"
+d="M46 32c0-5 8-5 8 0"/>
+
+<path class="linea"
+d="M34 61h32M34 70h32"/>
+
+</svg>
+
+</div>
+
+</div>
+
+
+<!-- 9 ZAPATILLAS -->
+
+<div class="padrino-fila">
+
+<div class="sobre-padrino" tabindex="0" role="button">
+
+<div class="sobre-frente">
+
+<div class="sobre-icono">
+✉
+</div>
+
+<h3>
+Madrina de zapatillas
+</h3>
+
+<small>
+Toca para descubrir
+</small>
+
+</div>
+
+<div class="sobre-contenido">
+
+<h3>
+Madrina de zapatillas
+</h3>
+
+<p>
+Alison Melanie Moreno Alvarez
+</p>
+
+<button class="cerrar-sobre" type="button">
+Cerrar
+</button>
+
+</div>
+
+</div>
+
+<div class="padrino-ilustracion" aria-label="Zapatillas">
+
+<svg viewBox="0 0 100 100" aria-hidden="true">
+
+<path class="linea"
+d="M23 66c10-2 18-9 22-18l5-12c2-5 8-6 12-3l14 10c4 3 4 9 0 13l-11 10c-8 7-18 10-29 10H23z"/>
+
+<path class="linea"
+d="M36 67l9 9M46 59l10 9M57 51l10 9"/>
+
+</svg>
+
+</div>
+
+</div>
+
+
+<!-- 10 FOTO Y VIDEO -->
+
+<div class="padrino-fila par">
+
+<div class="sobre-padrino" tabindex="0" role="button">
+
+<div class="sobre-frente">
+
+<div class="sobre-icono">
+✉
+</div>
+
+<h3>
+Madrinas de foto y video
+</h3>
+
+<small>
+Toca para descubrir
+</small>
+
+</div>
+
+<div class="sobre-contenido">
+
+<h3>
+Madrinas de foto y video
+</h3>
+
+<p>
+Margarita Sánchez Huerta
+<br>
+&
+<br>
+María de la Luz Huerta Aviles
+</p>
+
+<button class="cerrar-sobre" type="button">
+Cerrar
+</button>
+
+</div>
+
+</div>
+
+<div class="padrino-ilustracion" aria-label="Foto y video">
+
+<svg viewBox="0 0 100 100" aria-hidden="true">
+
+<rect class="linea"
+x="22"
+y="35"
+width="56"
+height="39"
+rx="5"/>
+
+<circle class="linea"
+cx="50"
+cy="54"
+r="12"/>
+
+<circle class="linea"
+cx="50"
+cy="54"
+r="5"/>
+
+<path class="linea"
+d="M33 35l6-9h22l6 9"/>
+
+</svg>
+
+</div>
+
+</div>
+
+
+<!-- 11 RAMO -->
+
+<div class="padrino-fila">
+
+<div class="sobre-padrino" tabindex="0" role="button">
+
+<div class="sobre-frente">
+
+<div class="sobre-icono">
+✉
+</div>
+
+<h3>
+Madrinas de ramo
+</h3>
+
+<small>
+Toca para descubrir
+</small>
+
+</div>
+
+<div class="sobre-contenido">
+
+<h3>
+Madrinas de ramo
+</h3>
+
+<p>
+Janet Martínez García
+<br>
+&
+<br>
+Mariana Molina Barranco
+</p>
+
+<button class="cerrar-sobre" type="button">
+Cerrar
+</button>
+
+</div>
+
+</div>
+
+<div class="padrino-ilustracion" aria-label="Ramo">
+
+<svg viewBox="0 0 100 100" aria-hidden="true">
+
+<path class="linea"
+d="M50 78V48"/>
+
+<path class="linea"
+d="M50 53C42 40 27 40 24 49c9 1 17 5 26 12"/>
+
+<path class="linea"
+d="M50 53C58 40 73 40 76 49c-9 1-17 5-26 12"/>
+
+<path class="linea"
+d="M50 48C42 35 45 23 50 19c5 4 8 16 0 29"/>
+
+<circle class="linea" cx="34" cy="43" r="8"/>
+<circle class="linea" cx="66" cy="43" r="8"/>
+<circle class="linea" cx="50" cy="29" r="8"/>
+
+</svg>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     FOTO 5
-===================================================== -->
+<!-- FOTO 5 -->
 
 <section
-    class="foto-separadora"
-    style="background-image:url('foto5.jpg');">
+class="foto-separadora"
+style="background-image:url('foto5.jpg');">
 
-    <div class="foto-texto">
-        Gracias por acompañarnos
-    </div>
+<div class="foto-texto">
+Gracias por acompañarnos
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     HOSPEDAJE
-===================================================== -->
+<!-- HOSPEDAJE -->
 
 <section class="reveal">
 
-    <div class="subtitulo">
-        Para nuestros invitados
-    </div>
+<div class="subtitulo">
+Para nuestros invitados
+</div>
 
-    <h2 class="titulo">
-        Hospedaje
-    </h2>
+<h2 class="titulo">
+Hospedaje
+</h2>
 
-    <p>
-        Para quienes quieran quedarse a descansar,
-        compartimos algunas opciones de hospedaje
-        que pueden consultar.
-    </p>
+<p>
+Para quienes nos acompañen desde fuera,
+hemos seleccionado algunas opciones de hospedaje.
+</p>
 
+<div class="hoteles">
 
-    <div class="hoteles">
+<div class="hotel">
 
+<h3>
+Hotel Borda
+</h3>
 
-        <div class="hotel">
+<a
+href="https://www.hotelesborda.mx/"
+target="_blank"
+rel="noopener noreferrer"
+class="hotel-boton">
 
-            <h3>
-                Hotel Borda
-            </h3>
+Ver hotel
 
-            <a
-                href="https://www.hotelesborda.mx/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="hotel-boton">
+</a>
 
-                Ver hotel
-
-            </a>
-
-        </div>
+</div>
 
 
-        <div class="hotel">
+<div class="hotel">
 
-            <h3>
-                Hotel Arcadia
-            </h3>
+<h3>
+Hotel Arcadia
+</h3>
 
-            <a
-                href="https://share.google/gHRKZmuS0vHIDyZsd"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="hotel-boton">
+<a
+href="https://share.google/gHRKZmuS0vHIDyZsd"
+target="_blank"
+rel="noopener noreferrer"
+class="hotel-boton">
 
-                Ver hotel
+Ver hotel
 
-            </a>
+</a>
 
-        </div>
+</div>
 
 
-        <div class="hotel">
+<div class="hotel">
 
-            <h3>
-                Hotel Real del Sol
-            </h3>
+<h3>
+Hotel Real del Sol
+</h3>
 
-            <a
-                href="https://maps.app.goo.gl/Vd6BwfgVb9rV4FXz6?g_st=aw"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="hotel-boton">
+<a
+href="https://maps.app.goo.gl/Vd6BwfgVb9rV4FXz6?g_st=aw"
+target="_blank"
+rel="noopener noreferrer"
+class="hotel-boton">
 
-                Ver ubicación
+Ver ubicación
 
-            </a>
+</a>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     VESTIMENTA
-===================================================== -->
+<!-- VESTIMENTA -->
 
 <section class="reveal">
 
-    <div class="subtitulo">
-        Código de vestimenta
-    </div>
+<div class="subtitulo">
+Código de vestimenta
+</div>
 
-    <h2 class="titulo">
-        De etiqueta en jardín
-    </h2>
+<h2 class="titulo">
+De etiqueta en jardín
+</h2>
 
+<div class="vestimenta">
 
-    <div class="vestimenta">
+<h3>
+Una consideración especial
+</h3>
 
-        <h3>
-            Una consideración especial
-        </h3>
+<br>
 
-        <br>
+<p>
+Les pedimos reservar el color
+<strong>terracota (naranja y marrón)</strong>
+para las damas y el color
+<strong>blanco</strong>
+exclusivamente para la novia.
+</p>
 
-        <p>
-            Les pedimos reservar el color
-            <strong>terracota (naranja y marrón)</strong>
-            para las damas y el color
-            <strong>blanco</strong>
-            exclusivamente para la novia.
-        </p>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     LLUVIA DE SOBRES
-===================================================== -->
+<!-- LLUVIA DE SOBRES -->
 
 <section class="reveal">
 
-    <div class="subtitulo">
-        Un detalle para nuestro futuro
-    </div>
+<div class="subtitulo">
+Un detalle para nuestro futuro
+</div>
 
-    <h2 class="titulo">
-        Lluvia de sobres
-    </h2>
+<h2 class="titulo">
+Lluvia de sobres
+</h2>
 
+<div class="lluvia">
 
-    <div class="lluvia">
+<div class="sobre">
+✉
+</div>
 
-        <div class="sobre">
-            ✉
-        </div>
+<p>
+<strong>
+Sugerencia de regalo:
+</strong>
+</p>
 
-        <p>
-            <strong>
-                Sugerencia de regalo:
-            </strong>
-        </p>
+<p>
+Buzón de sobres para nuestro futuro juntos.
+</p>
 
-        <p>
-            Buzón de sobres para nuestro futuro juntos.
-        </p>
+<br>
 
-        <br>
+<p>
+<strong>
+¡No te preocupes!
+</strong>
+</p>
 
-        <p>
-            <strong>
-                ¡No te preocupes!
-            </strong>
-        </p>
+<p>
+En la recepción les proporcionarán
+sobres personalizados.
+</p>
 
-        <p>
-            En la recepción les proporcionarán
-            sobres personalizados.
-        </p>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     FOTO 6
-===================================================== -->
+<!-- FOTO 6 -->
 
 <section
-    class="foto-separadora"
-    style="background-image:url('foto6.jpg');">
+class="foto-separadora"
+style="background-image:url('foto6.jpg');">
 
-    <div class="foto-texto final-nombres">
-
-        <span class="con-carino">
-            Con cariño
-        </span>
-
-        <span class="nombres-foto">
-            Irlandi & Fernando
-        </span>
-
-    </div>
+<div class="foto-texto">
+Con cariño
+<br>
+Irlandi y Fernando
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     ALBUM DE FOTOS
-===================================================== -->
+<!-- ALBUM -->
 
 <section class="reveal">
 
-    <div class="subtitulo">
-        Compartamos nuestros recuerdos
-    </div>
+<div class="subtitulo">
+Compartamos nuestros recuerdos
+</div>
 
-    <h2 class="titulo">
-        Álbum de invitados
-    </h2>
+<h2 class="titulo">
+Álbum de invitados
+</h2>
 
+<div class="pendiente">
 
-    <div class="pendiente">
+<p>
+Comparte tus fotografías favoritas
+de nuestra celebración y ayúdanos a
+guardar estos recuerdos para siempre.
+</p>
 
-        <p>
-            Comparte tus fotografías favoritas
-            de nuestra celebración y ayúdanos a
-            guardar estos recuerdos para siempre.
-        </p>
+<br>
 
-        <br>
+<strong>
+#IrlandiYFernando2026
+</strong>
 
-        <strong>
-            #IrlandiYFernando2026
-        </strong>
+<br>
 
-        <br>
+<a
+href="https://photos.app.goo.gl/HDe2px4fACf7NwXB9"
+target="_blank"
+rel="noopener noreferrer"
+class="boton-fotos">
 
-        <a
-            href="https://photos.app.goo.gl/HDe2px4fACf7NwXB9"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-fotos">
+📸 Compartir fotografías
 
-            📸 Compartir fotografías
+</a>
 
-        </a>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     WHATSAPP
-===================================================== -->
+<!-- WHATSAPP -->
 
 <section class="whatsapp-seccion reveal">
 
-    <div class="subtitulo">
-        Estamos para ustedes
-    </div>
+<div class="subtitulo">
+Estamos para ustedes
+</div>
 
-    <h2 class="titulo">
-        ¿Tienes algún comentario?
-    </h2>
+<h2 class="titulo">
+¿Tienes algún comentario?
+</h2>
 
-    <div class="whatsapp-texto">
+<div class="whatsapp-texto">
 
-        <p>
-            Si tienes algún comentario especial que
-            quieras hacernos llegar, escríbenos por
-            WhatsApp.
-        </p>
+<p>
+Si tienes algún comentario especial que
+quieras hacernos llegar, escríbenos por
+WhatsApp.
+</p>
 
-    </div>
+</div>
 
+<div class="whatsapp-botones">
 
-    <div class="whatsapp-botones">
+<a
+href="https://wa.me/525534325116?text=Hola%20Fernando%2C%20estoy%20viendo%20su%20invitaci%C3%B3n%20de%20boda%20y%20quer%C3%ADa%20hacerles%20un%20comentario%20especial."
+target="_blank"
+rel="noopener noreferrer"
+class="boton-whatsapp">
 
+<span class="whatsapp-icono">
+♡
+</span>
 
-        <a
-            href="https://wa.me/525534325116?text=Hola%20Fernando%2C%20estoy%20viendo%20su%20invitaci%C3%B3n%20de%20boda%20y%20quer%C3%ADa%20hacerles%20un%20comentario%20especial."
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-whatsapp">
+Escribir a Fernando
 
-            <span class="whatsapp-icono">
-                ♡
-            </span>
-
-            Escribir a Fernando
-
-        </a>
+</a>
 
 
-        <a
-            href="https://wa.me/525514170828?text=Hola%20Irlandi%2C%20estoy%20viendo%20su%20invitaci%C3%B3n%20de%20boda%20y%20quer%C3%ADa%20hacerles%20un%20comentario%20especial."
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-whatsapp">
+<a
+href="https://wa.me/525514170828?text=Hola%20Irlandi%2C%20estoy%20viendo%20su%20invitaci%C3%B3n%20de%20boda%20y%20quer%C3%ADa%20hacerles%20un%20comentario%20especial."
+target="_blank"
+rel="noopener noreferrer"
+class="boton-whatsapp">
 
-            <span class="whatsapp-icono">
-                ♡
-            </span>
+<span class="whatsapp-icono">
+♡
+</span>
 
-            Escribir a Irlandi
+Escribir a Irlandi
 
-        </a>
+</a>
 
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     CONFIRMACION
-===================================================== -->
+<!-- CONFIRMACION -->
 
 <section class="reveal">
 
-    <div class="subtitulo">
-        Queremos contar contigo
-    </div>
+<div class="subtitulo">
+Queremos contar contigo
+</div>
 
-    <h2 class="titulo">
-        Confirmación de asistencia
-    </h2>
+<h2 class="titulo">
+Confirmación de asistencia
+</h2>
 
+<div class="confirmacion">
 
-    <div class="confirmacion">
+<p>
+Para nosotros será un honor compartir
+este día tan especial contigo.
+</p>
 
-        <p>
-            Para nosotros será un honor compartir
-            este día tan especial contigo.
-        </p>
+<br>
 
-        <br>
+<p>
+Por favor, confirma tu asistencia
+mediante nuestro formulario.
+</p>
 
-        <p>
-            Por favor, confirma tu asistencia
-            mediante nuestro formulario.
-        </p>
+<a
+href="https://docs.google.com/forms/d/e/1FAIpQLSfR_J_tOqwMNImpd1_GAFmMZ9J5i9Sgsucf1fax0Rb8Gr0-zg/viewform?usp=dialog"
+target="_blank"
+rel="noopener noreferrer"
+class="boton-confirmacion">
 
+Confirmar asistencia
 
-        <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfR_J_tOqwMNImpd1_GAFmMZ9J5i9Sgsucf1fax0Rb8Gr0-zg/viewform?usp=dialog"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="boton-confirmacion">
+</a>
 
-            Confirmar asistencia
-
-        </a>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<!-- FOOTER -->
 
 <footer>
 
-    <div class="nombres">
-        Irlandi & Fernando
-    </div>
+<div class="nombres">
+Irlandi y Fernando
+</div>
 
-    <p>
-        5 de diciembre de 2026
-    </p>
+<p>
+5 de diciembre de 2026
+</p>
 
-    <br>
+<br>
 
-    <p>
-        Gracias por formar parte de este día
-        tan especial para nosotros.
-    </p>
+<p>
+Gracias por formar parte de este día
+tan especial para nosotros.
+</p>
 
 </footer>
 
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script>
 
+/* =========================
+   SOBRE DE ENTRADA
+========================= */
 
-/* =====================================================
-   SOBRE DE ENTRADA + MUSICA
-===================================================== */
+const pantallaSobre=document.getElementById("pantallaSobre");
+const sobreEntrada=document.getElementById("sobreEntrada");
+const musica=document.getElementById("musica");
 
-const pantallaSobre =
-    document.getElementById("pantallaSobre");
+function abrirSobreEntrada(){
 
-const sobreEntrada =
-    document.getElementById("sobreEntrada");
+if(sobreEntrada.classList.contains("abierto")) return;
 
-const musica =
-    document.getElementById("musica");
+sobreEntrada.classList.add("abierto");
 
+musica.volume=.35;
 
-function abrirSobre() {
+musica.play().catch(function(error){
+console.log("La reproducción fue bloqueada:",error);
+});
 
-    if (
-        sobreEntrada.classList.contains("sobre-abierto")
-    ) {
-        return;
-    }
+setTimeout(function(){
 
-    sobreEntrada.classList.add("sobre-abierto");
+sobreEntrada.classList.add("cerrando");
 
-    musica.volume = 0.35;
+setTimeout(function(){
 
-    musica.play()
-        .catch(function(error) {
+pantallaSobre.classList.add("oculta");
+document.body.classList.remove("bloqueado");
 
-            console.log(
-                "La reproducción fue bloqueada:",
-                error
-            );
+document.getElementById("invitacion").scrollIntoView({
+behavior:"smooth"
+});
 
-        });
+},900);
 
-    setTimeout(function() {
-
-        pantallaSobre.classList.add("oculta");
-
-        document.body.classList.remove("bloqueado");
-
-        document.getElementById("invitacion")
-            .scrollIntoView({
-                behavior: "smooth"
-            });
-
-    }, 900);
+},1050);
 
 }
 
+sobreEntrada.addEventListener("click",abrirSobreEntrada);
 
-sobreEntrada.addEventListener(
-    "click",
-    abrirSobre
-);
+sobreEntrada.addEventListener("keydown",function(event){
 
+if(event.key==="Enter" || event.key===" "){
 
-sobreEntrada.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (
-            event.key === "Enter" ||
-            event.key === " "
-        ) {
-
-            event.preventDefault();
-
-            abrirSobre();
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   CONTADOR
-===================================================== */
-
-const fechaBoda =
-    new Date(
-        "December 5, 2026 16:00:00"
-    ).getTime();
-
-
-function actualizarContador() {
-
-    const ahora =
-        new Date().getTime();
-
-    const diferencia =
-        fechaBoda - ahora;
-
-
-    if (diferencia <= 0) {
-
-        document.getElementById("dias")
-            .textContent = "0";
-
-        document.getElementById("horas")
-            .textContent = "0";
-
-        document.getElementById("minutos")
-            .textContent = "0";
-
-        document.getElementById("segundos")
-            .textContent = "0";
-
-        return;
-    }
-
-
-    const dias =
-        Math.floor(
-            diferencia /
-            (1000 * 60 * 60 * 24)
-        );
-
-
-    const horas =
-        Math.floor(
-            (diferencia /
-            (1000 * 60 * 60)) % 24
-        );
-
-
-    const minutos =
-        Math.floor(
-            (diferencia /
-            (1000 * 60)) % 60
-        );
-
-
-    const segundos =
-        Math.floor(
-            (diferencia / 1000) % 60
-        );
-
-
-    document.getElementById("dias")
-        .textContent = dias;
-
-    document.getElementById("horas")
-        .textContent = horas;
-
-    document.getElementById("minutos")
-        .textContent = minutos;
-
-    document.getElementById("segundos")
-        .textContent = segundos;
+event.preventDefault();
+abrirSobreEntrada();
 
 }
-
-
-actualizarContador();
-
-setInterval(
-    actualizarContador,
-    1000
-);
-
-
-/* =====================================================
-   SOBRES DEL CORTEJO
-===================================================== */
-
-const sobres =
-    document.querySelectorAll(
-        ".sobre-padrino"
-    );
-
-
-sobres.forEach(function(sobre) {
-
-    sobre.addEventListener(
-        "click",
-        function(event) {
-
-            if (
-                event.target.classList
-                    .contains("cerrar-sobre")
-            ) {
-
-                sobre.classList
-                    .remove("abierto");
-
-                return;
-
-            }
-
-            sobre.classList
-                .toggle("abierto");
-
-        }
-    );
-
-
-    sobre.addEventListener(
-        "keydown",
-        function(event) {
-
-            if (
-                event.key === "Enter" ||
-                event.key === " "
-            ) {
-
-                event.preventDefault();
-
-                sobre.classList
-                    .toggle("abierto");
-
-            }
-
-        }
-    );
 
 });
 
 
-/* =====================================================
-   HISTORIA DE AMOR - CARRUSEL AUTOMATICO
-===================================================== */
+/* =========================
+   HOJAS
+========================= */
 
-const fotosHistoria =
-    document.querySelectorAll(
-        ".historia-foto"
-    );
+const hojasOtono=document.getElementById("hojasOtono");
 
-let fotoActual = 0;
+const simbolosHojas=[
+"🍂",
+"🍁",
+"🍂",
+"🍁"
+];
 
+for(let i=0;i<18;i++){
 
-function cambiarFotoHistoria() {
+const hoja=document.createElement("span");
 
-    if (fotosHistoria.length === 0) {
-        return;
-    }
+hoja.className="hoja-otono";
 
-    fotosHistoria[fotoActual]
-        .classList
-        .remove("activa");
+hoja.textContent=
+simbolosHojas[i%simbolosHojas.length];
 
-    fotoActual =
-        (fotoActual + 1) %
-        fotosHistoria.length;
+hoja.style.left=
+(Math.random()*100)+"%";
 
-    fotosHistoria[fotoActual]
-        .classList
-        .add("activa");
+hoja.style.animationDuration=
+(8+Math.random()*9)+"s";
+
+hoja.style.animationDelay=
+(-Math.random()*16)+"s";
+
+hoja.style.fontSize=
+(12+Math.random()*12)+"px";
+
+hojasOtono.appendChild(hoja);
 
 }
 
 
+/* =========================
+   CONTADOR
+========================= */
+
+const fechaBoda=
+new Date(
+"December 5, 2026 16:00:00"
+).getTime();
+
+function actualizarContador(){
+
+const ahora=
+new Date().getTime();
+
+const diferencia=
+fechaBoda-ahora;
+
+if(diferencia<=0){
+
+document.getElementById("dias").textContent="0";
+document.getElementById("horas").textContent="0";
+document.getElementById("minutos").textContent="0";
+document.getElementById("segundos").textContent="0";
+
+return;
+
+}
+
+const dias=
+Math.floor(
+diferencia/(1000*60*60*24)
+);
+
+const horas=
+Math.floor(
+(diferencia/(1000*60*60))%24
+);
+
+const minutos=
+Math.floor(
+(diferencia/(1000*60))%60
+);
+
+const segundos=
+Math.floor(
+(diferencia/1000)%60
+);
+
+document.getElementById("dias").textContent=dias;
+document.getElementById("horas").textContent=horas;
+document.getElementById("minutos").textContent=minutos;
+document.getElementById("segundos").textContent=segundos;
+
+}
+
+actualizarContador();
+
 setInterval(
-    cambiarFotoHistoria,
-    5500
+actualizarContador,
+1000
 );
 
 
-/* =====================================================
-   ANIMACIONES AL HACER SCROLL
-===================================================== */
+/* =========================
+   SOBRES DEL CORTEJO
+========================= */
 
-const elementosReveal =
-    document.querySelectorAll(
-        ".reveal"
-    );
+const sobres=
+document.querySelectorAll(
+".sobre-padrino"
+);
+
+sobres.forEach(function(sobre){
+
+sobre.addEventListener(
+"click",
+function(event){
+
+if(
+event.target.classList.contains(
+"cerrar-sobre"
+)
+){
+
+sobre.classList.remove(
+"abierto"
+);
+
+return;
+
+}
+
+sobre.classList.toggle(
+"abierto"
+);
+
+}
+);
+
+sobre.addEventListener(
+"keydown",
+function(event){
+
+if(
+event.key==="Enter" ||
+event.key===" "
+){
+
+event.preventDefault();
+
+sobre.classList.toggle(
+"abierto"
+);
+
+}
+
+}
+);
+
+});
 
 
-const observador =
-    new IntersectionObserver(
-        function(entradas) {
+/* =========================
+   HISTORIA
+========================= */
 
-            entradas.forEach(
-                function(entrada) {
+const historiaSlides=
+document.querySelectorAll(
+".historia-slide"
+);
 
-                    if (
-                        entrada.isIntersecting
-                    ) {
+const historiaPuntos=
+document.getElementById(
+"historiaPuntos"
+);
 
-                        entrada.target
-                            .classList
-                            .add("visible");
+const historiaFrase=
+document.getElementById(
+"historiaFrase"
+);
 
-                    }
+const frasesHistoria=[
+"Nuestros recuerdos, nuestra historia",
+"Momentos que guardamos en el corazón",
+"Cada paso nos trajo hasta aquí",
+"Juntos, escribiendo nuestra historia",
+"Un amor hecho de pequeños momentos",
+"Y este es solo el comienzo"
+];
 
-                }
-            );
+let historiaActual=0;
 
-        },
-        {
-            threshold: 0.12
-        }
-    );
+historiaSlides.forEach(
+function(_,index){
 
+const punto=
+document.createElement("span");
+
+punto.className=
+"historia-punto"+
+(index===0?" activo":"");
+
+historiaPuntos.appendChild(
+punto
+);
+
+}
+);
+
+const puntosHistoria=
+document.querySelectorAll(
+".historia-punto"
+);
+
+function avanzarHistoria(){
+
+if(!historiaSlides.length){
+return;
+}
+
+historiaSlides[
+historiaActual
+].classList.remove(
+"activa"
+);
+
+puntosHistoria[
+historiaActual
+].classList.remove(
+"activo"
+);
+
+historiaActual=
+(historiaActual+1)%
+historiaSlides.length;
+
+historiaSlides[
+historiaActual
+].classList.add(
+"activa"
+);
+
+puntosHistoria[
+historiaActual
+].classList.add(
+"activo"
+);
+
+historiaFrase.textContent=
+frasesHistoria[
+historiaActual
+];
+
+}
+
+setInterval(
+avanzarHistoria,
+4500
+);
+
+
+/* =========================
+   ANIMACIONES SCROLL
+========================= */
+
+const elementosReveal=
+document.querySelectorAll(
+".reveal"
+);
+
+const observador=
+new IntersectionObserver(
+function(entradas){
+
+entradas.forEach(
+function(entrada){
+
+if(
+entrada.isIntersecting
+){
+
+entrada.target.classList.add(
+"visible"
+);
+
+}
+
+}
+);
+
+},
+{
+threshold:.12
+}
+);
 
 elementosReveal.forEach(
-    function(elemento) {
+function(elemento){
 
-        observador.observe(elemento);
-
-    }
+observador.observe(
+elemento
 );
 
+}
+);
 
 </script>
 
