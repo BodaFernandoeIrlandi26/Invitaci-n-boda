@@ -1,25 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<title>Irlandi & Fernando | Nuestra Boda</title>
 
-<title>Irlandy &amp; Fernando | Nuestra Boda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preconnect"
-      href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
-      rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -28,7 +19,6 @@
 ===================================================== */
 
 :root {
-
     --terracota: #B65F4A;
     --terracota-dark: #914735;
     --terracota-light: #C9826E;
@@ -63,32 +53,20 @@ html {
 }
 
 body {
-
     background: var(--crema);
-
     color: var(--cafe);
-
     line-height: 1.8;
-
     overflow-x: hidden;
 }
 
 p {
-
-    font-family:
-        "Lora",
-        serif;
-
+    font-family: "Lora", serif;
     font-size: 15px;
-
-    color:
-        var(--cafe-light);
+    color: var(--cafe-light);
 }
 
 strong {
-
-    color:
-        var(--terracota-dark);
+    color: var(--terracota-dark);
 }
 
 a {
@@ -112,126 +90,52 @@ a {
 @keyframes aparecer {
 
     from {
-
         opacity: 0;
-
-        transform:
-            translateY(30px);
+        transform: translateY(30px);
     }
 
     to {
-
         opacity: 1;
-
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
+
+}
+
+@keyframes flotar {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+}
+
+@keyframes latido {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
 }
 
 .reveal {
-
     opacity: 0;
-
-    transform:
-        translateY(30px);
-
+    transform: translateY(45px);
     transition:
         opacity .9s ease,
         transform .9s ease;
 }
 
 .reveal.visible {
-
     opacity: 1;
-
-    transform:
-        translateY(0);
-}
-
-@keyframes latido {
-
-    0%,
-    100% {
-
-        transform:
-            scale(1);
-    }
-
-    50% {
-
-        transform:
-            scale(1.05);
-    }
-}
-
-
-/* =====================================================
-   SECCIONES GENERALES
-===================================================== */
-
-section {
-
-    padding:
-        90px 25px;
-
-    text-align:
-        center;
-}
-
-.subtitulo {
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size:
-        10px;
-
-    letter-spacing:
-        5px;
-
-    text-transform:
-        uppercase;
-
-    color:
-        var(--terracota);
-
-    margin-bottom:
-        15px;
-}
-
-.titulo {
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size:
-        55px;
-
-    line-height:
-        1.1;
-
-    color:
-        var(--olivo-dark);
-
-    font-weight:
-        500;
-
-    margin-bottom:
-        25px;
-}
-
-.adorno {
-
-    color:
-        var(--terracota);
-
-    font-size:
-        25px;
-
-    margin-bottom:
-        18px;
+    transform: translateY(0);
 }
 
 
@@ -240,432 +144,271 @@ section {
 ===================================================== */
 
 .portada {
+    min-height: 100vh;
 
-    min-height:
-        100vh;
+    position: relative;
 
-    display:
-        flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    align-items:
-        center;
+    text-align: center;
 
-    justify-content:
-        center;
+    padding: 35px;
 
     background:
         linear-gradient(
-            rgba(247,241,230,.78),
-            rgba(247,241,230,.88)
+            rgba(58,44,36,.35),
+            rgba(58,44,36,.58)
         ),
-        url("foto1.jpg")
-        center/cover no-repeat;
+        url("foto1.jpg") center/cover no-repeat;
 
-    position:
-        relative;
+    color: white;
 }
 
 .portada::before {
+    content: "";
 
-    content:
-        "";
+    position: absolute;
 
-    position:
-        absolute;
-
-    inset:
-        20px;
+    inset: 22px;
 
     border:
         1px solid
-        rgba(145,71,53,.35);
+        rgba(255,255,255,.75);
 
-    pointer-events:
-        none;
+    pointer-events: none;
 }
 
 .portada-contenido {
+    position: relative;
+    z-index: 2;
 
-    position:
-        relative;
-
-    z-index:
-        2;
-
-    max-width:
-        800px;
-
-    padding:
-        30px;
+    animation:
+        aparecer 1.5s ease;
 }
 
 .portada .pequeno {
+    font-family: "Montserrat", sans-serif;
 
-    font-family:
-        "Montserrat",
-        sans-serif;
+    font-size: 11px;
+    font-weight: 600;
 
-    font-size:
-        11px;
+    letter-spacing: 6px;
 
-    letter-spacing:
-        6px;
-
-    text-transform:
-        uppercase;
-
-    color:
-        var(--terracota);
-
-    margin-bottom:
-        20px;
+    text-transform: uppercase;
 }
 
 .portada h1 {
+    font-family: "Great Vibes", cursive;
 
-    font-family:
-        "Great Vibes",
-        cursive;
+    font-size: 90px;
 
-    font-size:
-        90px;
+    font-weight: 400;
 
-    line-height:
-        1;
+    line-height: 1.1;
 
-    color:
-        var(--olivo-dark);
-
-    font-weight:
-        400;
-
-    margin-bottom:
-        25px;
+    margin: 8px 0;
 }
 
 .portada .fecha {
+    font-family: "Cormorant Garamond", serif;
 
-    font-family:
-        "Cormorant Garamond",
-        serif;
+    font-size: 26px;
 
-    font-size:
-        25px;
+    letter-spacing: 6px;
 
-    letter-spacing:
-        6px;
-
-    color:
-        var(--cafe);
-
-    margin-bottom:
-        35px;
+    margin-top: 15px;
 }
 
 
 /* =====================================================
-   BOTONES
+   BOTON PRINCIPAL
 ===================================================== */
 
 .boton {
+    display: inline-block;
 
-    display:
-        inline-block;
+    margin-top: 38px;
 
-    padding:
-        14px 32px;
+    padding: 14px 34px;
+
+    background: var(--terracota);
+
+    color: white;
 
     border:
         1px solid
-        var(--terracota);
+        rgba(255,255,255,.8);
 
-    color:
-        var(--terracota-dark);
+    font-family: "Montserrat", sans-serif;
 
-    font-family:
-        "Montserrat",
-        sans-serif;
+    font-size: 10px;
+    font-weight: 600;
 
-    font-size:
-        10px;
+    letter-spacing: 3px;
 
-    letter-spacing:
-        3px;
+    text-transform: uppercase;
 
-    text-transform:
-        uppercase;
+    transition: .3s;
 
-    transition:
-        .3s;
+    cursor: pointer;
 }
 
 .boton:hover {
+    background: var(--terracota-dark);
 
-    background:
-        var(--terracota);
-
-    color:
-        white;
+    transform:
+        translateY(-3px);
 }
 
 
 /* =====================================================
-   HISTORIA DE AMOR
+   SECCIONES
 ===================================================== */
 
-.historia-amor {
+section {
+    max-width: 950px;
 
-    background:
-        linear-gradient(
-            180deg,
-            #fffaf5,
-            #f5eadc
-        );
+    margin: auto;
+
+    padding: 90px 25px;
+
+    text-align: center;
 }
 
-.historia-contenido {
+.subtitulo {
+    font-family: "Montserrat", sans-serif;
 
-    max-width:
-        980px;
+    color: var(--terracota);
 
-    margin:
-        0 auto;
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 12px;
 }
 
-.historia-video {
+.titulo {
+    font-family: "Cormorant Garamond", serif;
 
-    position:
-        relative;
+    color: var(--olivo-dark);
 
-    width:
-        100%;
+    font-size: 49px;
 
-    aspect-ratio:
-        16 / 10;
+    font-weight: 500;
 
-    overflow:
-        hidden;
+    line-height: 1.1;
 
-    margin-top:
-        35px;
-
-    box-shadow:
-        0 20px 50px
-        rgba(58,44,36,.16);
+    margin-bottom: 22px;
 }
 
-.historia-slide {
-
-    position:
-        absolute;
-
-    inset:
-        0;
-
-    opacity:
-        0;
-
-    transform:
-        scale(1.08);
-
-    transition:
-        opacity 1.1s ease,
-        transform 6s ease;
-}
-
-.historia-slide.activa {
-
-    opacity:
-        1;
-
-    transform:
-        scale(1);
-}
-
-.historia-slide img {
-
-    width:
-        100%;
-
-    height:
-        100%;
-
-    object-fit:
-        cover;
-
-    display:
-        block;
-}
-
-.historia-overlay {
-
-    position:
-        absolute;
-
-    inset:
-        auto 0 0;
-
-    padding:
-        45px 25px 22px;
-
-    background:
-        linear-gradient(
-            transparent,
-            rgba(25,18,14,.72)
-        );
-
-    color:
-        white;
-
-    text-align:
-        center;
-
-    z-index:
-        3;
-}
-
-.historia-overlay span {
+.adorno {
+    color: var(--terracota);
 
     font-family:
         "Cormorant Garamond",
         serif;
 
-    font-size:
-        25px;
+    font-size: 30px;
 
-    font-style:
-        italic;
+    margin-bottom: 15px;
 }
 
-.historia-puntos {
+.titulo::after {
+    content: "❧";
 
-    display:
-        flex;
+    display: block;
 
-    justify-content:
-        center;
-
-    gap:
-        7px;
-
-    margin-top:
-        14px;
-}
-
-.historia-punto {
-
-    width:
-        7px;
-
-    height:
-        7px;
-
-    border-radius:
-        50%;
-
-    background:
-        rgba(58,44,36,.25);
-}
-
-.historia-punto.activo {
-
-    background:
-        var(--terracota);
-
-    transform:
-        scale(1.35);
-}
-
-.historia-texto {
-
-    max-width:
-        700px;
-
-    margin:
-        0 auto;
+    color: var(--terracota);
 
     font-family:
         "Cormorant Garamond",
         serif;
 
-    font-size:
-        24px;
+    font-size: 24px;
 
-    line-height:
-        1.5;
-
-    color:
-        var(--cafe);
+    margin-top: 12px;
 }
 
 
 /* =====================================================
-   FOTOS SEPARADORAS
+   FOTOGRAFIAS
 ===================================================== */
 
 .foto-separadora {
+    height: 55vh;
 
-    min-height:
-        60vh;
+    min-height: 360px;
 
-    background-position:
-        center;
+    max-width: none;
 
-    background-size:
-        cover;
+    padding: 0;
 
-    background-attachment:
-        fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 
-    display:
-        flex;
+    position: relative;
 
-    align-items:
-        center;
+    display: flex;
 
-    justify-content:
-        center;
+    justify-content: center;
+    align-items: center;
 
-    position:
-        relative;
+    overflow: hidden;
 }
 
 .foto-separadora::before {
+    content: "";
 
-    content:
-        "";
+    position: absolute;
 
-    position:
-        absolute;
-
-    inset:
-        0;
+    inset: 0;
 
     background:
-        rgba(35,27,22,.32);
+        linear-gradient(
+            rgba(58,44,36,.20),
+            rgba(58,44,36,.42)
+        );
 }
 
 .foto-texto {
+    position: relative;
 
-    position:
-        relative;
+    z-index: 2;
 
-    z-index:
-        2;
-
-    color:
-        white;
+    color: white;
 
     font-family:
         "Great Vibes",
         cursive;
 
-    font-size:
-        55px;
+    font-size: 54px;
 
     text-shadow:
-        0 3px 15px
-        rgba(0,0,0,.4);
+        0 2px 15px
+        rgba(0,0,0,.35);
+
+    padding: 20px 35px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.7);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.7);
+
+    animation:
+        flotar 4s ease-in-out infinite;
+}
+
+.foto-texto div:last-child {
+    white-space: nowrap;
 }
 
 
@@ -674,72 +417,64 @@ section {
 ===================================================== */
 
 .contador {
+    display: flex;
 
-    display:
-        flex;
+    justify-content: center;
 
-    justify-content:
-        center;
+    gap: 16px;
 
-    flex-wrap:
-        wrap;
+    flex-wrap: wrap;
 
-    gap:
-        15px;
-
-    margin-top:
-        35px;
+    margin-top: 45px;
 }
 
 .contador div {
+    background: white;
 
-    min-width:
-        100px;
+    min-width: 105px;
 
-    padding:
-        20px 15px;
+    padding: 21px 18px;
 
-    border:
-        1px solid
-        var(--beige);
+    border-top:
+        3px solid
+        var(--terracota);
 
-    background:
-        rgba(255,255,255,.45);
+    box-shadow:
+        0 8px 25px
+        rgba(58,44,36,.07);
+
+    transition: .3s;
+}
+
+.contador div:hover {
+    transform:
+        translateY(-5px);
 }
 
 .contador span {
-
-    display:
-        block;
+    display: block;
 
     font-family:
-        "Cormorant Garamond",
+        "Playfair Display",
         serif;
 
-    font-size:
-        40px;
+    color: var(--olivo-dark);
 
-    color:
-        var(--terracota-dark);
+    font-size: 34px;
 }
 
 .contador small {
-
     font-family:
         "Montserrat",
         sans-serif;
 
-    font-size:
-        8px;
+    color: var(--terracota);
 
-    letter-spacing:
-        2px;
+    font-size: 9px;
 
-    text-transform:
-        uppercase;
+    letter-spacing: 2px;
 
-    color:
-        var(--olivo-dark);
+    text-transform: uppercase;
 }
 
 
@@ -748,174 +483,173 @@ section {
 ===================================================== */
 
 .tarjeta {
+    background: white;
 
-    max-width:
-        650px;
+    margin-top: 28px;
 
-    margin:
-        20px auto;
+    padding: 42px 30px;
 
-    padding:
-        35px 25px;
-
-    background:
-        rgba(255,255,255,.5);
-
-    border:
-        1px solid
-        var(--beige);
+    border-top:
+        4px solid
+        var(--terracota);
 
     box-shadow:
-        0 10px 25px
-        rgba(58,44,36,.06);
+        0 10px 28px
+        rgba(58,44,36,.07);
+
+    transition: .35s;
+}
+
+.tarjeta:hover {
+    transform:
+        translateY(-5px);
 }
 
 .tarjeta h3 {
-
     font-family:
-        "Cormorant Garamond",
+        "Playfair Display",
         serif;
-
-    font-size:
-        27px;
 
     color:
         var(--terracota-dark);
 
-    margin-bottom:
-        8px;
+    font-size: 27px;
+
+    font-style: italic;
+
+    margin-bottom: 10px;
 }
 
 .hora {
-
     font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size:
-        11px;
-
-    letter-spacing:
-        3px;
+        "Cormorant Garamond",
+        serif;
 
     color:
         var(--olivo-dark);
 
-    margin-bottom:
-        20px;
+    font-size: 34px;
+
+    letter-spacing: 2px;
 }
-
-.foto-ceremonia {
-
-    width:
-        100%;
-
-    max-width:
-        550px;
-
-    display:
-        block;
-
-    margin:
-        20px auto;
-
-    border:
-        1px solid
-        var(--beige);
-}
-
-
-/* =====================================================
-   BOTON OLIVO
-===================================================== */
 
 .boton-olivo {
+    display: inline-block;
 
-    display:
-        inline-block;
+    margin-top: 24px;
 
-    margin-top:
-        15px;
-
-    padding:
-        12px 25px;
+    padding: 12px 27px;
 
     background:
         var(--olivo);
 
-    color:
-        white;
+    color: white;
 
     font-family:
         "Montserrat",
         sans-serif;
 
-    font-size:
-        9px;
+    font-size: 9px;
 
-    letter-spacing:
-        2px;
+    font-weight: 600;
 
-    text-transform:
-        uppercase;
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition: .3s;
 }
 
+.boton-olivo:hover {
+    background:
+        var(--olivo-dark);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.foto-ceremonia {
+    width: 100%;
+    max-height: 360px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 24px;
+    border: 1px solid rgba(145,71,53,.18);
+    box-shadow: 0 10px 28px rgba(58,44,36,.10);
+}
 
 /* =====================================================
    RECEPCION
 ===================================================== */
 
 .seccion-olivo {
+    max-width: none;
 
     background:
-        var(--olivo-dark);
+        linear-gradient(
+            135deg,
+            var(--olivo-dark),
+            var(--olivo)
+        );
 
-    color:
-        white;
+    color: white;
+
+    padding:
+        95px 25px;
 }
 
 .seccion-olivo .subtitulo {
-
-    color:
-        var(--beige-light);
+    color: var(--beige);
 }
 
 .seccion-olivo .titulo {
-
-    color:
-        white;
+    color: white;
 }
 
 .seccion-olivo p {
+    color: var(--beige-light);
 
-    color:
-        var(--beige-light);
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
-    font-size:
-        20px;
+    font-size: 25px;
 }
 
 
 /* =====================================================
-   FAMILIA
+   PADRES
 ===================================================== */
 
 .familia {
-
-    max-width:
-        900px;
-
-    margin:
-        35px auto 0;
-
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         repeat(2,1fr);
 
-    gap:
-        20px;
+    gap: 25px;
+
+    margin-top: 40px;
+}
+
+.familia .tarjeta {
+    margin-top: 0;
+
+    background:
+        var(--beige-light);
+}
+
+.familia .tarjeta p {
+    font-family:
+        "Playfair Display",
+        serif;
+
+    color: var(--cafe);
+
+    font-size: 21px;
+
+    line-height: 1.5;
 }
 
 
@@ -924,253 +658,32 @@ section {
 ===================================================== */
 
 .padrinos {
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    gap:
-        42px;
-
-    margin-top:
-        45px;
-
-    width:
-        100%;
-}
-
-
-/*
-   CADA PADRINO ES UNA FILA FIJA:
-
-   fila impar:
-   SOBRE | DIBUJO
-
-   fila par:
-   DIBUJO | SOBRE
-
-   Todos los sobres tienen exactamente
-   el mismo tamaño.
-*/
-
-.padrino-fila {
-
-    width:
-        min(100%,760px);
-
-    margin:
-        0 auto;
-
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        minmax(0,1fr) 110px;
+        repeat(2,1fr);
 
-    align-items:
-        center;
+    gap: 25px;
 
-    gap:
-        24px;
+    margin-top: 40px;
 }
-
-
-/* FILAS PARES */
-
-.padrino-fila.par {
-
-    grid-template-columns:
-        110px minmax(0,1fr);
-}
-
-.padrino-fila.par
-.padrino-ilustracion {
-
-    grid-column:
-        1;
-
-    grid-row:
-        1;
-}
-
-.padrino-fila.par
-.sobre-padrino {
-
-    grid-column:
-        2;
-
-    grid-row:
-        1;
-}
-
-
-/* =====================================================
-   SOBRES
-===================================================== */
 
 .sobre-padrino {
+    position: relative;
 
-    position:
-        relative;
+    height: 250px;
 
-    width:
-        100%;
+    cursor: pointer;
 
-    height:
-        178px;
+    perspective: 1000px;
 
-    min-height:
-        178px;
-
-    max-height:
-        178px;
-
-    cursor:
-        pointer;
-
-    perspective:
-        1000px;
-
-    outline:
-        none;
-
-    box-sizing:
-        border-box;
+    outline: none;
 }
-
-
-/* =====================================================
-   DIBUJOS
-===================================================== */
-
-.padrino-ilustracion {
-
-    width:
-        110px;
-
-    height:
-        110px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    color:
-        var(--terracota);
-
-    opacity:
-        .92;
-
-    box-sizing:
-        border-box;
-}
-
-
-/*
-   Sprite de los dibujos EXACTOS del prototipo.
-*/
-
-.padrino-sprite {
-
-    display:
-        block;
-
-    width:
-        110px;
-
-    height:
-        110px;
-
-    background-image:
-        url("padrinos_dibujos_sprite.webp");
-
-    background-size:
-        400px 300px;
-
-    background-repeat:
-        no-repeat;
-
-    filter:
-        drop-shadow(
-            0 5px 8px
-            rgba(58,44,36,.08)
-        );
-}
-
-.s0 {
-    background-position:
-        5px 6px;
-}
-
-.s1 {
-    background-position:
-        -90px 8px;
-}
-
-.s2 {
-    background-position:
-        -195px 6px;
-}
-
-.s3 {
-    background-position:
-        -296px 8px;
-}
-
-.s4 {
-    background-position:
-        5px -95px;
-}
-
-.s5 {
-    background-position:
-        -93px -91px;
-}
-
-.s6 {
-    background-position:
-        -195px -95px;
-}
-
-.s7 {
-    background-position:
-        -294px -91px;
-}
-
-.s8 {
-    background-position:
-        14px -195px;
-}
-
-.s9 {
-    background-position:
-        -86px -201px;
-}
-
-.s10 {
-    background-position:
-        -186px -198px;
-}
-
-
-/* =====================================================
-   SOBRE - FRENTE
-===================================================== */
 
 .sobre-frente {
+    position: absolute;
 
-    position:
-        absolute;
-
-    inset:
-        0;
+    inset: 0;
 
     background:
         linear-gradient(
@@ -1187,48 +700,32 @@ section {
         0 10px 28px
         rgba(58,44,36,.10);
 
-    display:
-        flex;
+    display: flex;
 
-    flex-direction:
-        column;
+    flex-direction: column;
 
-    justify-content:
-        center;
-
-    align-items:
-        center;
+    justify-content: center;
+    align-items: center;
 
     transition:
         opacity .5s ease,
         transform .5s ease;
 
-    z-index:
-        2;
+    z-index: 2;
 
-    overflow:
-        hidden;
+    overflow: hidden;
 }
 
 .sobre-frente::before {
+    content: "";
 
-    content:
-        "";
+    position: absolute;
 
-    position:
-        absolute;
+    top: 0;
+    left: 0;
 
-    top:
-        0;
-
-    left:
-        0;
-
-    width:
-        100%;
-
-    height:
-        50%;
+    width: 100%;
+    height: 50%;
 
     background:
         linear-gradient(
@@ -1237,27 +734,22 @@ section {
             rgba(182,95,74,.16) 50%
         );
 
-    pointer-events:
-        none;
+    pointer-events: none;
 }
 
 .sobre-icono {
-
-    font-size:
-        42px;
+    font-size: 42px;
 
     color:
         var(--terracota);
 
-    margin-bottom:
-        5px;
+    margin-bottom: 5px;
 
     animation:
         latido 2.8s ease-in-out infinite;
 }
 
 .sobre-frente h3 {
-
     font-family:
         "Cormorant Garamond",
         serif;
@@ -1265,27 +757,20 @@ section {
     color:
         var(--terracota-dark);
 
-    font-size:
-        22px;
+    font-size: 22px;
 
-    font-weight:
-        600;
+    font-weight: 600;
 
-    font-style:
-        italic;
+    font-style: italic;
 
-    line-height:
-        1.2;
+    line-height: 1.2;
 
-    padding:
-        0 14px;
+    padding: 0 14px;
 
-    text-align:
-        center;
+    text-align: center;
 }
 
 .sobre-frente small {
-
     font-family:
         "Montserrat",
         sans-serif;
@@ -1293,76 +778,52 @@ section {
     color:
         var(--olivo-dark);
 
-    font-size:
-        7px;
+    font-size: 7px;
 
-    letter-spacing:
-        1.7px;
+    letter-spacing: 1.7px;
 
-    text-transform:
-        uppercase;
+    text-transform: uppercase;
 
-    margin-top:
-        10px;
+    margin-top: 10px;
 }
 
 
-/* =====================================================
-   CONTENIDO DEL SOBRE
-===================================================== */
+/* CONTENIDO DEL SOBRE */
 
 .sobre-contenido {
+    position: absolute;
 
-    position:
-        absolute;
+    inset: 0;
 
-    inset:
-        0;
+    background: white;
 
-    background:
-        white;
+    padding: 25px 16px;
 
-    padding:
-        25px 16px;
+    display: flex;
 
-    display:
-        flex;
+    flex-direction: column;
 
-    flex-direction:
-        column;
+    justify-content: center;
+    align-items: center;
 
-    justify-content:
-        center;
+    text-align: center;
 
-    align-items:
-        center;
+    opacity: 0;
 
-    text-align:
-        center;
-
-    opacity:
-        0;
-
-    transform:
-        scale(.92);
+    transform: scale(.92);
 
     transition:
         opacity .5s ease,
         transform .5s ease;
 
-    z-index:
-        1;
+    z-index: 1;
 
     border:
         1px solid
         var(--beige);
-
-    box-sizing:
-        border-box;
 }
 
 .sobre-contenido h3 {
-
     font-family:
         "Cormorant Garamond",
         serif;
@@ -1370,18 +831,14 @@ section {
     color:
         var(--terracota-dark);
 
-    font-size:
-        23px;
+    font-size: 23px;
 
-    font-style:
-        italic;
+    font-style: italic;
 
-    margin-bottom:
-        10px;
+    margin-bottom: 10px;
 }
 
 .sobre-contenido p {
-
     font-family:
         "Playfair Display",
         serif;
@@ -1389,23 +846,17 @@ section {
     color:
         var(--cafe);
 
-    font-size:
-        16px;
+    font-size: 16px;
 
-    line-height:
-        1.4;
+    line-height: 1.4;
 }
 
 .sobre-contenido .cerrar-sobre {
+    margin-top: 14px;
 
-    margin-top:
-        14px;
+    border: none;
 
-    border:
-        none;
-
-    background:
-        transparent;
+    background: transparent;
 
     color:
         var(--olivo-dark);
@@ -1414,84 +865,32 @@ section {
         "Montserrat",
         sans-serif;
 
-    font-size:
-        7px;
+    font-size: 7px;
 
-    letter-spacing:
-        2px;
+    letter-spacing: 2px;
 
-    text-transform:
-        uppercase;
+    text-transform: uppercase;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 }
 
 
-/* =====================================================
-   SOBRE ABIERTO
-===================================================== */
+/* ABIERTO */
 
-.sobre-padrino.abierto
-.sobre-frente {
+.sobre-padrino.abierto .sobre-frente {
+    opacity: 0;
 
-    opacity:
-        0;
+    transform: scale(.92);
 
-    transform:
-        scale(.92);
-
-    pointer-events:
-        none;
+    pointer-events: none;
 }
 
-.sobre-padrino.abierto
-.sobre-contenido {
+.sobre-padrino.abierto .sobre-contenido {
+    opacity: 1;
 
-    opacity:
-        1;
+    transform: scale(1);
 
-    transform:
-        scale(1);
-
-    z-index:
-        3;
-}
-
-
-/* =====================================================
-   LLUVIA DE SOBRES
-===================================================== */
-
-.lluvia {
-
-    max-width:
-        650px;
-
-    margin:
-        30px auto;
-
-    padding:
-        45px 25px;
-
-    background:
-        rgba(255,255,255,.45);
-
-    border:
-        1px solid
-        var(--beige);
-}
-
-.lluvia .sobre {
-
-    font-size:
-        55px;
-
-    color:
-        var(--terracota);
-
-    margin-bottom:
-        25px;
+    z-index: 3;
 }
 
 
@@ -1500,78 +899,79 @@ section {
 ===================================================== */
 
 .hoteles {
-
-    max-width:
-        900px;
-
-    margin:
-        35px auto 0;
-
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:
-        20px;
+    gap: 20px;
+
+    margin-top: 40px;
 }
 
 .hotel {
-
-    padding:
-        30px 20px;
-
     background:
-        rgba(255,255,255,.45);
+        var(--beige-light);
 
-    border:
-        1px solid
-        var(--beige);
+    padding: 35px 20px;
+
+    border-top:
+        4px solid
+        var(--olivo);
+
+    box-shadow:
+        0 7px 22px
+        rgba(58,44,36,.06);
+
+    transition: .3s;
+}
+
+.hotel:hover {
+    transform:
+        translateY(-5px);
 }
 
 .hotel h3 {
-
     font-family:
-        "Cormorant Garamond",
+        "Playfair Display",
         serif;
-
-    font-size:
-        25px;
 
     color:
         var(--terracota-dark);
 
-    margin-bottom:
-        20px;
+    font-size: 25px;
 }
 
 .hotel-boton {
+    display: inline-block;
 
-    display:
-        inline-block;
+    margin-top: 22px;
 
-    padding:
-        10px 20px;
+    padding: 11px 20px;
 
     background:
         var(--olivo);
 
-    color:
-        white;
+    color: white;
 
     font-family:
         "Montserrat",
         sans-serif;
 
-    font-size:
-        8px;
+    font-size: 9px;
 
-    letter-spacing:
-        2px;
+    font-weight: 600;
 
-    text-transform:
-        uppercase;
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition: .3s;
+}
+
+.hotel-boton:hover {
+    background:
+        var(--olivo-dark);
 }
 
 
@@ -1580,35 +980,70 @@ section {
 ===================================================== */
 
 .vestimenta {
-
-    max-width:
-        700px;
-
-    margin:
-        30px auto;
-
-    padding:
-        35px 25px;
-
     background:
-        rgba(255,255,255,.5);
-
-    border:
-        1px solid
         var(--beige);
+
+    padding: 48px 35px;
+
+    margin-top: 35px;
+
+    border-left:
+        5px solid
+        var(--terracota);
 }
 
 .vestimenta h3 {
-
     font-family:
         "Cormorant Garamond",
         serif;
 
     color:
-        var(--terracota-dark);
+        var(--olivo-dark);
 
-    font-size:
-        28px;
+    font-size: 32px;
+
+    font-weight: 500;
+}
+
+
+/* =====================================================
+   LLUVIA DE SOBRES
+===================================================== */
+
+.lluvia {
+    background: white;
+
+    padding: 48px 35px;
+
+    margin-top: 35px;
+
+    border:
+        1px solid
+        var(--beige);
+
+    box-shadow:
+        0 8px 25px
+        rgba(58,44,36,.06);
+}
+
+.lluvia .sobre {
+    font-size: 55px;
+
+    color:
+        var(--terracota);
+
+    margin-bottom: 15px;
+
+    animation:
+        latido 3s ease-in-out infinite;
+}
+
+.lluvia strong {
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 19px;
 }
 
 
@@ -1617,53 +1052,156 @@ section {
 ===================================================== */
 
 .pendiente {
-
-    max-width:
-        700px;
-
-    margin:
-        30px auto;
-
-    padding:
-        40px 25px;
-
     background:
-        rgba(255,255,255,.45);
+        var(--beige-light);
 
-    border:
-        1px solid
-        var(--beige);
+    padding: 38px;
+
+    margin-top: 30px;
+
+    border-left:
+        4px solid
+        var(--olivo);
+}
+
+.pendiente strong {
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    color:
+        var(--terracota);
+
+    font-size: 38px;
+
+    font-weight: 400;
 }
 
 .boton-fotos {
+    display: inline-block;
 
-    display:
-        inline-block;
+    margin-top: 28px;
 
-    margin-top:
-        25px;
-
-    padding:
-        14px 28px;
+    padding: 15px 30px;
 
     background:
-        var(--terracota);
+        var(--olivo);
 
-    color:
-        white;
+    color: white;
 
     font-family:
         "Montserrat",
         sans-serif;
 
-    font-size:
-        9px;
+    font-size: 10px;
 
-    letter-spacing:
-        2px;
+    font-weight: 600;
 
-    text-transform:
-        uppercase;
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition: .3s;
+
+    box-shadow:
+        0 8px 20px
+        rgba(82,90,61,.18);
+}
+
+.boton-fotos:hover {
+    background:
+        var(--olivo-dark);
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =====================================================
+   CONFIRMACION
+===================================================== */
+
+.confirmacion {
+    background:
+        linear-gradient(
+            135deg,
+            var(--beige-light),
+            var(--crema)
+        );
+
+    padding: 50px 30px;
+
+    margin-top: 35px;
+
+    border:
+        1px solid
+        var(--beige);
+
+    border-top:
+        5px solid
+        var(--terracota);
+
+    box-shadow:
+        0 10px 30px
+        rgba(58,44,36,.08);
+}
+
+.confirmacion p {
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    font-family:
+        "Lora",
+        serif;
+
+    color:
+        var(--cafe-light);
+
+    font-size: 17px;
+}
+
+.boton-confirmacion {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 16px 38px;
+
+    background:
+        var(--terracota);
+
+    color: white;
+
+    border:
+        1px solid
+        var(--terracota-dark);
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    box-shadow:
+        0 8px 20px
+        rgba(145,71,53,.20);
+
+    transition: .3s;
+}
+
+.boton-confirmacion:hover {
+    background:
+        var(--terracota-dark);
+
+    transform:
+        translateY(-3px);
 }
 
 
@@ -1672,7 +1210,6 @@ section {
 ===================================================== */
 
 .whatsapp-seccion {
-
     background:
         linear-gradient(
             135deg,
@@ -1690,73 +1227,53 @@ section {
 }
 
 .whatsapp-texto {
-
-    max-width:
-        650px;
+    max-width: 650px;
 
     margin:
         0 auto 30px;
 }
 
 .whatsapp-botones {
+    display: flex;
 
-    display:
-        flex;
+    justify-content: center;
 
-    justify-content:
-        center;
+    flex-wrap: wrap;
 
-    flex-wrap:
-        wrap;
-
-    gap:
-        15px;
+    gap: 15px;
 }
 
 .boton-whatsapp {
+    display: inline-flex;
 
-    display:
-        inline-flex;
+    align-items: center;
 
-    align-items:
-        center;
+    justify-content: center;
 
-    justify-content:
-        center;
+    gap: 10px;
 
-    gap:
-        10px;
+    min-width: 220px;
 
-    min-width:
-        220px;
-
-    padding:
-        15px 25px;
+    padding: 15px 25px;
 
     background:
         var(--olivo);
 
-    color:
-        white;
+    color: white;
 
     font-family:
         "Montserrat",
         sans-serif;
 
-    font-size:
-        10px;
+    font-size: 10px;
 
-    font-weight:
-        600;
+    font-weight: 600;
 
-    letter-spacing:
-        1.5px;
+    letter-spacing: 1.5px;
 
-    text-transform:
-        uppercase;
+    text-transform: uppercase;
 
-    transition:
-        .3s;
+    transition: .3s;
 
     box-shadow:
         0 8px 20px
@@ -1764,7 +1281,6 @@ section {
 }
 
 .boton-whatsapp:hover {
-
     background:
         var(--olivo-dark);
 
@@ -1773,9 +1289,7 @@ section {
 }
 
 .whatsapp-icono {
-
-    font-size:
-        18px;
+    font-size: 18px;
 }
 
 
@@ -1784,22 +1298,19 @@ section {
 ===================================================== */
 
 footer {
-
     background:
         var(--cafe);
 
     color:
         var(--crema);
 
-    text-align:
-        center;
+    text-align: center;
 
     padding:
         80px 25px;
 }
 
 footer .nombres {
-
     font-family:
         "Great Vibes",
         cursive;
@@ -1807,15 +1318,12 @@ footer .nombres {
     color:
         var(--terracota-light);
 
-    font-size:
-        65px;
+    font-size: 65px;
 
-    margin-bottom:
-        18px;
+    margin-bottom: 18px;
 }
 
 footer p {
-
     color:
         var(--beige-light);
 
@@ -1823,488 +1331,7 @@ footer p {
         "Cormorant Garamond",
         serif;
 
-    font-size:
-        22px;
-}
-
-
-/* =====================================================
-   SOBRE DE ENTRADA
-===================================================== */
-
-#sobreEntrada {
-
-    position:
-        fixed;
-
-    inset:
-        0;
-
-    z-index:
-        9999;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    padding:
-        24px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(234,217,195,.98),
-            rgba(58,44,36,.98)
-        );
-
-    transition:
-        opacity .9s ease,
-        visibility .9s ease;
-}
-
-#sobreEntrada.cerrando {
-
-    opacity:
-        0;
-
-    visibility:
-        hidden;
-
-    pointer-events:
-        none;
-}
-
-#sobreEntrada.oculto {
-
-    display:
-        none;
-}
-
-.sobre-entrada-wrap {
-
-    width:
-        min(420px,92vw);
-
-    text-align:
-        center;
-
-    color:
-        white;
-}
-
-.sobre-entrada-wrap
-.entrada-instruccion {
-
-    margin-top:
-        24px;
-
-    font-family:
-        "Montserrat",
-        sans-serif;
-
-    font-size:
-        10px;
-
-    letter-spacing:
-        3px;
-
-    text-transform:
-        uppercase;
-
-    opacity:
-        .9;
-}
-
-.sobre-grande {
-
-    position:
-        relative;
-
-    width:
-        100%;
-
-    aspect-ratio:
-        1.55 / 1;
-
-    cursor:
-        pointer;
-
-    filter:
-        drop-shadow(
-            0 20px 28px
-            rgba(0,0,0,.25)
-        );
-
-    transform-style:
-        preserve-3d;
-}
-
-.sobre-grande-base {
-
-    position:
-        absolute;
-
-    inset:
-        16% 0 0;
-
-    background:
-        linear-gradient(
-            rgba(58,44,36,.18),
-            rgba(58,44,36,.28)
-        ),
-        url("foto1.jpg")
-        center/cover no-repeat;
-
-    border-radius:
-        4px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.55);
-
-    overflow:
-        hidden;
-}
-
-.sobre-grande-base::before,
-.sobre-grande-base::after {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    inset:
-        0;
-
-    pointer-events:
-        none;
-}
-
-.sobre-grande-base::before {
-
-    background:
-        linear-gradient(
-            32deg,
-            transparent 49.5%,
-            rgba(145,71,53,.22) 50%,
-            transparent 50.5%
-        ),
-        linear-gradient(
-            148deg,
-            transparent 49.5%,
-            rgba(145,71,53,.18) 50%,
-            transparent 50.5%
-        );
-}
-
-.sobre-grande-base::after {
-
-    background:
-        linear-gradient(
-            180deg,
-            transparent 48%,
-            rgba(145,71,53,.10) 49%,
-            transparent 51%
-        );
-}
-
-.sobre-solapa {
-
-    position:
-        absolute;
-
-    left:
-        0;
-
-    right:
-        0;
-
-    top:
-        16%;
-
-    height:
-        57%;
-
-    background:
-        linear-gradient(
-            145deg,
-            #f0dfca,
-            #d2b597
-        );
-
-    clip-path:
-        polygon(
-            0 0,
-            100% 0,
-            50% 72%
-        );
-
-    transform-origin:
-        50% 0;
-
-    z-index:
-        3;
-
-    transition:
-        transform 1s cubic-bezier(.2,.75,.2,1);
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.65);
-}
-
-
-/* =====================================================
-   MONOGRAMA DEL SOBRE INICIAL
-   I + INFINITO VERTICAL + F
-===================================================== */
-
-.sobre-sello {
-
-    position:
-        absolute;
-
-    z-index:
-        4;
-
-    left:
-        50%;
-
-    top:
-        53%;
-
-    transform:
-        translate(-50%,-50%);
-
-    width:
-        64px;
-
-    height:
-        64px;
-
-    border-radius:
-        50%;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    gap:
-        1px;
-
-    background:
-        var(--terracota);
-
-    color:
-        white;
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    font-size:
-        22px;
-
-    font-weight:
-        400;
-
-    letter-spacing:
-        0;
-
-    white-space:
-        nowrap;
-
-    box-shadow:
-        0 5px 15px
-        rgba(58,44,36,.25);
-
-    transition:
-        opacity .35s ease,
-        transform .5s ease;
-}
-
-
-/*
-   Letras del monograma.
-*/
-
-.monograma-i,
-.monograma-f {
-
-    display:
-        inline-block;
-
-    line-height:
-        1;
-}
-
-
-/*
-   El símbolo de infinito se gira 90 grados
-   para que quede vertical, como un 8 elegante.
-*/
-
-.monograma-infinito {
-
-    display:
-        inline-block;
-
-    line-height:
-        1;
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size:
-        22px;
-
-    transform:
-        rotate(90deg)
-        scaleX(.78);
-
-    margin:
-        0 -1px;
-}
-
-
-.sobre-entrada-titulo {
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    font-size:
-        58px;
-
-    line-height:
-        1;
-
-    margin:
-        0 0 8px;
-}
-
-.sobre-entrada-nombres {
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size:
-        20px;
-
-    letter-spacing:
-        3px;
-}
-
-#sobreEntrada.abierto
-.sobre-solapa {
-
-    transform:
-        rotateX(180deg);
-}
-
-#sobreEntrada.abierto
-.sobre-sello {
-
-    opacity:
-        0;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.7);
-}
-
-#sobreEntrada.abierto
-.sobre-grande {
-
-    animation:
-        entradaLatido .8s ease;
-}
-
-@keyframes entradaLatido {
-
-    0% {
-        transform:
-            scale(1);
-    }
-
-    45% {
-        transform:
-            scale(1.035);
-    }
-
-    100% {
-        transform:
-            scale(1);
-    }
-}
-
-
-/* =====================================================
-   HOJAS DE OTOÑO
-===================================================== */
-
-#hojasOtono {
-
-    position:
-        fixed;
-
-    inset:
-        0;
-
-    z-index:
-        50;
-
-    pointer-events:
-        none;
-
-    overflow:
-        hidden;
-}
-
-.hoja-otono {
-
-    position:
-        absolute;
-
-    top:
-        -40px;
-
-    opacity:
-        .45;
-
-    animation:
-        caer linear infinite;
-}
-
-@keyframes caer {
-
-    0% {
-
-        transform:
-            translateY(-50px)
-            rotate(0deg);
-    }
-
-    100% {
-
-        transform:
-            translateY(110vh)
-            rotate(360deg);
-    }
+    font-size: 22px;
 }
 
 
@@ -2315,160 +1342,108 @@ footer p {
 @media (max-width:700px) {
 
     .portada h1 {
-
-        font-size:
-            62px;
+        font-size: 62px;
     }
 
     .portada .fecha {
-
-        font-size:
-            20px;
-
-        letter-spacing:
-            4px;
+        font-size: 20px;
+        letter-spacing: 4px;
     }
 
     .titulo {
-
-        font-size:
-            40px;
+        font-size: 40px;
     }
 
     .foto-texto {
-
-        font-size:
-            43px;
+        font-size: 43px;
     }
 
     .familia,
     .hoteles {
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
 
-
-    /*
-       EN CELULAR:
-
-       FILA IMPAR:
-       SOBRE | DIBUJO
-
-       FILA PAR:
-       DIBUJO | SOBRE
-
-       Todos los sobres conservan
-       exactamente el mismo tamaño.
-    */
-
-    .padrino-fila {
-
-        width:
-            100%;
-
-        grid-template-columns:
-            minmax(0,1fr) 88px;
-
-        gap:
-            10px;
-    }
-
-    .padrino-fila.par {
-
-        grid-template-columns:
-            88px minmax(0,1fr);
+    .padrinos {
+        grid-template-columns: 1fr;
     }
 
     .sobre-padrino {
-
-        width:
-            100%;
-
-        height:
-            165px;
-
-        min-height:
-            165px;
-
-        max-height:
-            165px;
-    }
-
-    .padrino-ilustracion {
-
-        width:
-            88px;
-
-        height:
-            90px;
-    }
-
-    .padrino-sprite {
-
-        width:
-            110px;
-
-        height:
-            110px;
-
-        transform:
-            scale(.8);
-
-        transform-origin:
-            center;
+        height: 230px;
     }
 
     .contador {
-
-        gap:
-            9px;
+        gap: 9px;
     }
 
     .contador div {
-
-        min-width:
-            72px;
+        min-width: 72px;
 
         padding:
             15px 10px;
     }
 
     .contador span {
-
-        font-size:
-            28px;
+        font-size: 28px;
     }
 
     .sobre-icono {
-
-        font-size:
-            37px;
+        font-size: 37px;
     }
 
     .sobre-frente h3 {
-
-        font-size:
-            20px;
+        font-size: 20px;
     }
 
     footer .nombres {
+        font-size: 55px;
+    }
 
-        font-size:
-            55px;
+    .confirmacion {
+        padding:
+            40px 22px;
+    }
+
+    .boton-confirmacion {
+        padding:
+            15px 25px;
+
+        font-size: 10px;
+
+        letter-spacing: 2px;
+    }
+
+    .boton-whatsapp {
+        width: 100%;
+
+        min-width: 0;
     }
 
 }
 
 
 /* =====================================================
-   FIN DE CSS
+   REDUCCION DE MOVIMIENTO
 ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+
+}
 
 </style>
 
 </head>
-
 
 <body>
 
@@ -2477,9 +1452,10 @@ footer p {
      MUSICA
 ===================================================== -->
 
-<audio id="musica"
-       loop
-       preload="auto">
+<audio
+    id="musica"
+    loop
+    preload="auto">
 
     <source
         src="Carla Morrison - Disfruto (SPOTISAVER).mp3"
@@ -2492,8 +1468,7 @@ footer p {
      SOBRE DE ENTRADA
 ===================================================== -->
 
-<div id="sobreEntrada"
-     aria-label="Abrir invitación">
+<div id="sobreEntrada" aria-label="Abrir invitación">
 
     <div class="sobre-entrada-wrap">
 
@@ -2502,38 +1477,22 @@ footer p {
         </div>
 
         <div class="sobre-entrada-nombres">
-            IRLANDY &amp; FERNANDO
+            IRLANDI &amp; FERNANDO
         </div>
 
-        <div class="sobre-grande"
-             id="sobreGrande"
-             role="button"
-             tabindex="0"
-             aria-label="Abrir sobre">
+        <div
+            class="sobre-grande"
+            id="sobreGrande"
+            role="button"
+            tabindex="0"
+            aria-label="Abrir sobre">
 
             <div class="sobre-grande-base"></div>
 
             <div class="sobre-solapa"></div>
 
-            <!--
-              I + INFINITO VERTICAL + F
-            -->
-
-            <div class="sobre-sello"
-                 aria-label="I, infinito vertical y F">
-
-                <span class="monograma-i">
-                    I
-                </span>
-
-                <span class="monograma-infinito">
-                    ∞
-                </span>
-
-                <span class="monograma-f">
-                    F
-                </span>
-
+            <div class="sobre-sello">
+                I &amp; F
             </div>
 
         </div>
@@ -2546,18 +1505,14 @@ footer p {
 
 </div>
 
-
-<div id="hojasOtono"
-     aria-hidden="true">
-</div>
+<div id="hojasOtono" aria-hidden="true"></div>
 
 
 <!-- =====================================================
      PORTADA
 ===================================================== -->
 
-<header class="portada"
-        id="portadaPrincipal">
+<header class="portada">
 
     <div class="portada-contenido">
 
@@ -2566,16 +1521,17 @@ footer p {
         </div>
 
         <h1>
-            Irlandy &amp; Fernando
+            Irlandi & Fernando
         </h1>
 
         <div class="fecha">
             5 de diciembre de 2026
         </div>
 
-        <a href="#invitacion"
-           class="boton"
-           id="abrirInvitacion">
+        <a
+            href="#invitacion"
+            class="boton"
+            id="abrirInvitacion">
 
             Abrir invitación
 
@@ -2590,8 +1546,9 @@ footer p {
      INTRODUCCION
 ===================================================== -->
 
-<section id="invitacion"
-         class="reveal">
+<section
+    id="invitacion"
+    class="reveal">
 
     <div class="adorno">
         ✦
@@ -2614,106 +1571,12 @@ footer p {
 
 
 <!-- =====================================================
-     NUESTRA HISTORIA DE AMOR
-     
-     ESTA SECCIÓN SE MANTIENE SIN MODIFICAR.
+     FOTO 1
 ===================================================== -->
 
-<section class="historia-amor reveal">
-
-    <div class="historia-contenido">
-
-        <div class="adorno">
-            ✦
-        </div>
-
-        <div class="subtitulo">
-            Un poco de nosotros
-        </div>
-
-        <h2 class="titulo">
-            Nuestra historia de amor
-        </h2>
-
-        <p class="historia-texto">
-
-            Cada fotografía guarda un momento de nuestra historia.
-            Queremos compartir contigo estos recuerdos que nos han
-            acompañado hasta llegar a este día tan especial.
-
-        </p>
-
-        <div class="historia-video"
-             id="historiaVideo">
-
-            <div class="historia-slide activa">
-
-                <img src="foto1.jpg"
-                     alt="Recuerdo de Irlandy y Fernando">
-
-            </div>
-
-            <div class="historia-slide">
-
-                <img src="foto2.jpg"
-                     alt="Recuerdo de Irlandy y Fernando">
-
-            </div>
-
-            <div class="historia-slide">
-
-                <img src="foto3.jpg"
-                     alt="Recuerdo de Irlandy y Fernando">
-
-            </div>
-
-            <div class="historia-slide">
-
-                <img src="foto4.jpg"
-                     alt="Recuerdo de Irlandy y Fernando">
-
-            </div>
-
-            <div class="historia-slide">
-
-                <img src="foto5.jpg"
-                     alt="Recuerdo de Irlandy y Fernando">
-
-            </div>
-
-            <div class="historia-slide">
-
-                <img src="foto6.jpg"
-                     alt="Recuerdo de Irlandy y Fernando">
-
-            </div>
-
-            <div class="historia-overlay">
-
-                <span id="historiaFrase">
-                    Nuestros recuerdos, nuestra historia
-                </span>
-
-            </div>
-
-        </div>
-
-        <div class="historia-puntos"
-             id="historiaPuntos"
-             aria-hidden="true">
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     FOTO 2
-===================================================== -->
-
-<section class="foto-separadora"
-         style="background-image:url('foto2.jpg');">
+<section
+    class="foto-separadora"
+    style="background-image:url('foto1.jpg');">
 
     <div class="foto-texto">
         Un día para recordar
@@ -2789,6 +1652,7 @@ footer p {
 
     </div>
 
+
     <div class="tarjeta">
 
         <h3>
@@ -2799,18 +1663,20 @@ footer p {
             4:00 p. m.
         </div>
 
-        <img src="jardin.jpg"
-             alt="Jardín de eventos El Encanto"
-             class="foto-ceremonia">
+        <img
+            src="jardin.jpg"
+            alt="Jardín de eventos El Encanto"
+            class="foto-ceremonia">
 
         <p>
             “El Encanto” Jardín de eventos
         </p>
 
-        <a href="https://maps.app.goo.gl/JJyNm5Zxw2pmKaM3A?g_st=ic"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="boton-olivo">
+        <a
+            href="https://maps.app.goo.gl/JJyNm5Zxw2pmKaM3A?g_st=ic"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-olivo">
 
             Ver ubicación
 
@@ -2822,11 +1688,12 @@ footer p {
 
 
 <!-- =====================================================
-     FOTO 3
+     FOTO 2
 ===================================================== -->
 
-<section class="foto-separadora"
-         style="background-image:url('foto3.jpg');">
+<section
+    class="foto-separadora"
+    style="background-image:url('foto2.jpg');">
 
     <div class="foto-texto">
         El comienzo de una nueva etapa
@@ -2839,7 +1706,8 @@ footer p {
      RECEPCION
 ===================================================== -->
 
-<section class="seccion-olivo reveal">
+<section
+    class="seccion-olivo reveal">
 
     <div class="subtitulo">
         Después de la ceremonia
@@ -2861,11 +1729,12 @@ footer p {
 
 
 <!-- =====================================================
-     FOTO 4
+     FOTO 3
 ===================================================== -->
 
-<section class="foto-separadora"
-         style="background-image:url('foto4.jpg');">
+<section
+    class="foto-separadora"
+    style="background-image:url('foto3.jpg');">
 
     <div class="foto-texto">
         Juntos en este día
@@ -2906,6 +1775,7 @@ footer p {
 
         </div>
 
+
         <div class="tarjeta">
 
             <h3>
@@ -2929,11 +1799,6 @@ footer p {
 
 <!-- =====================================================
      CORTEJO INTERACTIVO
-     
-     LOS SOBRES NO SE MODIFICAN.
-     TODOS SON DEL MISMO TAMAÑO.
-     ESTÁN INTERCALADOS.
-     LOS DIBUJOS CORRESPONDEN AL PROTOTIPO.
 ===================================================== -->
 
 <section class="reveal">
@@ -2951,692 +1816,515 @@ footer p {
         en nuestra celebración.
     </p>
 
-
     <div class="padrinos">
 
 
-        <!-- =================================================
-             1. PADRINOS DE VELACION
-             SOBRE | IGLESIA
-        ================================================== -->
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-        <div class="padrino-fila">
+            <div class="sobre-frente">
 
-            <div class="sobre-padrino"
-                 tabindex="0"
-                 role="button">
-
-                <div class="sobre-frente">
-
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
-
-                    <h3>
-                        Padrinos de velación
-                    </h3>
-
-                    <small>
-                        Toca para descubrir
-                    </small>
-
+                <div class="sobre-icono">
+                    ✉
                 </div>
 
+                <h3>
+                    Padrinos de velación
+                </h3>
 
-                <div class="sobre-contenido">
-
-                    <h3>
-                        Padrinos de velación
-                    </h3>
-
-                    <p>
-                        Norma Alicia Mendoza Moreno
-                        <br>
-                        &
-                        <br>
-                        Eduardo Navarrete Árciga
-                    </p>
-
-                    <button class="cerrar-sobre"
-                            type="button">
-
-                        Cerrar
-
-                    </button>
-
-                </div>
+                <small>
+                    Toca para descubrir
+                </small>
 
             </div>
 
+            <div class="sobre-contenido">
 
-            <div class="padrino-ilustracion"
-                 aria-label="Iglesia / velación">
+                <h3>
+                    Padrinos de velación
+                </h3>
 
-                <span class="padrino-sprite s0"></span>
+                <p>
+                    Norma Alicia Mendoza Moreno
+                    <br>
+                    &
+                    <br>
+                    Eduardo Navarrete Árciga
+                </p>
+
+                <button
+                    class="cerrar-sobre"
+                    type="button">
+
+                    Cerrar
+
+                </button>
 
             </div>
 
         </div>
 
 
-        <!-- =================================================
-             2. MADRINA DE ANILLOS
-             DIBUJO | SOBRE
-        ================================================== -->
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-        <div class="padrino-fila par">
+            <div class="sobre-frente">
 
-            <div class="sobre-padrino"
-                 tabindex="0"
-                 role="button">
-
-                <div class="sobre-frente">
-
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
-
-                    <h3>
-                        Madrina de anillos
-                    </h3>
-
-                    <small>
-                        Toca para descubrir
-                    </small>
-
+                <div class="sobre-icono">
+                    ✉
                 </div>
 
+                <h3>
+                    Madrina de anillos
+                </h3>
 
-                <div class="sobre-contenido">
-
-                    <h3>
-                        Madrina de anillos
-                    </h3>
-
-                    <p>
-                        Patricia Martínez Huerta
-                    </p>
-
-                    <button class="cerrar-sobre"
-                            type="button">
-
-                        Cerrar
-
-                    </button>
-
-                </div>
+                <small>
+                    Toca para descubrir
+                </small>
 
             </div>
 
+            <div class="sobre-contenido">
 
-            <div class="padrino-ilustracion"
-                 aria-label="Anillos">
+                <h3>
+                    Madrina de anillos
+                </h3>
 
-                <span class="padrino-sprite s1"></span>
+                <p>
+                    Patricia Martínez Huerta
+                </p>
+
+                <button
+                    class="cerrar-sobre"
+                    type="button">
+
+                    Cerrar
+
+                </button>
 
             </div>
 
         </div>
 
 
-        <!-- =================================================
-             3. PADRINOS DE ARRAS
-             SOBRE | DIBUJO
-        ================================================== -->
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-        <div class="padrino-fila">
+            <div class="sobre-frente">
 
-            <div class="sobre-padrino"
-                 tabindex="0"
-                 role="button">
-
-                <div class="sobre-frente">
-
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
-
-                    <h3>
-                        Padrinos de arras
-                    </h3>
-
-                    <small>
-                        Toca para descubrir
-                    </small>
-
+                <div class="sobre-icono">
+                    ✉
                 </div>
 
+                <h3>
+                    Padrinos de arras
+                </h3>
 
-                <div class="sobre-contenido">
-
-                    <h3>
-                        Padrinos de arras
-                    </h3>
-
-                    <p>
-                        Paula Espinoza Arellano
-                        <br>
-                        &
-                        <br>
-                        Daniel Navarrete Mendoza
-                    </p>
-
-                    <button class="cerrar-sobre"
-                            type="button">
-
-                        Cerrar
-
-                    </button>
-
-                </div>
+                <small>
+                    Toca para descubrir
+                </small>
 
             </div>
 
+            <div class="sobre-contenido">
 
-            <div class="padrino-ilustracion"
-                 aria-label="Arras">
+                <h3>
+                    Padrinos de arras
+                </h3>
 
-                <span class="padrino-sprite s2"></span>
+                <p>
+                    Paula Espinoza Arellano
+                    <br>
+                    &
+                    <br>
+                    Daniel Navarrete Mendoza
+                </p>
+
+                <button
+                    class="cerrar-sobre"
+                    type="button">
+
+                    Cerrar
+
+                </button>
 
             </div>
 
         </div>
 
 
-        <!-- =================================================
-             4. PADRINOS DE LAZO
-             DIBUJO | SOBRE
-        ================================================== -->
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-        <div class="padrino-fila par">
+            <div class="sobre-frente">
 
-            <div class="sobre-padrino"
-                 tabindex="0"
-                 role="button">
-
-                <div class="sobre-frente">
-
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
-
-                    <h3>
-                        Padrinos de lazo
-                    </h3>
-
-                    <small>
-                        Toca para descubrir
-                    </small>
-
+                <div class="sobre-icono">
+                    ✉
                 </div>
 
+                <h3>
+                    Padrinos de lazo
+                </h3>
 
-                <div class="sobre-contenido">
-
-                    <h3>
-                        Padrinos de lazo
-                    </h3>
-
-                    <p>
-                        Magalli Alvarez Martínez
-                        <br>
-                        &
-                        <br>
-                        Daniel Navarrete Mendoza
-                    </p>
-
-                    <button class="cerrar-sobre"
-                            type="button">
-
-                        Cerrar
-
-                    </button>
-
-                </div>
+                <small>
+                    Toca para descubrir
+                </small>
 
             </div>
 
+            <div class="sobre-contenido">
 
-            <div class="padrino-ilustracion"
-                 aria-label="Lazo">
+                <h3>
+                    Padrinos de lazo
+                </h3>
 
-                <span class="padrino-sprite s3"></span>
+                <p>
+                    Magalli Alvarez Martínez
+                    <br>
+                    &
+                    <br>
+                    Daniel Navarrete Mendoza
+                </p>
+
+                <button
+                    class="cerrar-sobre"
+                    type="button">
+
+                    Cerrar
+
+                </button>
 
             </div>
 
         </div>
 
 
-        <!-- =================================================
-             5. MADRINA DE BIBLIA Y ROSARIO
-             SOBRE | DIBUJO
-        ================================================== -->
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-        <div class="padrino-fila">
+            <div class="sobre-frente">
 
-            <div class="sobre-padrino"
-                 tabindex="0"
-                 role="button">
-
-                <div class="sobre-frente">
-
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
-
-                    <h3>
-                        Madrina de Biblia y Rosario
-                    </h3>
-
-                    <small>
-                        Toca para descubrir
-                    </small>
-
+                <div class="sobre-icono">
+                    ✉
                 </div>
 
+                <h3>
+                    Madrina de Biblia y Rosario
+                </h3>
 
-                <div class="sobre-contenido">
-
-                    <h3>
-                        Madrina de Biblia y Rosario
-                    </h3>
-
-                    <p>
-                        María Elena Corona Jacinto
-                    </p>
-
-                    <button class="cerrar-sobre"
-                            type="button">
-
-                        Cerrar
-
-                    </button>
-
-                </div>
+                <small>
+                    Toca para descubrir
+                </small>
 
             </div>
 
+            <div class="sobre-contenido">
 
-            <div class="padrino-ilustracion"
-                 aria-label="Biblia y rosario">
+                <h3>
+                    Madrina de Biblia y Rosario
+                </h3>
 
-                <span class="padrino-sprite s4"></span>
+                <p>
+                    María Elena Corona Jacinto
+                </p>
+
+                <button
+                    class="cerrar-sobre"
+                    type="button">
+
+                    Cerrar
+
+                </button>
 
             </div>
 
         </div>
 
 
-        <!-- =================================================
-             6. PADRINOS DE MEDALLA
-             DIBUJO | SOBRE
-        ================================================== -->
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-        <div class="padrino-fila par">
+            <div class="sobre-frente">
 
-            <div class="sobre-padrino"
-                 tabindex="0"
-                 role="button">
-
-                <div class="sobre-frente">
-
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
-
-                    <h3>
-                        Padrinos de medalla
-                    </h3>
-
-                    <small>
-                        Toca para descubrir
-                    </small>
-
+                <div class="sobre-icono">
+                    ✉
                 </div>
 
+                <h3>
+                    Padrinos de medalla
+                </h3>
 
-                <div class="sobre-contenido">
-
-                    <h3>
-                        Padrinos de medalla
-                    </h3>
-
-                    <p>
-                        Claudia Alvarez Corona
-                        <br>
-                        &
-                        <br>
-                        Marco Antonio Moreno Huerta
-                    </p>
-
-                    <button class="cerrar-sobre"
-                            type="button">
-
-                        Cerrar
-
-                    </button>
-
-                </div>
+                <small>
+                    Toca para descubrir
+                </small>
 
             </div>
 
+            <div class="sobre-contenido">
 
-            <div class="padrino-ilustracion"
-                 aria-label="Medalla">
+                <h3>
+                    Padrinos de medalla
+                </h3>
 
-                <span class="padrino-sprite s5"></span>
+                <p>
+                    Claudia Alvarez Corona
+                    <br>
+                    &
+                    <br>
+                    Marco Antonio Moreno Huerta
+                </p>
+
+                <button
+                    class="cerrar-sobre"
+                    type="button">
+
+                    Cerrar
+
+                </button>
 
             </div>
 
         </div>
 
 
-        <!-- =================================================
-             7. PADRINOS DE COPAS
-             SOBRE | DIBUJO
-        ================================================== -->
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-        <div class="padrino-fila">
+            <div class="sobre-frente">
 
-            <div class="sobre-padrino"
-                 tabindex="0"
-                 role="button">
-
-                <div class="sobre-frente">
-
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
-
-                    <h3>
-                        Padrinos de copas
-                    </h3>
-
-                    <small>
-                        Toca para descubrir
-                    </small>
-
+                <div class="sobre-icono">
+                    ✉
                 </div>
 
+                <h3>
+                    Padrinos de copas
+                </h3>
 
-                <div class="sobre-contenido">
-
-                    <h3>
-                        Padrinos de copas
-                    </h3>
-
-                    <p>
-                        Magalli Alvarez Martínez
-                        <br>
-                        &
-                        <br>
-                        Nallely Gómez Vázquez
-                    </p>
-
-                    <button class="cerrar-sobre"
-                            type="button">
-
-                        Cerrar
-
-                    </button>
-
-                </div>
+                <small>
+                    Toca para descubrir
+                </small>
 
             </div>
 
+            <div class="sobre-contenido">
 
-            <div class="padrino-ilustracion"
-                 aria-label="Copas">
+                <h3>
+                    Padrinos de copas
+                </h3>
 
-                <span class="padrino-sprite s6"></span>
+                <p>
+                    Magalli Alvarez Martínez
+                    <br>
+                    &
+                    <br>
+                    Nallely Gómez Vázquez
+                </p>
+
+                <button
+                    class="cerrar-sobre"
+                    type="button">
+
+                    Cerrar
+
+                </button>
 
             </div>
 
         </div>
 
 
-        <!-- =================================================
-             8. PADRINO DE PASTEL
-             DIBUJO | SOBRE
-        ================================================== -->
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-        <div class="padrino-fila par">
+            <div class="sobre-frente">
 
-            <div class="sobre-padrino"
-                 tabindex="0"
-                 role="button">
-
-                <div class="sobre-frente">
-
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
-
-                    <h3>
-                        Padrino de pastel
-                    </h3>
-
-                    <small>
-                        Toca para descubrir
-                    </small>
-
+                <div class="sobre-icono">
+                    ✉
                 </div>
 
+                <h3>
+                    Padrino de pastel
+                </h3>
 
-                <div class="sobre-contenido">
-
-                    <h3>
-                        Padrino de pastel
-                    </h3>
-
-                    <p>
-                        Marcos Mendoza Moreno
-                    </p>
-
-                    <button class="cerrar-sobre"
-                            type="button">
-
-                        Cerrar
-
-                    </button>
-
-                </div>
+                <small>
+                    Toca para descubrir
+                </small>
 
             </div>
 
+            <div class="sobre-contenido">
 
-            <div class="padrino-ilustracion"
-                 aria-label="Pastel">
+                <h3>
+                    Padrino de pastel
+                </h3>
 
-                <span class="padrino-sprite s7"></span>
+                <p>
+                    Marcos Mendoza Moreno
+                </p>
+
+                <button
+                    class="cerrar-sobre"
+                    type="button">
+
+                    Cerrar
+
+                </button>
 
             </div>
 
         </div>
 
 
-        <!-- =================================================
-             9. MADRINA DE ZAPATILLAS
-             SOBRE | DIBUJO
-        ================================================== -->
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-        <div class="padrino-fila">
+            <div class="sobre-frente">
 
-            <div class="sobre-padrino"
-                 tabindex="0"
-                 role="button">
-
-                <div class="sobre-frente">
-
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
-
-                    <h3>
-                        Madrina de zapatillas
-                    </h3>
-
-                    <small>
-                        Toca para descubrir
-                    </small>
-
+                <div class="sobre-icono">
+                    ✉
                 </div>
 
+                <h3>
+                    Madrina de zapatillas
+                </h3>
 
-                <div class="sobre-contenido">
-
-                    <h3>
-                        Madrina de zapatillas
-                    </h3>
-
-                    <p>
-                        Alison Melanie Moreno Alvarez
-                    </p>
-
-                    <button class="cerrar-sobre"
-                            type="button">
-
-                        Cerrar
-
-                    </button>
-
-                </div>
+                <small>
+                    Toca para descubrir
+                </small>
 
             </div>
 
+            <div class="sobre-contenido">
 
-            <div class="padrino-ilustracion"
-                 aria-label="Zapatillas">
+                <h3>
+                    Madrina de zapatillas
+                </h3>
 
-                <span class="padrino-sprite s8"></span>
+                <p>
+                    Alison Melanie Moreno Alvarez
+                </p>
+
+                <button
+                    class="cerrar-sobre"
+                    type="button">
+
+                    Cerrar
+
+                </button>
 
             </div>
 
         </div>
 
 
-        <!-- =================================================
-             10. MADRINAS DE FOTO Y VIDEO
-             DIBUJO | SOBRE
-        ================================================== -->
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-        <div class="padrino-fila par">
+            <div class="sobre-frente">
 
-            <div class="sobre-padrino"
-                 tabindex="0"
-                 role="button">
-
-                <div class="sobre-frente">
-
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
-
-                    <h3>
-                        Madrinas de foto y video
-                    </h3>
-
-                    <small>
-                        Toca para descubrir
-                    </small>
-
+                <div class="sobre-icono">
+                    ✉
                 </div>
 
+                <h3>
+                    Madrinas de foto y video
+                </h3>
 
-                <div class="sobre-contenido">
-
-                    <h3>
-                        Madrinas de foto y video
-                    </h3>
-
-                    <p>
-                        Margarita Sánchez Huerta
-                        <br>
-                        &
-                        <br>
-                        María de la Luz Huerta Aviles
-                    </p>
-
-                    <button class="cerrar-sobre"
-                            type="button">
-
-                        Cerrar
-
-                    </button>
-
-                </div>
+                <small>
+                    Toca para descubrir
+                </small>
 
             </div>
 
+            <div class="sobre-contenido">
 
-            <div class="padrino-ilustracion"
-                 aria-label="Foto y video">
+                <h3>
+                    Madrinas de foto y video
+                </h3>
 
-                <span class="padrino-sprite s9"></span>
+                <p>
+                    Margarita Sánchez Huerta
+                    <br>
+                    &
+                    <br>
+                    María de la Luz Huerta Aviles
+                </p>
+
+                <button
+                    class="cerrar-sobre"
+                    type="button">
+
+                    Cerrar
+
+                </button>
 
             </div>
 
         </div>
 
 
-        <!-- =================================================
-             11. MADRINAS DE RAMO
-             SOBRE | DIBUJO
-        ================================================== -->
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-        <div class="padrino-fila">
+            <div class="sobre-frente">
 
-            <div class="sobre-padrino"
-                 tabindex="0"
-                 role="button">
-
-                <div class="sobre-frente">
-
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
-
-                    <h3>
-                        Madrinas de ramo
-                    </h3>
-
-                    <small>
-                        Toca para descubrir
-                    </small>
-
+                <div class="sobre-icono">
+                    ✉
                 </div>
 
+                <h3>
+                    Madrinas de ramo
+                </h3>
 
-                <div class="sobre-contenido">
-
-                    <h3>
-                        Madrinas de ramo
-                    </h3>
-
-                    <p>
-                        Janet Martínez García
-                        <br>
-                        &
-                        <br>
-                        Mariana Molina Barranco
-                    </p>
-
-                    <button class="cerrar-sobre"
-                            type="button">
-
-                        Cerrar
-
-                    </button>
-
-                </div>
+                <small>
+                    Toca para descubrir
+                </small>
 
             </div>
 
+            <div class="sobre-contenido">
 
-            <div class="padrino-ilustracion"
-                 aria-label="Ramo">
+                <h3>
+                    Madrinas de ramo
+                </h3>
 
-                <span class="padrino-sprite s10"></span>
+                <p>
+                    Janet Martínez García
+                    <br>
+                    &
+                    <br>
+                    Mariana Molina Barranco
+                </p>
+
+                <button
+                    class="cerrar-sobre"
+                    type="button">
+
+                    Cerrar
+
+                </button>
 
             </div>
 
@@ -3649,11 +2337,12 @@ footer p {
 
 
 <!-- =====================================================
-     FOTO 5
+     FOTO 4
 ===================================================== -->
 
-<section class="foto-separadora"
-         style="background-image:url('foto5.jpg');">
+<section
+    class="foto-separadora"
+    style="background-image:url('foto4.jpg');">
 
     <div class="foto-texto">
         Gracias por acompañarnos
@@ -3681,7 +2370,9 @@ footer p {
         hemos seleccionado algunas opciones de hospedaje.
     </p>
 
+
     <div class="hoteles">
+
 
         <div class="hotel">
 
@@ -3689,10 +2380,11 @@ footer p {
                 Hotel Borda
             </h3>
 
-            <a href="https://www.hotelesborda.mx/"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="hotel-boton">
+            <a
+                href="https://www.hotelesborda.mx/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hotel-boton">
 
                 Ver hotel
 
@@ -3707,10 +2399,11 @@ footer p {
                 Hotel Arcadia
             </h3>
 
-            <a href="https://share.google/gHRKZmuS0vHIDyZsd"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="hotel-boton">
+            <a
+                href="https://share.google/gHRKZmuS0vHIDyZsd"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hotel-boton">
 
                 Ver hotel
 
@@ -3725,10 +2418,11 @@ footer p {
                 Hotel Real del Sol
             </h3>
 
-            <a href="https://maps.app.goo.gl/Vd6BwfgVb9rV4FXz6?g_st=aw"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="hotel-boton">
+            <a
+                href="https://maps.app.goo.gl/Vd6BwfgVb9rV4FXz6?g_st=aw"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hotel-boton">
 
                 Ver ubicación
 
@@ -3755,6 +2449,7 @@ footer p {
         De etiqueta en jardín
     </h2>
 
+
     <div class="vestimenta">
 
         <h3>
@@ -3764,13 +2459,11 @@ footer p {
         <br>
 
         <p>
-
             Les pedimos reservar el color
             <strong>terracota (naranja y marrón)</strong>
             para las damas y el color
             <strong>blanco</strong>
             exclusivamente para la novia.
-
         </p>
 
     </div>
@@ -3791,6 +2484,7 @@ footer p {
     <h2 class="titulo">
         Lluvia de sobres
     </h2>
+
 
     <div class="lluvia">
 
@@ -3827,22 +2521,16 @@ footer p {
 
 
 <!-- =====================================================
-     FOTO 6
+     FOTO 5
 ===================================================== -->
 
-<section class="foto-separadora"
-         style="background-image:url('foto6.jpg');">
+<section
+    class="foto-separadora"
+    style="background-image:url('foto5.jpg');">
 
     <div class="foto-texto">
-
-        <div>
-            Con cariño
-        </div>
-
-        <div>
-            Irlandy &amp; Fernando
-        </div>
-
+        <div>Con cariño</div>
+        <div>Irlandi &amp; Fernando</div>
     </div>
 
 </section>
@@ -3862,12 +2550,13 @@ footer p {
         Álbum de invitados
     </h2>
 
+
     <div class="pendiente">
 
         <p>
-            Comparte tus fotografías favoritas de nuestra
-            celebración y ayúdanos a guardar estos recuerdos
-            para siempre.
+            Comparte tus fotografías favoritas
+            de nuestra celebración y ayúdanos a
+            guardar estos recuerdos para siempre.
         </p>
 
         <br>
@@ -3878,10 +2567,11 @@ footer p {
 
         <br>
 
-        <a href="https://photos.app.goo.gl/HDe2px4fACf7NwXB9"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="boton-fotos">
+        <a
+            href="https://photos.app.goo.gl/HDe2px4fACf7NwXB9"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-fotos">
 
             📸 Compartir fotografías
 
@@ -3909,18 +2599,22 @@ footer p {
     <div class="whatsapp-texto">
 
         <p>
-            Si tienes algún comentario especial que quieras
-            hacernos llegar, escríbenos por WhatsApp.
+            Si tienes algún comentario especial que
+            quieras hacernos llegar, escríbenos por
+            WhatsApp.
         </p>
 
     </div>
 
+
     <div class="whatsapp-botones">
 
-        <a href="https://wa.me/525534325116?text=Hola%20Fernando%2C%20estoy%20viendo%20su%20invitaci%C3%B3n%20de%20boda%20y%20quer%C3%ADa%20hacerles%20un%20comentario%20especial."
-           target="_blank"
-           rel="noopener noreferrer"
-           class="boton-whatsapp">
+
+        <a
+            href="https://wa.me/525534325116?text=Hola%20Fernando%2C%20estoy%20viendo%20su%20invitaci%C3%B3n%20de%20boda%20y%20quer%C3%ADa%20hacerles%20un%20comentario%20especial."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-whatsapp">
 
             <span class="whatsapp-icono">
                 ♡
@@ -3931,10 +2625,11 @@ footer p {
         </a>
 
 
-        <a href="https://wa.me/525514170828?text=Hola%20Irlandi%2C%20estoy%20viendo%20su%20invitaci%C3%B3n%20de%20boda%20y%20quer%C3%ADa%20hacerles%20un%20comentario%20especial."
-           target="_blank"
-           rel="noopener noreferrer"
-           class="boton-whatsapp">
+        <a
+            href="https://wa.me/525514170828?text=Hola%20Irlandi%2C%20estoy%20viendo%20su%20invitaci%C3%B3n%20de%20boda%20y%20quer%C3%ADa%20hacerles%20un%20comentario%20especial."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-whatsapp">
 
             <span class="whatsapp-icono">
                 ♡
@@ -3963,6 +2658,7 @@ footer p {
         Confirmación de asistencia
     </h2>
 
+
     <div class="confirmacion">
 
         <p>
@@ -3977,10 +2673,12 @@ footer p {
             mediante nuestro formulario.
         </p>
 
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfR_J_tOqwMNImpd1_GAFmMZ9J5i9Sgsucf1fax0Rb8Gr0-zg/viewform?usp=dialog"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="boton-confirmacion">
+
+        <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfR_J_tOqwMNImpd1_GAFmMZ9J5i9Sgsucf1fax0Rb8Gr0-zg/viewform?usp=dialog"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-confirmacion">
 
             Confirmar asistencia
 
@@ -4023,11 +2721,44 @@ footer p {
 
 
 /* =====================================================
+   MUSICA
+===================================================== */
+
+const musica =
+    document.getElementById("musica");
+
+const abrirInvitacion =
+    document.getElementById("abrirInvitacion");
+
+
+abrirInvitacion.addEventListener(
+    "click",
+    function() {
+
+        musica.volume = 0.35;
+
+        musica.play()
+            .catch(function(error) {
+
+                console.log(
+                    "La reproducción fue bloqueada:",
+                    error
+                );
+
+            });
+
+    }
+);
+
+
+/* =====================================================
    CONTADOR
 ===================================================== */
 
 const fechaBoda =
-    new Date("December 5, 2026 16:00:00").getTime();
+    new Date(
+        "December 5, 2026 16:00:00"
+    ).getTime();
 
 
 function actualizarContador() {
@@ -4035,23 +2766,23 @@ function actualizarContador() {
     const ahora =
         new Date().getTime();
 
-    const distancia =
+    const diferencia =
         fechaBoda - ahora;
 
 
-    if (distancia <= 0) {
+    if (diferencia <= 0) {
 
-        document.getElementById("dias").textContent =
-            "0";
+        document.getElementById("dias")
+            .textContent = "0";
 
-        document.getElementById("horas").textContent =
-            "0";
+        document.getElementById("horas")
+            .textContent = "0";
 
-        document.getElementById("minutos").textContent =
-            "0";
+        document.getElementById("minutos")
+            .textContent = "0";
 
-        document.getElementById("segundos").textContent =
-            "0";
+        document.getElementById("segundos")
+            .textContent = "0";
 
         return;
     }
@@ -4059,55 +2790,47 @@ function actualizarContador() {
 
     const dias =
         Math.floor(
-            distancia /
+            diferencia /
             (1000 * 60 * 60 * 24)
         );
 
+
     const horas =
         Math.floor(
-            (distancia %
-                (1000 * 60 * 60 * 24))
-            /
-            (1000 * 60 * 60)
+            (diferencia /
+            (1000 * 60 * 60)) % 24
         );
+
 
     const minutos =
         Math.floor(
-            (distancia %
-                (1000 * 60 * 60))
-            /
-            (1000 * 60)
+            (diferencia /
+            (1000 * 60)) % 60
         );
+
 
     const segundos =
         Math.floor(
-            (distancia %
-                (1000 * 60))
-            /
-            1000
+            (diferencia / 1000) % 60
         );
 
 
     document.getElementById("dias")
-        .textContent =
-        dias;
+        .textContent = dias;
 
     document.getElementById("horas")
-        .textContent =
-        horas;
+        .textContent = horas;
 
     document.getElementById("minutos")
-        .textContent =
-        minutos;
+        .textContent = minutos;
 
     document.getElementById("segundos")
-        .textContent =
-        segundos;
+        .textContent = segundos;
+
 }
 
 
 actualizarContador();
-
 
 setInterval(
     actualizarContador,
@@ -4125,53 +2848,51 @@ const sobres =
     );
 
 
-sobres.forEach(
-    function(sobre) {
+sobres.forEach(function(sobre) {
 
-        sobre.addEventListener(
-            "click",
-            function(event) {
 
-                if (
-                    event.target.classList
-                        .contains("cerrar-sobre")
-                ) {
+    sobre.addEventListener(
+        "click",
+        function(event) {
 
-                    sobre.classList
-                        .remove("abierto");
+            if (
+                event.target.classList
+                    .contains("cerrar-sobre")
+            ) {
 
-                    return;
-                }
+                sobre.classList
+                    .remove("abierto");
 
+                return;
+            }
+
+            sobre.classList
+                .toggle("abierto");
+
+        }
+    );
+
+
+    sobre.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter" ||
+                event.key === " "
+            ) {
+
+                event.preventDefault();
 
                 sobre.classList
                     .toggle("abierto");
 
             }
-        );
 
+        }
+    );
 
-        sobre.addEventListener(
-            "keydown",
-            function(event) {
-
-                if (
-                    event.key === "Enter" ||
-                    event.key === " "
-                ) {
-
-                    event.preventDefault();
-
-                    sobre.classList
-                        .toggle("abierto");
-
-                }
-
-            }
-        );
-
-    }
-);
+});
 
 
 /* =====================================================
@@ -4206,8 +2927,7 @@ const observador =
 
         },
         {
-            threshold:
-                0.12
+            threshold: 0.12
         }
     );
 
@@ -4226,19 +2946,10 @@ elementosReveal.forEach(
 ===================================================== */
 
 const sobreEntrada =
-    document.getElementById(
-        "sobreEntrada"
-    );
+    document.getElementById("sobreEntrada");
 
 const sobreGrande =
-    document.getElementById(
-        "sobreGrande"
-    );
-
-const musica =
-    document.getElementById(
-        "musica"
-    );
+    document.getElementById("sobreGrande");
 
 
 function abrirSobreEntrada() {
@@ -4250,27 +2961,20 @@ function abrirSobreEntrada() {
         return;
     }
 
-
     sobreEntrada.classList
         .add("abierto");
 
-
-    musica.volume =
-        0.35;
-
+    musica.volume = 0.35;
 
     musica.play()
-        .catch(
-            function(error) {
+        .catch(function(error) {
 
-                console.log(
-                    "La reproducción fue bloqueada:",
-                    error
-                );
+            console.log(
+                "La reproducción fue bloqueada:",
+                error
+            );
 
-            }
-        );
-
+        });
 
     setTimeout(
         function() {
@@ -4278,51 +2982,11 @@ function abrirSobreEntrada() {
             sobreEntrada.classList
                 .add("cerrando");
 
-
             setTimeout(
                 function() {
 
                     sobreEntrada.classList
                         .add("oculto");
-
-
-                    const portadaPrincipal =
-                        document.getElementById(
-                            "portadaPrincipal"
-                        );
-
-
-                    if (
-                        portadaPrincipal
-                    ) {
-
-                        portadaPrincipal.style.display =
-                            "none";
-
-                    }
-
-
-                    const invitacion =
-                        document.getElementById(
-                            "invitacion"
-                        );
-
-
-                    if (
-                        invitacion
-                    ) {
-
-                        invitacion.scrollIntoView(
-                            {
-                                behavior:
-                                    "smooth",
-
-                                block:
-                                    "start"
-                            }
-                        );
-
-                    }
 
                 },
                 900
@@ -4365,17 +3029,10 @@ sobreGrande.addEventListener(
 ===================================================== */
 
 const hojasOtono =
-    document.getElementById(
-        "hojasOtono"
-    );
+    document.getElementById("hojasOtono");
 
 const simbolosHojas =
-    [
-        "🍂",
-        "🍁",
-        "🍂",
-        "🍁"
-    ];
+    ["🍂","🍁","🍂","🍁"];
 
 
 for (
@@ -4385,44 +3042,35 @@ for (
 ) {
 
     const hoja =
-        document.createElement(
-            "span"
-        );
+        document.createElement("span");
 
     hoja.className =
         "hoja-otono";
 
     hoja.textContent =
         simbolosHojas[
-            i %
-            simbolosHojas.length
+            i % simbolosHojas.length
         ];
 
     hoja.style.left =
-        (Math.random() * 100)
-        + "%";
+        (Math.random() * 100) + "%";
 
     hoja.style.animationDuration =
-        (8 + Math.random() * 9)
-        + "s";
+        (8 + Math.random() * 9) + "s";
 
     hoja.style.animationDelay =
-        (-Math.random() * 16)
-        + "s";
+        (-Math.random() * 16) + "s";
 
     hoja.style.fontSize =
-        (12 + Math.random() * 12)
-        + "px";
+        (12 + Math.random() * 12) + "px";
 
-    hojasOtono.appendChild(
-        hoja
-    );
+    hojasOtono.appendChild(hoja);
 
 }
 
 
 /* =====================================================
-   HISTORIA DE AMOR
+   HISTORIA DE AMOR - PRESENTACION TIPO VIDEO
 ===================================================== */
 
 const historiaSlides =
@@ -4440,47 +3088,40 @@ const historiaFrase =
         "historiaFrase"
     );
 
+const frasesHistoria = [
 
-const frasesHistoria =
-    [
-        "Nuestros recuerdos, nuestra historia",
+    "Nuestros recuerdos, nuestra historia",
 
-        "Momentos que guardamos en el corazón",
+    "Momentos que guardamos en el corazón",
 
-        "Cada paso nos trajo hasta aquí",
+    "Cada paso nos trajo hasta aquí",
 
-        "Juntos, escribiendo nuestra historia",
+    "Juntos, escribiendo nuestra historia",
 
-        "Un amor hecho de pequeños momentos",
+    "Un amor hecho de pequeños momentos",
 
-        "Y este es solo el comienzo"
-    ];
+    "Y este es solo el comienzo"
 
+];
 
-let historiaActual =
-    0;
+let historiaActual = 0;
 
 
 historiaSlides.forEach(
     function(_, index) {
 
         const punto =
-            document.createElement(
-                "span"
-            );
+            document.createElement("span");
 
         punto.className =
-            "historia-punto"
-            +
+            "historia-punto" +
             (
                 index === 0
                     ? " activo"
                     : ""
             );
 
-        historiaPuntos.appendChild(
-            punto
-        );
+        historiaPuntos.appendChild(punto);
 
     }
 );
@@ -4496,39 +3137,25 @@ function avanzarHistoria() {
 
     historiaSlides[
         historiaActual
-    ]
-        .classList
-        .remove("activa");
-
+    ].classList.remove("activa");
 
     puntosHistoria[
         historiaActual
-    ]
-        .classList
-        .remove("activo");
-
+    ].classList.remove("activo");
 
     historiaActual =
         (
             historiaActual + 1
-        )
-        %
+        ) %
         historiaSlides.length;
-
 
     historiaSlides[
         historiaActual
-    ]
-        .classList
-        .add("activa");
-
+    ].classList.add("activa");
 
     puntosHistoria[
         historiaActual
-    ]
-        .classList
-        .add("activo");
-
+    ].classList.add("activo");
 
     historiaFrase.textContent =
         frasesHistoria[
@@ -4546,7 +3173,5 @@ setInterval(
 
 </script>
 
-
 </body>
-
 </html>
