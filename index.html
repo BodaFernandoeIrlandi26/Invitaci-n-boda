@@ -14,10 +14,6 @@
 
 <style>
 
-/* =====================================================
-   COLORES
-===================================================== */
-
 :root {
     --terracota: #B65F4A;
     --terracota-dark: #914735;
@@ -36,10 +32,6 @@
 
     --blanco: #FFFFFF;
 }
-
-/* =====================================================
-   GENERAL
-===================================================== */
 
 * {
     box-sizing: border-box;
@@ -76,17 +68,9 @@ a {
     text-decoration: none;
 }
 
-/* =====================================================
-   MUSICA
-===================================================== */
-
 #musica {
     display: none;
 }
-
-/* =====================================================
-   ANIMACIONES
-===================================================== */
 
 @keyframes aparecer {
 
@@ -175,9 +159,7 @@ a {
 .pantalla-sobre {
 
     position: fixed;
-
     inset: 0;
-
     z-index: 1000;
 
     display: flex;
@@ -207,9 +189,7 @@ a {
 .pantalla-sobre.oculta {
 
     opacity: 0;
-
     visibility: hidden;
-
     pointer-events: none;
 
 }
@@ -233,7 +213,6 @@ a {
 .sobre-entrada {
 
     position: relative;
-
     z-index: 2;
 
     width: min(330px, 88vw);
@@ -371,15 +350,12 @@ a {
 }
 
 .sobre-abierto .sello {
-
     opacity: 0;
-
 }
 
 .sobre-entrada-texto {
 
     margin-top: 25px;
-
     color: white;
 
 }
@@ -1219,7 +1195,6 @@ section {
 
 /* =====================================================
    CORTEJO
-   SOBRES HORIZONTALES INTERCALADOS
 ===================================================== */
 
 .padrinos {
@@ -1266,10 +1241,6 @@ section {
     order: 1;
 }
 
-/* =====================================================
-   CONTENEDOR DEL SOBRE
-===================================================== */
-
 .sobre-frente-contenedor {
 
     position: relative;
@@ -1279,10 +1250,6 @@ section {
     height: 175px;
 
 }
-
-/* =====================================================
-   SOBRE
-===================================================== */
 
 .sobre-frente {
 
@@ -1403,10 +1370,6 @@ section {
     margin-top: 9px;
 
 }
-
-/* =====================================================
-   CONTENIDO DEL SOBRE
-===================================================== */
 
 .sobre-contenido {
 
@@ -1530,10 +1493,6 @@ section {
 
 }
 
-/* =====================================================
-   DIBUJOS DE LOS PADRINOS
-===================================================== */
-
 .dibujo-padrino {
 
     width: 100%;
@@ -1563,43 +1522,6 @@ section {
     object-fit: contain;
 
 }
-
-/*
-   AQUÍ PUEDES CAMBIAR LOS NOMBRES DE LAS IMÁGENES.
-
-   Iglesia:
-   iglesia.png
-
-   Anillos:
-   anillos.png
-
-   Arras:
-   arras.png
-
-   Lazo:
-   lazo.png
-
-   Biblia y Rosario:
-   biblia-rosario.png
-
-   Medalla:
-   medalla.png
-
-   Copas:
-   copas.png
-
-   Pastel:
-   pastel.png
-
-   Zapatillas:
-   zapatillas.png
-
-   Foto y video:
-   foto-video.png
-
-   Ramo:
-   ramo.png
-*/
 
 /* =====================================================
    HOTELES
@@ -1773,10 +1695,6 @@ section {
 
 }
 
-/* =====================================================
-   ALBUM
-===================================================== */
-
 .pendiente {
 
     background:
@@ -1849,10 +1767,6 @@ section {
         translateY(-3px);
 
 }
-
-/* =====================================================
-   CONFIRMACION
-===================================================== */
 
 .confirmacion {
 
@@ -1944,10 +1858,6 @@ section {
         translateY(-3px);
 
 }
-
-/* =====================================================
-   WHATSAPP
-===================================================== */
 
 .whatsapp-seccion {
 
@@ -2044,10 +1954,6 @@ section {
 
 }
 
-/* =====================================================
-   FOOTER
-===================================================== */
-
 footer {
 
     background:
@@ -2093,231 +1999,147 @@ footer p {
 
 }
 
-/* =====================================================
-   CELULAR
-===================================================== */
-
 @media (max-width:700px) {
 
     .portada h1 {
-
         font-size: 62px;
-
     }
 
     .portada .fecha {
-
         font-size: 20px;
-
         letter-spacing: 4px;
-
     }
 
     .titulo {
-
         font-size: 40px;
-
     }
 
     .foto-texto {
-
         font-size: 43px;
-
     }
 
     .familia,
     .hoteles {
-
         grid-template-columns: 1fr;
-
     }
 
     .contador {
-
         gap: 9px;
-
     }
 
     .contador div {
-
         min-width: 72px;
-
         padding:
             15px 10px;
-
     }
 
     .contador span {
-
         font-size: 28px;
-
     }
 
-    /* =================================================
-       CORTEJO EN CELULAR
-       SIGUE INTERCALADO
-    ================================================= */
-
     .padrinos {
-
         gap: 22px;
-
     }
 
     .sobre-padrino {
-
         min-height: 180px;
-
         grid-template-columns:
             1fr 1fr;
-
         gap: 12px;
-
     }
 
     .sobre-frente-contenedor {
-
         height: 145px;
-
     }
 
     .sobre-frente,
     .sobre-contenido {
-
         height: 145px;
-
     }
 
     .sobre-frente h3 {
-
         font-size: 19px;
-
         padding: 0 8px;
-
     }
 
     .sobre-frente small {
-
         font-size: 6px;
-
         letter-spacing: 1.5px;
-
     }
 
     .sobre-icono {
-
         font-size: 35px;
-
     }
 
     .sobre-contenido {
-
         padding: 12px 8px;
-
     }
 
     .sobre-contenido h3 {
-
         font-size: 19px;
-
     }
 
     .sobre-contenido p {
-
         font-size: 13px;
-
     }
 
     .sobre-contenido .cerrar-sobre {
-
         margin-top: 7px;
-
         font-size: 6px;
-
     }
 
     .dibujo-padrino {
-
         height: 145px;
-
     }
 
     .dibujo-padrino img {
-
         max-width: 115px;
-
         max-height: 115px;
-
     }
 
     .carrusel-historia {
-
         height: 400px;
-
     }
 
     .historia-frase {
-
         font-size: 32px;
-
     }
 
     footer .nombres {
-
         font-size: 48px;
-
     }
 
     .confirmacion {
-
         padding:
             40px 22px;
-
     }
 
     .boton-confirmacion {
-
         padding:
             15px 25px;
-
         font-size: 10px;
-
         letter-spacing: 2px;
-
     }
 
     .boton-whatsapp {
-
         width: 100%;
-
         min-width: 0;
-
     }
 
 }
 
-/* =====================================================
-   REDUCCION DE MOVIMIENTO
-===================================================== */
-
 @media (prefers-reduced-motion: reduce) {
 
     html {
-
         scroll-behavior: auto;
-
     }
 
     *,
     *::before,
     *::after {
-
         animation-duration: .01ms !important;
-
         animation-iteration-count: 1 !important;
-
         transition-duration: .01ms !important;
-
     }
 
 }
@@ -2327,10 +2149,6 @@ footer p {
 </head>
 
 <body class="bloqueado">
-
-<!-- =====================================================
-     MUSICA
-===================================================== -->
 
 <audio
     id="musica"
@@ -2342,10 +2160,6 @@ footer p {
         type="audio/mpeg">
 
 </audio>
-
-<!-- =====================================================
-     SOBRE DE ENTRADA
-===================================================== -->
 
 <div
     class="pantalla-sobre"
@@ -2384,10 +2198,6 @@ footer p {
 
 </div>
 
-<!-- =====================================================
-     HOJAS DE OTOÑO
-===================================================== -->
-
 <div
     class="hojas"
     aria-hidden="true">
@@ -2403,10 +2213,6 @@ footer p {
     <span class="hoja">🍂</span>
 
 </div>
-
-<!-- =====================================================
-     PORTADA
-===================================================== -->
 
 <header class="portada">
 
@@ -2427,10 +2233,6 @@ footer p {
     </div>
 
 </header>
-
-<!-- =====================================================
-     INTRODUCCION
-===================================================== -->
 
 <section
     id="invitacion"
@@ -2455,10 +2257,6 @@ footer p {
 
 </section>
 
-<!-- =====================================================
-     FOTO 2
-===================================================== -->
-
 <section
     class="foto-separadora"
     style="background-image:url('foto2.jpg');">
@@ -2468,10 +2266,6 @@ footer p {
     </div>
 
 </section>
-
-<!-- =====================================================
-     CONTADOR
-===================================================== -->
 
 <section class="reveal">
 
@@ -2549,24 +2343,33 @@ footer p {
             “El Encanto” Jardín de eventos
         </p>
 
+        <!-- =================================================
+             FOTO DEL JARDÍN
+             El archivo debe llamarse exactamente:
+             jardin.jpg
+             y estar en la misma carpeta que index.html.
+        ================================================== -->
+
         <div
             style="
                 width:100%;
                 max-width:650px;
                 height:250px;
                 margin:25px auto 0;
-                border:2px dashed var(--beige);
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                color:var(--cafe-light);
-                font-family:'Montserrat',sans-serif;
-                font-size:10px;
-                letter-spacing:2px;
-                text-transform:uppercase;
+                overflow:hidden;
+                border:1px solid var(--beige);
+                box-shadow:0 8px 25px rgba(58,44,36,.10);
             ">
 
-            Espacio para foto del jardín
+            <img
+                src="jardin.jpg"
+                alt="Jardín de eventos El Encanto"
+                style="
+                    width:100%;
+                    height:100%;
+                    object-fit:cover;
+                    display:block;
+                ">
 
         </div>
 
@@ -2583,10 +2386,6 @@ footer p {
     </div>
 
 </section>
-
-<!-- =====================================================
-     NUESTRA HISTORIA DE AMOR
-===================================================== -->
 
 <section class="historia reveal">
 
@@ -2654,10 +2453,6 @@ footer p {
 
 </section>
 
-<!-- =====================================================
-     FOTO 3
-===================================================== -->
-
 <section
     class="foto-separadora"
     style="background-image:url('foto3.jpg');">
@@ -2667,10 +2462,6 @@ footer p {
     </div>
 
 </section>
-
-<!-- =====================================================
-     RECEPCION
-===================================================== -->
 
 <section
     class="seccion-olivo reveal">
@@ -2693,10 +2484,6 @@ footer p {
 
 </section>
 
-<!-- =====================================================
-     FOTO 4
-===================================================== -->
-
 <section
     class="foto-separadora"
     style="background-image:url('foto4.jpg');">
@@ -2706,10 +2493,6 @@ footer p {
     </div>
 
 </section>
-
-<!-- =====================================================
-     PADRES
-===================================================== -->
 
 <section class="reveal">
 
@@ -2759,10 +2542,6 @@ footer p {
 
 </section>
 
-<!-- =====================================================
-     CORTEJO
-===================================================== -->
-
 <section class="reveal">
 
     <div class="subtitulo">
@@ -2780,49 +2559,32 @@ footer p {
 
     <div class="padrinos">
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+        <div class="sobre-padrino" tabindex="0" role="button">
 
             <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
+                    <div class="sobre-icono">✉</div>
 
-                    <h3>
-                        Padrinos de velación
-                    </h3>
+                    <h3>Padrinos de velación</h3>
 
-                    <small>
-                        Toca para descubrir
-                    </small>
+                    <small>Toca para descubrir</small>
 
                 </div>
 
                 <div class="sobre-contenido">
 
-                    <h3>
-                        Padrinos de velación
-                    </h3>
+                    <h3>Padrinos de velación</h3>
 
                     <p>
                         Norma Alicia Mendoza Moreno
-                        <br>
-                        &
-                        <br>
+                        <br>&<br>
                         Eduardo Navarrete Árciga
                     </p>
 
-                    <button
-                        class="cerrar-sobre"
-                        type="button">
-
+                    <button class="cerrar-sobre" type="button">
                         Cerrar
-
                     </button>
 
                 </div>
@@ -2839,45 +2601,30 @@ footer p {
 
         </div>
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+        <div class="sobre-padrino" tabindex="0" role="button">
 
             <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
+                    <div class="sobre-icono">✉</div>
 
-                    <h3>
-                        Madrina de anillos
-                    </h3>
+                    <h3>Madrina de anillos</h3>
 
-                    <small>
-                        Toca para descubrir
-                    </small>
+                    <small>Toca para descubrir</small>
 
                 </div>
 
                 <div class="sobre-contenido">
 
-                    <h3>
-                        Madrina de anillos
-                    </h3>
+                    <h3>Madrina de anillos</h3>
 
                     <p>
                         Patricia Martínez Huerta
                     </p>
 
-                    <button
-                        class="cerrar-sobre"
-                        type="button">
-
+                    <button class="cerrar-sobre" type="button">
                         Cerrar
-
                     </button>
 
                 </div>
@@ -2894,49 +2641,32 @@ footer p {
 
         </div>
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+        <div class="sobre-padrino" tabindex="0" role="button">
 
             <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
+                    <div class="sobre-icono">✉</div>
 
-                    <h3>
-                        Padrinos de arras
-                    </h3>
+                    <h3>Padrinos de arras</h3>
 
-                    <small>
-                        Toca para descubrir
-                    </small>
+                    <small>Toca para descubrir</small>
 
                 </div>
 
                 <div class="sobre-contenido">
 
-                    <h3>
-                        Padrinos de arras
-                    </h3>
+                    <h3>Padrinos de arras</h3>
 
                     <p>
                         Paula Espinoza Arellano
-                        <br>
-                        &
-                        <br>
+                        <br>&<br>
                         Daniel Navarrete Mendoza
                     </p>
 
-                    <button
-                        class="cerrar-sobre"
-                        type="button">
-
+                    <button class="cerrar-sobre" type="button">
                         Cerrar
-
                     </button>
 
                 </div>
@@ -2953,45 +2683,28 @@ footer p {
 
         </div>
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+        <div class="sobre-padrino" tabindex="0" role="button">
 
             <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
+                    <div class="sobre-icono">✉</div>
 
-                    <h3>
-                        Padrinos de lazo
-                    </h3>
+                    <h3>Padrinos de lazo</h3>
 
-                    <small>
-                        Toca para descubrir
-                    </small>
+                    <small>Toca para descubrir</small>
 
                 </div>
 
                 <div class="sobre-contenido">
 
-                    <h3>
-                        Padrinos de lazo
-                    </h3>
+                    <h3>Padrinos de lazo</h3>
 
-                    <p>
-                        Próximamente
-                    </p>
+                    <p>Próximamente</p>
 
-                    <button
-                        class="cerrar-sobre"
-                        type="button">
-
+                    <button class="cerrar-sobre" type="button">
                         Cerrar
-
                     </button>
 
                 </div>
@@ -3008,45 +2721,30 @@ footer p {
 
         </div>
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+        <div class="sobre-padrino" tabindex="0" role="button">
 
             <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
+                    <div class="sobre-icono">✉</div>
 
-                    <h3>
-                        Madrina de Biblia y Rosario
-                    </h3>
+                    <h3>Madrina de Biblia y Rosario</h3>
 
-                    <small>
-                        Toca para descubrir
-                    </small>
+                    <small>Toca para descubrir</small>
 
                 </div>
 
                 <div class="sobre-contenido">
 
-                    <h3>
-                        Madrina de Biblia y Rosario
-                    </h3>
+                    <h3>Madrina de Biblia y Rosario</h3>
 
                     <p>
                         María Elena Corona Jacinto
                     </p>
 
-                    <button
-                        class="cerrar-sobre"
-                        type="button">
-
+                    <button class="cerrar-sobre" type="button">
                         Cerrar
-
                     </button>
 
                 </div>
@@ -3063,49 +2761,32 @@ footer p {
 
         </div>
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+        <div class="sobre-padrino" tabindex="0" role="button">
 
             <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
+                    <div class="sobre-icono">✉</div>
 
-                    <h3>
-                        Padrinos de medalla
-                    </h3>
+                    <h3>Padrinos de medalla</h3>
 
-                    <small>
-                        Toca para descubrir
-                    </small>
+                    <small>Toca para descubrir</small>
 
                 </div>
 
                 <div class="sobre-contenido">
 
-                    <h3>
-                        Padrinos de medalla
-                    </h3>
+                    <h3>Padrinos de medalla</h3>
 
                     <p>
                         Claudia Alvarez Corona
-                        <br>
-                        &
-                        <br>
+                        <br>&<br>
                         Marco Antonio Moreno Huerta
                     </p>
 
-                    <button
-                        class="cerrar-sobre"
-                        type="button">
-
+                    <button class="cerrar-sobre" type="button">
                         Cerrar
-
                     </button>
 
                 </div>
@@ -3122,49 +2803,32 @@ footer p {
 
         </div>
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+        <div class="sobre-padrino" tabindex="0" role="button">
 
             <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
+                    <div class="sobre-icono">✉</div>
 
-                    <h3>
-                        Padrinos de copas
-                    </h3>
+                    <h3>Padrinos de copas</h3>
 
-                    <small>
-                        Toca para descubrir
-                    </small>
+                    <small>Toca para descubrir</small>
 
                 </div>
 
                 <div class="sobre-contenido">
 
-                    <h3>
-                        Padrinos de copas
-                    </h3>
+                    <h3>Padrinos de copas</h3>
 
                     <p>
                         Magalli Alvarez Martínez
-                        <br>
-                        &
-                        <br>
+                        <br>&<br>
                         Nallely Gómez Vázquez
                     </p>
 
-                    <button
-                        class="cerrar-sobre"
-                        type="button">
-
+                    <button class="cerrar-sobre" type="button">
                         Cerrar
-
                     </button>
 
                 </div>
@@ -3181,45 +2845,30 @@ footer p {
 
         </div>
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+        <div class="sobre-padrino" tabindex="0" role="button">
 
             <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
+                    <div class="sobre-icono">✉</div>
 
-                    <h3>
-                        Padrino de pastel
-                    </h3>
+                    <h3>Padrino de pastel</h3>
 
-                    <small>
-                        Toca para descubrir
-                    </small>
+                    <small>Toca para descubrir</small>
 
                 </div>
 
                 <div class="sobre-contenido">
 
-                    <h3>
-                        Padrino de pastel
-                    </h3>
+                    <h3>Padrino de pastel</h3>
 
                     <p>
                         Marcos Mendoza Moreno
                     </p>
 
-                    <button
-                        class="cerrar-sobre"
-                        type="button">
-
+                    <button class="cerrar-sobre" type="button">
                         Cerrar
-
                     </button>
 
                 </div>
@@ -3236,45 +2885,30 @@ footer p {
 
         </div>
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+        <div class="sobre-padrino" tabindex="0" role="button">
 
             <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
+                    <div class="sobre-icono">✉</div>
 
-                    <h3>
-                        Madrina de zapatillas
-                    </h3>
+                    <h3>Madrina de zapatillas</h3>
 
-                    <small>
-                        Toca para descubrir
-                    </small>
+                    <small>Toca para descubrir</small>
 
                 </div>
 
                 <div class="sobre-contenido">
 
-                    <h3>
-                        Madrina de zapatillas
-                    </h3>
+                    <h3>Madrina de zapatillas</h3>
 
                     <p>
                         Alison Melanie Moreno Alvarez
                     </p>
 
-                    <button
-                        class="cerrar-sobre"
-                        type="button">
-
+                    <button class="cerrar-sobre" type="button">
                         Cerrar
-
                     </button>
 
                 </div>
@@ -3291,49 +2925,32 @@ footer p {
 
         </div>
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+        <div class="sobre-padrino" tabindex="0" role="button">
 
             <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
+                    <div class="sobre-icono">✉</div>
 
-                    <h3>
-                        Madrinas de foto y video
-                    </h3>
+                    <h3>Madrinas de foto y video</h3>
 
-                    <small>
-                        Toca para descubrir
-                    </small>
+                    <small>Toca para descubrir</small>
 
                 </div>
 
                 <div class="sobre-contenido">
 
-                    <h3>
-                        Madrinas de foto y video
-                    </h3>
+                    <h3>Madrinas de foto y video</h3>
 
                     <p>
                         Margarita Sánchez Huerta
-                        <br>
-                        &
-                        <br>
+                        <br>&<br>
                         María de la Luz Huerta Aviles
                     </p>
 
-                    <button
-                        class="cerrar-sobre"
-                        type="button">
-
+                    <button class="cerrar-sobre" type="button">
                         Cerrar
-
                     </button>
 
                 </div>
@@ -3350,49 +2967,32 @@ footer p {
 
         </div>
 
-        <div
-            class="sobre-padrino"
-            tabindex="0"
-            role="button">
+        <div class="sobre-padrino" tabindex="0" role="button">
 
             <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
-                    <div class="sobre-icono">
-                        ✉
-                    </div>
+                    <div class="sobre-icono">✉</div>
 
-                    <h3>
-                        Madrinas de ramo
-                    </h3>
+                    <h3>Madrinas de ramo</h3>
 
-                    <small>
-                        Toca para descubrir
-                    </small>
+                    <small>Toca para descubrir</small>
 
                 </div>
 
                 <div class="sobre-contenido">
 
-                    <h3>
-                        Madrinas de ramo
-                    </h3>
+                    <h3>Madrinas de ramo</h3>
 
                     <p>
                         Janet Martínez García
-                        <br>
-                        &
-                        <br>
+                        <br>&<br>
                         Mariana Molina Barranco
                     </p>
 
-                    <button
-                        class="cerrar-sobre"
-                        type="button">
-
+                    <button class="cerrar-sobre" type="button">
                         Cerrar
-
                     </button>
 
                 </div>
@@ -3413,10 +3013,6 @@ footer p {
 
 </section>
 
-<!-- =====================================================
-     FOTO 5
-===================================================== -->
-
 <section
     class="foto-separadora"
     style="background-image:url('foto5.jpg');">
@@ -3426,10 +3022,6 @@ footer p {
     </div>
 
 </section>
-
-<!-- =====================================================
-     HOSPEDAJE
-===================================================== -->
 
 <section class="reveal">
 
@@ -3451,9 +3043,7 @@ footer p {
 
         <div class="hotel">
 
-            <h3>
-                Hotel Borda
-            </h3>
+            <h3>Hotel Borda</h3>
 
             <a
                 href="https://www.hotelesborda.mx/"
@@ -3469,9 +3059,7 @@ footer p {
 
         <div class="hotel">
 
-            <h3>
-                Hotel Arcadia
-            </h3>
+            <h3>Hotel Arcadia</h3>
 
             <a
                 href="https://share.google/gHRKZmuS0vHIDyZsd"
@@ -3487,9 +3075,7 @@ footer p {
 
         <div class="hotel">
 
-            <h3>
-                Hotel Real del Sol
-            </h3>
+            <h3>Hotel Real del Sol</h3>
 
             <a
                 href="https://maps.app.goo.gl/Vd6BwfgVb9rV4FXz6?g_st=aw"
@@ -3506,10 +3092,6 @@ footer p {
     </div>
 
 </section>
-
-<!-- =====================================================
-     VESTIMENTA
-===================================================== -->
 
 <section class="reveal">
 
@@ -3541,10 +3123,6 @@ footer p {
     </div>
 
 </section>
-
-<!-- =====================================================
-     LLUVIA DE SOBRES
-===================================================== -->
 
 <section class="reveal">
 
@@ -3589,10 +3167,6 @@ footer p {
 
 </section>
 
-<!-- =====================================================
-     FOTO 6
-===================================================== -->
-
 <section
     class="foto-separadora"
     style="background-image:url('foto6.jpg');">
@@ -3610,10 +3184,6 @@ footer p {
     </div>
 
 </section>
-
-<!-- =====================================================
-     ALBUM DE FOTOS
-===================================================== -->
 
 <section class="reveal">
 
@@ -3654,10 +3224,6 @@ footer p {
     </div>
 
 </section>
-
-<!-- =====================================================
-     WHATSAPP
-===================================================== -->
 
 <section class="whatsapp-seccion reveal">
 
@@ -3713,10 +3279,6 @@ footer p {
 
 </section>
 
-<!-- =====================================================
-     CONFIRMACION
-===================================================== -->
-
 <section class="reveal">
 
     <div class="subtitulo">
@@ -3755,10 +3317,6 @@ footer p {
 
 </section>
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 <footer>
 
     <div class="nombres">
@@ -3778,15 +3336,7 @@ footer p {
 
 </footer>
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script>
-
-/* =====================================================
-   SOBRE DE ENTRADA + MUSICA
-===================================================== */
 
 const pantallaSobre =
     document.getElementById("pantallaSobre");
@@ -3856,10 +3406,6 @@ sobreEntrada.addEventListener(
 
     }
 );
-
-/* =====================================================
-   CONTADOR
-===================================================== */
 
 const fechaBoda =
     new Date(
@@ -3935,10 +3481,6 @@ setInterval(
     1000
 );
 
-/* =====================================================
-   SOBRES DEL CORTEJO
-===================================================== */
-
 const sobres =
     document.querySelectorAll(
         ".sobre-padrino"
@@ -3989,10 +3531,6 @@ sobres.forEach(function(sobre) {
 
 });
 
-/* =====================================================
-   HISTORIA DE AMOR - CARRUSEL AUTOMATICO
-===================================================== */
-
 const fotosHistoria =
     document.querySelectorAll(
         ".historia-foto"
@@ -4024,10 +3562,6 @@ setInterval(
     cambiarFotoHistoria,
     5500
 );
-
-/* =====================================================
-   ANIMACIONES AL HACER SCROLL
-===================================================== */
 
 const elementosReveal =
     document.querySelectorAll(
