@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Irlandy & Fernando | Nuestra Boda</title>
+<title>Irlandi & Fernando | Nuestra Boda</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -453,8 +453,6 @@ a {
 
 }
 
-/* Más hojas, manteniendo el efecto sutil */
-
 .hoja:nth-child(1) {
     left: 5%;
     animation-duration: 17s, 4s;
@@ -462,7 +460,7 @@ a {
 }
 
 .hoja:nth-child(2) {
-    left: 15%;
+    left: 16%;
     font-size: 13px;
     animation-duration: 20s, 4.5s;
     animation-delay: 3s, 0s;
@@ -476,59 +474,45 @@ a {
 }
 
 .hoja:nth-child(4) {
-    left: 39%;
+    left: 38%;
     font-size: 14px;
     animation-duration: 22s, 5s;
     animation-delay: 2s, 0s;
 }
 
 .hoja:nth-child(5) {
-    left: 51%;
+    left: 49%;
     font-size: 18px;
     animation-duration: 19s, 4s;
     animation-delay: 6s, 1s;
 }
 
 .hoja:nth-child(6) {
-    left: 63%;
+    left: 60%;
     font-size: 13px;
     animation-duration: 21s, 4.5s;
     animation-delay: 4s, 0s;
 }
 
 .hoja:nth-child(7) {
-    left: 75%;
+    left: 71%;
     font-size: 17px;
     animation-duration: 16s, 3.5s;
     animation-delay: 7s, 1s;
 }
 
 .hoja:nth-child(8) {
-    left: 87%;
+    left: 82%;
     font-size: 15px;
-    animation-duration: 23s, 4.2s;
+    animation-duration: 19s, 4.2s;
     animation-delay: 1s, 0s;
 }
 
 .hoja:nth-child(9) {
-    left: 96%;
+    left: 94%;
     font-size: 18px;
-    animation-duration: 19s, 5s;
-    animation-delay: 8s, 1s;
-}
-
-.hoja:nth-child(10) {
-    left: 32%;
-    font-size: 12px;
-    animation-duration: 24s, 4s;
-    animation-delay: 10s, 0s;
-}
-
-.hoja:nth-child(11) {
-    left: 69%;
-    font-size: 14px;
-    animation-duration: 20s, 4.7s;
-    animation-delay: 9s, 1s;
+    animation-duration: 23s, 4.8s;
+    animation-delay: 5s, 1s;
 }
 
 /* =====================================================
@@ -1235,6 +1219,7 @@ section {
 
 /* =====================================================
    CORTEJO
+   SOBRES HORIZONTALES INTERCALADOS
 ===================================================== */
 
 .padrinos {
@@ -1243,107 +1228,29 @@ section {
 
     flex-direction: column;
 
-    gap: 28px;
+    gap: 30px;
 
     margin-top: 45px;
 
+    width: 100%;
+
 }
 
-/*
-   Cada fila tiene:
-   - un sobre didáctico horizontal
-   - un espacio para el dibujo
+/* Cada padrino ocupa una fila */
 
-   Todos los sobres tienen exactamente
-   las mismas dimensiones.
-*/
+.sobre-padrino {
 
-.padrino-fila {
+    width: 100%;
+
+    min-height: 220px;
 
     display: grid;
 
-    grid-template-columns:
-        minmax(260px, 330px)
-        minmax(150px, 190px);
-
-    justify-content: center;
+    grid-template-columns: 1fr 1fr;
 
     align-items: center;
 
     gap: 30px;
-
-    width: 100%;
-
-}
-
-.padrino-fila.invertida {
-
-    grid-template-columns:
-        minmax(150px, 190px)
-        minmax(260px, 330px);
-
-}
-
-/* =====================================================
-   DIBUJOS DE PADRINOS
-===================================================== */
-
-.padrino-ilustracion {
-
-    width: 100%;
-
-    height: 175px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 8px;
-
-}
-
-.padrino-ilustracion img {
-
-    display: block;
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: contain;
-
-}
-
-/*
-   Estos nombres son los espacios donde colocarás
-   tus dibujos diseñados.
-
-   iglesia.png
-   anillo.png
-   arras.png
-   lazo.png
-   biblia-rosario.png
-   medalla.png
-   copas.png
-   pastel.png
-   zapatillas.png
-   foto-video.png
-   ramo.png
-*/
-
-/* =====================================================
-   SOBRE DIDACTICO DE PADRINOS
-===================================================== */
-
-.sobre-padrino {
-
-    position: relative;
-
-    width: 100%;
-
-    height: 175px;
 
     cursor: pointer;
 
@@ -1353,11 +1260,43 @@ section {
 
 }
 
+/* Alternar lados */
+
+.sobre-padrino:nth-child(even) .sobre-frente-contenedor {
+    order: 2;
+}
+
+.sobre-padrino:nth-child(even) .dibujo-padrino {
+    order: 1;
+}
+
+/* =====================================================
+   CONTENEDOR DEL SOBRE
+===================================================== */
+
+.sobre-frente-contenedor {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 175px;
+
+}
+
+/* =====================================================
+   SOBRE
+===================================================== */
+
 .sobre-frente {
 
     position: absolute;
 
     inset: 0;
+
+    width: 100%;
+
+    height: 175px;
 
     background:
         linear-gradient(
@@ -1417,7 +1356,7 @@ section {
 
 .sobre-icono {
 
-    font-size: 40px;
+    font-size: 43px;
 
     color:
         var(--terracota);
@@ -1444,7 +1383,7 @@ section {
 
     font-style: italic;
 
-    line-height: 1.15;
+    line-height: 1.2;
 
     padding: 0 15px;
 
@@ -1461,7 +1400,7 @@ section {
 
     font-size: 7px;
 
-    letter-spacing: 1.8px;
+    letter-spacing: 2px;
 
     text-transform: uppercase;
 
@@ -1469,15 +1408,23 @@ section {
 
 }
 
+/* =====================================================
+   CONTENIDO DEL SOBRE
+===================================================== */
+
 .sobre-contenido {
 
     position: absolute;
 
     inset: 0;
 
+    width: 100%;
+
+    height: 175px;
+
     background: white;
 
-    padding: 20px 15px;
+    padding: 20px;
 
     display: flex;
 
@@ -1515,13 +1462,11 @@ section {
     color:
         var(--terracota-dark);
 
-    font-size: 22px;
+    font-size: 23px;
 
     font-style: italic;
 
     margin-bottom: 9px;
-
-    line-height: 1.15;
 
 }
 
@@ -1536,13 +1481,13 @@ section {
 
     font-size: 16px;
 
-    line-height: 1.4;
+    line-height: 1.35;
 
 }
 
 .sobre-contenido .cerrar-sobre {
 
-    margin-top: 12px;
+    margin-top: 10px;
 
     border: none;
 
@@ -1588,6 +1533,77 @@ section {
     z-index: 3;
 
 }
+
+/* =====================================================
+   DIBUJOS DE LOS PADRINOS
+===================================================== */
+
+.dibujo-padrino {
+
+    width: 100%;
+
+    height: 175px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+.dibujo-padrino img {
+
+    display: block;
+
+    max-width: 155px;
+
+    max-height: 155px;
+
+    width: auto;
+
+    height: auto;
+
+    object-fit: contain;
+
+}
+
+/*
+   AQUÍ PUEDES CAMBIAR LOS NOMBRES DE LAS IMÁGENES.
+
+   Iglesia:
+   iglesia.png
+
+   Anillos:
+   anillos.png
+
+   Arras:
+   arras.png
+
+   Lazo:
+   lazo.png
+
+   Biblia y Rosario:
+   biblia-rosario.png
+
+   Medalla:
+   medalla.png
+
+   Copas:
+   copas.png
+
+   Pastel:
+   pastel.png
+
+   Zapatillas:
+   zapatillas.png
+
+   Foto y video:
+   foto-video.png
+
+   Ramo:
+   ramo.png
+*/
 
 /* =====================================================
    HOTELES
@@ -2064,6 +2080,8 @@ footer .nombres {
 
     margin-bottom: 18px;
 
+    white-space: nowrap;
+
 }
 
 footer p {
@@ -2141,55 +2159,116 @@ footer p {
 
     /* =================================================
        CORTEJO EN CELULAR
+       SIGUE INTERCALADO
     ================================================= */
 
     .padrinos {
 
-        gap: 35px;
+        gap: 22px;
 
     }
 
-    .padrino-fila,
-    .padrino-fila.invertida {
-
-        grid-template-columns:
-            1fr;
-
-        gap: 14px;
-
-    }
-
-    .padrino-fila.invertida
-    .padrino-ilustracion {
-
-        order: 1;
-
-    }
-
-    .padrino-fila.invertida
     .sobre-padrino {
 
-        order: 2;
+        min-height: 180px;
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 12px;
 
     }
 
-    .padrino-ilustracion {
+    .sobre-frente-contenedor {
 
         height: 145px;
 
     }
 
-    .sobre-padrino {
+    .sobre-frente,
+    .sobre-contenido {
 
-        width: 100%;
+        height: 145px;
 
-        height: 175px;
+    }
+
+    .sobre-frente h3 {
+
+        font-size: 19px;
+
+        padding: 0 8px;
+
+    }
+
+    .sobre-frente small {
+
+        font-size: 6px;
+
+        letter-spacing: 1.5px;
+
+    }
+
+    .sobre-icono {
+
+        font-size: 35px;
+
+    }
+
+    .sobre-contenido {
+
+        padding: 12px 8px;
+
+    }
+
+    .sobre-contenido h3 {
+
+        font-size: 19px;
+
+    }
+
+    .sobre-contenido p {
+
+        font-size: 13px;
+
+    }
+
+    .sobre-contenido .cerrar-sobre {
+
+        margin-top: 7px;
+
+        font-size: 6px;
+
+    }
+
+    .dibujo-padrino {
+
+        height: 145px;
+
+    }
+
+    .dibujo-padrino img {
+
+        max-width: 115px;
+
+        max-height: 115px;
+
+    }
+
+    .carrusel-historia {
+
+        height: 400px;
+
+    }
+
+    .historia-frase {
+
+        font-size: 32px;
 
     }
 
     footer .nombres {
 
-        font-size: 55px;
+        font-size: 48px;
 
     }
 
@@ -2326,8 +2405,6 @@ footer p {
     <span class="hoja">🍂</span>
     <span class="hoja">🍁</span>
     <span class="hoja">🍂</span>
-    <span class="hoja">🍁</span>
-    <span class="hoja">🍂</span>
 
 </div>
 
@@ -2344,7 +2421,7 @@ footer p {
         </div>
 
         <h1>
-            Irlandy & Fernando
+            Irlandi & Fernando
         </h1>
 
         <div class="fecha">
@@ -2476,24 +2553,23 @@ footer p {
             “El Encanto” Jardín de eventos
         </p>
 
-        <!-- ESPACIO PARA AGREGAR FOTO DEL JARDÍN -->
+        <!-- ESPACIO PARA FOTO DEL JARDÍN -->
 
         <div
             style="
                 width:100%;
                 max-width:650px;
-                height:260px;
+                height:250px;
                 margin:25px auto 0;
-                border:1px dashed var(--terracota-light);
-                background:var(--beige-light);
+                border:2px dashed var(--beige);
                 display:flex;
                 align-items:center;
                 justify-content:center;
+                color:var(--cafe-light);
                 font-family:'Montserrat',sans-serif;
                 font-size:10px;
                 letter-spacing:2px;
                 text-transform:uppercase;
-                color:var(--terracota);
             ">
 
             Espacio para foto del jardín
@@ -2552,27 +2628,27 @@ footer p {
             <img
                 src="historia1.jpg"
                 class="historia-foto activa"
-                alt="Irlandy y Fernando">
+                alt="Irlandi y Fernando">
 
             <img
                 src="historia2.jpg"
                 class="historia-foto"
-                alt="Irlandy y Fernando">
+                alt="Irlandi y Fernando">
 
             <img
                 src="historia3.jpg"
                 class="historia-foto"
-                alt="Irlandy y Fernando">
+                alt="Irlandi y Fernando">
 
             <img
                 src="historia4.jpg"
                 class="historia-foto"
-                alt="Irlandy y Fernando">
+                alt="Irlandi y Fernando">
 
             <img
                 src="historia5.jpg"
                 class="historia-foto"
-                alt="Irlandy y Fernando">
+                alt="Irlandi y Fernando">
 
         </div>
 
@@ -2712,15 +2788,15 @@ footer p {
 
         <!-- =================================================
              1 - PADRINOS DE VELACION
+             SOBRE IZQUIERDA / IGLESIA DERECHA
         ================================================== -->
 
-        <div class="padrino-fila">
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-            <div
-                class="sobre-padrino"
-                tabindex="0"
-                role="button"
-                aria-label="Abrir padrinos de velación">
+            <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
@@ -2764,7 +2840,7 @@ footer p {
 
             </div>
 
-            <div class="padrino-ilustracion">
+            <div class="dibujo-padrino">
 
                 <img
                     src="iglesia.png"
@@ -2776,23 +2852,15 @@ footer p {
 
         <!-- =================================================
              2 - MADRINA DE ANILLOS
+             DIBUJO IZQUIERDA / SOBRE DERECHA
         ================================================== -->
 
-        <div class="padrino-fila invertida">
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-            <div class="padrino-ilustracion">
-
-                <img
-                    src="anillo.png"
-                    alt="Dibujo de anillo">
-
-            </div>
-
-            <div
-                class="sobre-padrino"
-                tabindex="0"
-                role="button"
-                aria-label="Abrir madrina de anillos">
+            <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
@@ -2832,19 +2900,27 @@ footer p {
 
             </div>
 
+            <div class="dibujo-padrino">
+
+                <img
+                    src="anillos.png"
+                    alt="Dibujo de anillos">
+
+            </div>
+
         </div>
 
         <!-- =================================================
              3 - PADRINOS DE ARRAS
+             SOBRE IZQUIERDA / DIBUJO DERECHA
         ================================================== -->
 
-        <div class="padrino-fila">
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-            <div
-                class="sobre-padrino"
-                tabindex="0"
-                role="button"
-                aria-label="Abrir padrinos de arras">
+            <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
@@ -2888,7 +2964,7 @@ footer p {
 
             </div>
 
-            <div class="padrino-ilustracion">
+            <div class="dibujo-padrino">
 
                 <img
                     src="arras.png"
@@ -2900,23 +2976,15 @@ footer p {
 
         <!-- =================================================
              4 - PADRINOS DE LAZO
+             DIBUJO IZQUIERDA / SOBRE DERECHA
         ================================================== -->
 
-        <div class="padrino-fila invertida">
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-            <div class="padrino-ilustracion">
-
-                <img
-                    src="lazo.png"
-                    alt="Dibujo de lazo">
-
-            </div>
-
-            <div
-                class="sobre-padrino"
-                tabindex="0"
-                role="button"
-                aria-label="Abrir padrinos de lazo">
+            <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
@@ -2956,19 +3024,27 @@ footer p {
 
             </div>
 
+            <div class="dibujo-padrino">
+
+                <img
+                    src="lazo.png"
+                    alt="Dibujo de lazo">
+
+            </div>
+
         </div>
 
         <!-- =================================================
              5 - MADRINA DE BIBLIA Y ROSARIO
+             SOBRE IZQUIERDA / DIBUJO DERECHA
         ================================================== -->
 
-        <div class="padrino-fila">
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-            <div
-                class="sobre-padrino"
-                tabindex="0"
-                role="button"
-                aria-label="Abrir madrina de Biblia y Rosario">
+            <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
@@ -3008,7 +3084,7 @@ footer p {
 
             </div>
 
-            <div class="padrino-ilustracion">
+            <div class="dibujo-padrino">
 
                 <img
                     src="biblia-rosario.png"
@@ -3020,23 +3096,15 @@ footer p {
 
         <!-- =================================================
              6 - PADRINOS DE MEDALLA
+             DIBUJO IZQUIERDA / SOBRE DERECHA
         ================================================== -->
 
-        <div class="padrino-fila invertida">
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-            <div class="padrino-ilustracion">
-
-                <img
-                    src="medalla.png"
-                    alt="Dibujo de medalla">
-
-            </div>
-
-            <div
-                class="sobre-padrino"
-                tabindex="0"
-                role="button"
-                aria-label="Abrir padrinos de medalla">
+            <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
@@ -3080,19 +3148,27 @@ footer p {
 
             </div>
 
+            <div class="dibujo-padrino">
+
+                <img
+                    src="medalla.png"
+                    alt="Dibujo de medalla">
+
+            </div>
+
         </div>
 
         <!-- =================================================
              7 - PADRINOS DE COPAS
+             SOBRE IZQUIERDA / DIBUJO DERECHA
         ================================================== -->
 
-        <div class="padrino-fila">
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-            <div
-                class="sobre-padrino"
-                tabindex="0"
-                role="button"
-                aria-label="Abrir padrinos de copas">
+            <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
@@ -3136,7 +3212,7 @@ footer p {
 
             </div>
 
-            <div class="padrino-ilustracion">
+            <div class="dibujo-padrino">
 
                 <img
                     src="copas.png"
@@ -3148,23 +3224,15 @@ footer p {
 
         <!-- =================================================
              8 - PADRINO DE PASTEL
+             DIBUJO IZQUIERDA / SOBRE DERECHA
         ================================================== -->
 
-        <div class="padrino-fila invertida">
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-            <div class="padrino-ilustracion">
-
-                <img
-                    src="pastel.png"
-                    alt="Dibujo de pastel">
-
-            </div>
-
-            <div
-                class="sobre-padrino"
-                tabindex="0"
-                role="button"
-                aria-label="Abrir padrino de pastel">
+            <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
@@ -3204,19 +3272,27 @@ footer p {
 
             </div>
 
+            <div class="dibujo-padrino">
+
+                <img
+                    src="pastel.png"
+                    alt="Dibujo de pastel">
+
+            </div>
+
         </div>
 
         <!-- =================================================
              9 - MADRINA DE ZAPATILLAS
+             SOBRE IZQUIERDA / DIBUJO DERECHA
         ================================================== -->
 
-        <div class="padrino-fila">
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-            <div
-                class="sobre-padrino"
-                tabindex="0"
-                role="button"
-                aria-label="Abrir madrina de zapatillas">
+            <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
@@ -3256,7 +3332,7 @@ footer p {
 
             </div>
 
-            <div class="padrino-ilustracion">
+            <div class="dibujo-padrino">
 
                 <img
                     src="zapatillas.png"
@@ -3268,23 +3344,15 @@ footer p {
 
         <!-- =================================================
              10 - MADRINAS DE FOTO Y VIDEO
+             DIBUJO IZQUIERDA / SOBRE DERECHA
         ================================================== -->
 
-        <div class="padrino-fila invertida">
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-            <div class="padrino-ilustracion">
-
-                <img
-                    src="foto-video.png"
-                    alt="Dibujo de foto y video">
-
-            </div>
-
-            <div
-                class="sobre-padrino"
-                tabindex="0"
-                role="button"
-                aria-label="Abrir madrinas de foto y video">
+            <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
@@ -3328,19 +3396,27 @@ footer p {
 
             </div>
 
+            <div class="dibujo-padrino">
+
+                <img
+                    src="foto-video.png"
+                    alt="Dibujo de cámara">
+
+            </div>
+
         </div>
 
         <!-- =================================================
              11 - MADRINAS DE RAMO
+             SOBRE IZQUIERDA / DIBUJO DERECHA
         ================================================== -->
 
-        <div class="padrino-fila">
+        <div
+            class="sobre-padrino"
+            tabindex="0"
+            role="button">
 
-            <div
-                class="sobre-padrino"
-                tabindex="0"
-                role="button"
-                aria-label="Abrir madrinas de ramo">
+            <div class="sobre-frente-contenedor">
 
                 <div class="sobre-frente">
 
@@ -3384,7 +3460,7 @@ footer p {
 
             </div>
 
-            <div class="padrino-ilustracion">
+            <div class="dibujo-padrino">
 
                 <img
                     src="ramo.png"
@@ -3588,7 +3664,7 @@ footer p {
         </span>
 
         <span style="display:block;">
-            Irlandy & Fernando
+            Irlandi & Fernando
         </span>
 
     </div>
@@ -3620,7 +3696,7 @@ footer p {
         <br>
 
         <strong>
-            #IrlandyYFernando2026
+            #IrlandiYFernando2026
         </strong>
 
         <br>
@@ -3680,7 +3756,7 @@ footer p {
         </a>
 
         <a
-            href="https://wa.me/525514170828?text=Hola%20Irlandy%2C%20estoy%20viendo%20su%20invitaci%C3%B3n%20de%20boda%20y%20quer%C3%ADa%20hacerles%20un%20comentario%20especial."
+            href="https://wa.me/525514170828?text=Hola%20Irlandi%2C%20estoy%20viendo%20su%20invitaci%C3%B3n%20de%20boda%20y%20quer%C3%ADa%20hacerles%20un%20comentario%20especial."
             target="_blank"
             rel="noopener noreferrer"
             class="boton-whatsapp">
@@ -3689,7 +3765,7 @@ footer p {
                 ♡
             </span>
 
-            Escribir a Irlandy
+            Escribir a Irlandi
 
         </a>
 
@@ -3746,7 +3822,7 @@ footer p {
 <footer>
 
     <div class="nombres">
-        Irlandy & Fernando
+        Irlandi & Fernando
     </div>
 
     <p>
